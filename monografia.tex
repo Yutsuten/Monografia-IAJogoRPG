@@ -1,0 +1,302 @@
+% Tamanho do texto, tipo de papel e documento
+\documentclass[12pt,a4paper]{article}
+
+% PACOTES
+% Padrão
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Pacotes para alterar fonte
+\usepackage[T1]{fontenc}
+\usepackage{uarial}
+% Permite adicionar imagens
+\usepackage{graphicx}
+% Pacote para referências
+\usepackage{csquotes}
+% Coloca alguns termos do artigo em português (figura, tabela)
+\usepackage[brazilian]{babel}
+% Permite alterar distância entre linhas
+\usepackage{setspace}
+% Colocando indentação em todos os parágrafos (por default o primeiro parágrafo da seção não tem)
+\usepackage{indentfirst}
+% Margens nas páginas
+\usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
+% Links do sumário para as respectivas páginas
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+
+% CONFIGURAÇÃO DE VARIÁVEIS
+% Mostra numero da pagina no canto superior direito
+\pagestyle{myheadings}
+% Indentação dos parágrafos
+\parindent 30pt
+% Distância entre linhas
+\onehalfspacing
+% Acessando comandos internos
+\makeatletter
+	% Colocando espaço de "um espaço" entre o número e o título da seção (default é espaço de 1 quad (1em))
+	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\ }
+	% Deixa os itens do sumário com pontos
+	\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\makeatother
+% Editando títulos dos índices
+\addto\captionsbrazilian{
+	\renewcommand{\listfigurename}{\centering LISTA DE FIGURAS}
+	\renewcommand{\listtablename}{\centering LISTA DE TABELAS}
+	\renewcommand{\contentsname}{\centering SUMÁRIO}
+}
+% Escolhendo a fonte 
+\renewcommand{\familydefault}{\sfdefault}
+
+
+% INFORMAÇÕES DO TRABALHO
+\author{MATEUS GONÇALEZ ETTO}
+\title{UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL EM JOGO RPG}
+\date{\today}
+
+
+% COMANDOS PERSONALIZADOS
+% Fonte da imagem
+\newcommand{\source}[1]{Fonte: {#1}}
+% Citações longas
+\def\longcitation{\list{}{\vspace{-6mm} \leftmargin4.0cm \singlespace \small}\item[]}
+\let\endlongcitation=\endlist
+% Capa: objetivo do trabalho
+\def\articleobjective{\list{}{\vspace{1.5cm} \leftmargin7.0cm \singlespace \small}\item[]}
+\let\endarticleobjective=\endlist
+
+
+% INICIO DO ARTIGO
+\begin{document}
+
+% CAPA - INÍCIO
+\thispagestyle{empty} % Oculta o número da página
+\begin{center}
+\makeatletter
+	\textbf{UNIVERSIDADE ESTADUAL PAULISTA}\\
+	\textbf{FACULDADE DE CIÊNCIAS}\\
+	\textbf{DEPARTAMENTO DE COMPUTAÇÃO}\\
+	\textbf{BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO}\\
+
+	\vspace{4.5cm} % Adicionando espaço extra
+	\textbf{\@author}
+
+	\vspace{4.5cm} % Adicionando espaço extra
+	\textbf{\large \@title}
+	
+	\vspace*{\fill} % Adicionando espaço para escrever em baixo
+	BAURU – SP\\
+	\the\year
+\makeatother
+\end{center}
+% CAPA - FIM
+
+% FOLHA DE ROSTO - INÍCIO
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\begin{center}
+\makeatletter
+	\textbf{\@author}
+
+	\vspace{4.5cm} % Adicionando espaço extra
+	\textbf{\large \@title}
+\makeatother
+\end{center}
+
+\begin{articleobjective}
+	Trabalho de Conclusão de Curso de graduação apresentado à disciplina Projeto e Implementação de Sistemas do curso de Bacharelado em Ciência da Computação da Faculdade de Ciências da Universidade Estadual Paulista "Júlio de Mesquita Filho" como requisito para obtenção do título de Bacharel em Ciência da Computação.
+	
+	\vspace{1.0cm} % Adicionando espaço extra
+	Orientadora: Profa. Dra. Simone das Graças Domingues Prado
+\end{articleobjective}
+
+\begin{center}
+	\vspace*{\fill} % Adicionando espaço para escrever em baixo
+	BAURU – SP\\
+	\the\year
+\end{center}
+% FOLHA DE ROSTO - FIM
+
+% FOLHA DE APROVAÇÃO - INÍCIO
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\begin{center}
+\makeatletter
+	\textbf{\@author}
+
+	\vspace{3.0cm} % Adicionando espaço extra
+	\textbf{\large \@title}
+\makeatother
+\end{center}
+
+\begin{articleobjective}
+	Trabalho de Conclusão de Curso de graduação apresentado à disciplina Projeto e Implementação de Sistemas do curso de Bacharelado em Ciência da Computação da Faculdade de Ciências da Universidade Estadual Paulista "Júlio de Mesquita Filho" como requisito para obtenção do título de Bacharel em Ciência da Computação.
+\end{articleobjective}
+
+\begin{center}
+	\vspace{1.0cm}
+	BANCA EXAMINADORA\\
+	
+	\vspace{1.0cm}
+	\underline{\hspace{8cm}}\\
+	Profa. Dra. Simone das Graças Domingues Prado\\
+	\vspace{1.0cm}
+	\underline{\hspace{8cm}}\\
+	(Nome do segundo membro da Banca Examinadora)\\
+	\vspace{1.0cm}
+	\underline{\hspace{8cm}}\\
+	(Nome do terceiro membro da Banca Examinadora)
+
+	\vspace*{\fill} % Adicionando espaço para escrever em baixo
+	Bauru, \underline{\hspace{1cm}} de \underline{\hspace{3cm}} de \underline{\hspace{1.5cm}}
+\end{center}
+% FOLHA DE APROVAÇÃO - FIM
+
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\section*{\hfil RESUMO} % \hfil centraliza o título
+	\singlespace
+	Aqui se encontrará o resumo de minha Monografia.
+	A fonte que está sendo usada é Arial, com tamanho 12.
+	Em citações longas, notas de rodapé, referências, resumo (aqui!) e abstract usarei espaçamento simples entrelinhas (espaço 1) conforme descrito nos slides sobre ABNT passados em sala de aula (ppt ABNT-NBR 14724-2005.pdf).
+	O limite de palavras no resumo é de 500 palavras.
+	
+	\vspace{0.8cm}
+	\textbf{PALAVRAS-CHAVE:} palavra1, palavra2, palavra3
+
+\onehalfspacing
+
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\section*{\hfil ABSTRACT} % \hfil centraliza o título
+	\singlespace
+	Here you will find the abstract of my monograph.
+	The font being used is Arial size 12.
+	In long citations, footnotes, references, summary and abstract (here!) will use single line spacing (space 1) as described in the slides about ABNT given in the classroom (ppt ABNT-NBR 14724-2005.pdf).
+	The limit of words in the abstract is 500 words.
+	
+	\vspace{0.8cm}
+	\textbf{KEY-WORDS:} word1, word2, word3
+
+\onehalfspacing
+
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\listoffigures % Cria a lista de figuras
+
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\listoftables % Cria a lista de tabelas
+
+\clearpage % Coloca o conteúdo numa nova página
+\thispagestyle{empty} % Oculta o número da página
+\tableofcontents % Cria o Sumário
+
+\clearpage % Coloca o conteúdo numa nova página
+\section{INTRODUÇÃO}
+	As margens que estão sendo aplicadas são: 3 centímetros na esquerda e superior, e 2 centímetros na direita e inferior.
+	Aqui já está sendo aplicado o espaçamento entrelinhas de 1,5, conforme a ABNT pede.
+	Durante o texto, notas de rodapé também podem aparecer.
+	\footnote{As notas de rodapé tem espaçamento simples.}
+	
+	O indicativo numérico de uma seção e o título são separados por um caractere de espaço simples.
+	Uma mesma página pode ter mais de uma note de rodapé, como esta.
+	\footnote{Segunda nota de rodapé, para checar o espaçamento entrelinhas.}
+	
+	O contador de páginas já havia começado a partir da folha de rosto, no entanto só começou a ficar visível a partir desta página.	
+	
+	Uma citação direta é feita da seguinte forma:
+	"Ao encontrar o texto de até 3 linhas a ser copiado literalmente, copia-se o texto e o coloca entre aspas duplas. Citação no 'interior' da citação é colocada entre aspas simples." (FONTE, ano).
+	A fonte normalmente é o nome do autor que foi citado, e o ano é o ano de publicação do artigo citado.
+	Se tudo isto confere, a citação foi feita corretamente.
+	
+	Agora veja na figura a seguir como deve-se colocar uma imagem na monografia:
+	
+\begin{figure}[ht!]
+	\label{estrela}
+	\caption{Estrela brilhando}
+	\centering
+	\vspace{3mm}
+	\includegraphics[scale=0.5]{Star.png}\\
+	\vspace{3mm}
+	\source{Elaborado pelo autor.}
+\end{figure}
+
+	Como pode-se ver, a legenda fica em cima da imagem, e a fonte em baixo.
+	Como eu mesmo fiz esta imagem para testar, a fonte é de autoria própria.
+	Esta imagem aparece na lista de imagens também.
+
+\clearpage % Coloca o conteúdo numa nova página
+\section{DESENVOLVIMENTO}
+	No entanto, um bom trabalho tem mais de uma imagem.
+	A seguir terá outra imagem para podermos ver 2 imagens na lista de figuras.
+
+\begin{figure}[ht!]
+	\label{correto}
+	\caption{Símbolo de correto}
+	\centering
+	\vspace{3mm}
+	\includegraphics[scale=0.5]{Okay.png}\\
+	\vspace{3mm}
+	\source{Elaborado pelo autor.}
+\end{figure}
+
+	As imagens citadas anteriormente foram produzidas no Paint.NET.
+	Caso queira entender um pouco mais desta ferramenta, farei uma citação longa do Wikipédia\footnote{https://pt.wikipedia.org/wiki/Paint.NET}
+	, que contém uma boa explicação desta ferramenta.
+
+\begin{longcitation}
+	Paint.NET é um programa de computador gratuito e open-source utilizado na manipulação e edição de imagem e fotografia. Foi escrito para a plataforma .NET Framework (daí o nome .NET) e pode ser executado nas versões Microsoft Windows que suportem .NET (Windows XP e superiores) e necessita do .NET Framework instalado no sistema. Pode também ser usado no Linux através do projeto Mono.
+\end{longcitation}
+	
+	Além de imagens e citações, também existe a possibilidade de ter tabelas na monografia.
+	A estrutura é a mesma que colocar figuras, veja o exemplo a seguir.
+
+\begin{table}[ht]
+	\label{tabela1}
+	\caption{Fibonacci}
+	\centering
+	\vspace{3mm}
+	\begin{tabular}{|c|c|c|}
+		\hline 
+		1 & 1 & 2 \\ 
+		\hline 
+		3 & 5 & 8 \\ 
+		\hline 
+	\end{tabular} \\
+	\vspace{3mm}
+	\source{Elaborado pelo autor.}
+\end{table}
+
+	A seguir, outra tabela para completar 2 tabelas na lista de tabelas, lá nas listas, no início da monografia.
+
+\begin{table}[ht]
+	\label{tabela2}
+	\caption{Fibonacci, continuação}
+	\centering
+	\vspace{3mm}
+	\begin{tabular}{|c|c|c|}
+		\hline 
+		13 & 21 & 34 \\ 
+		\hline 
+		55 & 89 & 144 \\ 
+		\hline 
+	\end{tabular} \\
+	\vspace{3mm}
+	\source{Elaborado pelo autor.}
+\end{table}
+
+\clearpage % Coloca o conteúdo numa nova página
+\section{CONCLUSÃO}
+	Com isto, e considerando que este PDF foi gerado usando \LaTeX , conclui-se que utilizarei esta ferramenta para escrever minha monografia.
+
+\clearpage % Coloca o conteúdo numa nova página
+\section*{REFERÊNCIAS}
+\addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
+	\singlespace
+	SOBRENOME, Nome. Nome do artigo. Disponível em <link, caso tenha>. Acesso em <data>.
+	
+	NOME-DO-SITE. Título. Disponível em <link, caso tenha>. Acesso em <data>.
+
+\end{document}
