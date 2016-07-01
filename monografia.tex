@@ -153,6 +153,7 @@
 \end{center}
 % FOLHA DE APROVAÇÃO - FIM
 
+% RESUMO - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil RESUMO} % \hfil centraliza o título
@@ -164,9 +165,11 @@
 	
 	\vspace{0.8cm}
 	\textbf{PALAVRAS-CHAVE:} palavra1, palavra2, palavra3
+% RESUMO - FIM
 
 \onehalfspacing
 
+% ABSTRACT - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil ABSTRACT} % \hfil centraliza o título
@@ -178,23 +181,33 @@
 	
 	\vspace{0.8cm}
 	\textbf{KEY-WORDS:} word1, word2, word3
+% ABSTRACT - FIM
 
 \onehalfspacing
 
+% LISTA DE FIGURAS - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \listoffigures % Cria a lista de figuras
+% LISTA DE FIGURAS - FIM
 
+% LISTA DE TABELAS - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \listoftables % Cria a lista de tabelas
+% LISTA DE TABELAS - FIM
 
+% SUMÁRIO - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \tableofcontents % Cria o Sumário
+% SUMÁRIO - FIM
 
+% INTRODUÇÃO - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
 \section{INTRODUÇÃO}
+
+	\subsection{Objetivos do Trabalho}
 	As margens que estão sendo aplicadas são: 3 centímetros na esquerda e superior, e 2 centímetros na direita e inferior.
 	Aqui já está sendo aplicado o espaçamento entrelinhas de 1,5, conforme a ABNT pede.
 	Durante o texto, notas de rodapé também podem aparecer.
@@ -204,6 +217,7 @@
 	Uma mesma página pode ter mais de uma note de rodapé, como esta.
 	\footnote{Segunda nota de rodapé, para checar o espaçamento entrelinhas.}
 	
+	\subsection{Organização da Monografia}
 	O contador de páginas já havia começado a partir da folha de rosto, no entanto só começou a ficar visível a partir desta página.	
 	
 	Uma citação direta é feita da seguinte forma:
@@ -226,9 +240,13 @@
 	Como pode-se ver, a legenda fica em cima da imagem, e a fonte em baixo.
 	Como eu mesmo fiz esta imagem para testar, a fonte é de autoria própria.
 	Esta imagem aparece na lista de imagens também.
+% INTRODUÇÃO - FIM
 
+% DESENVOLVIMENTO - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
-\section{DESENVOLVIMENTO}
+\section{FERRAMENTAS UTILIZADAS}
+
+	\subsection{Unity}
 	No entanto, um bom trabalho tem mais de uma imagem.
 	A seguir terá outra imagem para podermos ver 2 imagens na lista de figuras.
 
@@ -242,6 +260,7 @@
 	\source{Elaborado pelo autor.}
 \end{figure}
 
+	\subsection{Visual Studio}
 	As imagens citadas anteriormente foram produzidas no Paint.NET.
 	Caso queira entender um pouco mais desta ferramenta, farei uma citação longa do Wikipédia\footnote{https://pt.wikipedia.org/wiki/Paint.NET}
 	, que contém uma boa explicação desta ferramenta.
@@ -250,6 +269,9 @@
 	Paint.NET é um programa de computador gratuito e open-source utilizado na manipulação e edição de imagem e fotografia. Foi escrito para a plataforma .NET Framework (daí o nome .NET) e pode ser executado nas versões Microsoft Windows que suportem .NET (Windows XP e superiores) e necessita do .NET Framework instalado no sistema. Pode também ser usado no Linux através do projeto Mono.
 \end{longcitation}
 	
+\section{CONCEITOS}
+
+	\subsection{Redes Neurais}
 	Além de imagens e citações, também existe a possibilidade de ter tabelas na monografia.
 	A estrutura é a mesma que colocar figuras, veja o exemplo a seguir.
 
@@ -269,6 +291,7 @@
 	\source{Elaborado pelo autor.}
 \end{table}
 
+	\subsection{Algoritmo Genético}
 	A seguir, outra tabela para completar 2 tabelas na lista de tabelas, lá nas listas, no início da monografia.
 
 \begin{table}[ht]
@@ -287,8 +310,22 @@
 	\source{Elaborado pelo autor.}
 \end{table}
 
+\section{O JOGO}
+	
+	\subsection{Descrição do jogo}
+	
+	\subsection{Rede Neural Implementado}
+	
+	\subsection{Algoritmo Genético Implementado}
+	
+	\subsection{Funcionamento do jogo}
+	
+
+% DESENVOLVIMENTO - FIM
+
+% CONCLUSÃO - INÍCIO
 \clearpage % Coloca o conteúdo numa nova página
-\section{CONCLUSÃO}
+\section{RESULTADOS}
 	Com isto, e considerando que este PDF foi gerado usando \LaTeX , conclui-se que utilizarei esta ferramenta para escrever minha monografia.
 
 \clearpage % Coloca o conteúdo numa nova página
@@ -298,5 +335,6 @@
 	SOBRENOME, Nome. Nome do artigo. Disponível em <link, caso tenha>. Acesso em <data>.
 	
 	NOME-DO-SITE. Título. Disponível em <link, caso tenha>. Acesso em <data>.
+% CONCLUSÃO - FIM
 
 \end{document}
