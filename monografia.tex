@@ -97,7 +97,7 @@
 % CAPA - FIM
 
 % FOLHA DE ROSTO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \begin{center}
 \makeatletter
@@ -123,7 +123,7 @@
 % FOLHA DE ROSTO - FIM
 
 % FOLHA DE APROVAÇÃO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \begin{center}
 \makeatletter
@@ -158,7 +158,7 @@
 % FOLHA DE APROVAÇÃO - FIM
 
 % RESUMO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil RESUMO} % \hfil centraliza o título
 	\singlespace
@@ -174,7 +174,7 @@
 \onehalfspacing
 
 % ABSTRACT - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil ABSTRACT} % \hfil centraliza o título
 	\singlespace
@@ -190,25 +190,25 @@
 \onehalfspacing
 
 % LISTA DE FIGURAS - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \listoffigures % Cria a lista de figuras
 % LISTA DE FIGURAS - FIM
 
 % LISTA DE TABELAS - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \listoftables % Cria a lista de tabelas
 % LISTA DE TABELAS - FIM
 
 % SUMÁRIO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
 \tableofcontents % Cria o Sumário
 % SUMÁRIO - FIM
 
 % INTRODUÇÃO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \section{INTRODUÇÃO}
 	<Escrever sobre a influência dos jogos na sociedade e mercado.>
 	
@@ -238,11 +238,34 @@
 % INTRODUÇÃO - FIM
 
 % DESENVOLVIMENTO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \section{FERRAMENTAS UTILIZADAS}
 
 	\subsection{Unity}
-		<Escrever o que é a Unity, suas funcionalidades e facilidades>
+		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
+		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
+		além de ter muitos serviços integrados que aceleram o processo de desenvolvimento.
+		As linguagens de programação que podem ser usadas são Javascript e C\#
+		(UNITY, 2016a).
+		
+		Com mais de 200 jogos na lista de jogos destacados que foram criados na Unity,
+		um dos exemplos que pode-se citar é o \textit{Sky Force},
+		um jogo no estilo de ação, missões e "shooter",
+		e que está disponível na App Store e Google Play.
+		Outro exemplo é o \textit{The Uncertain},
+		do qual o jogador é um robô e
+		deve resolver quebra-cabeças em uma aventura.
+		O jogo está disponível na \textit{Steam}
+		(UNITY, 2016b).
+		
+		O editor da Unity também é extensível, sendo possível implementar funcionalidades ainda não existentes
+		(UNITY, 2016).
+		Um exemplo de extensão é o \textit{Rival Theory},
+		que implementa vários conceitos de Inteligência Artificial,
+		desde funcionalidades básicas como \textit{pathfinding},
+		condutas de patrulha, esconder, atacar, seguir, vaguear,
+		até conceitos mais complicados como percepção e tomada de decisão
+		(RIVAL THEORY, 2015).
 
 	\subsection{Visual Studio}
 		<Escrever o que é o Visual Studio, o papel dele na implementação do projeto, integração com a Unity (autocomplete), etc>
@@ -272,15 +295,17 @@
 % DESENVOLVIMENTO - FIM
 
 % CONCLUSÃO - INÍCIO
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \section{RESULTADOS}
 	<Inserir gráficos de evolução do algoritmo, imagens do jogo, explicar desempenho da aprendizagem, etc.>
+% CONCLUSÃO - FIM
 
-\clearpage % Coloca o conteúdo numa nova página
+\newpage % Coloca o conteúdo numa nova página
 \section*{REFERÊNCIAS}
 \addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
 	\singlespace
-	<Inserir aqui as referências.>
-% CONCLUSÃO - FIM
+	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \linebreak \textless https://unity3d.com/pt/unity \textgreater. Acesso em 01 Julho 2016.\par
+	UNITY. Made with Unity - Games. 2016b. Disponível em: \linebreak \textless https://madewith.unity.com/games \textgreater. Acesso em 01 Julho 2016.\par
+	RIVAL THEORY. Features. 2015. Disponível em: \linebreak \textless http://rivaltheory.com/rain/features/ \textgreater. Acesso em 01 Julho 2016.\par
 
 \end{document}
