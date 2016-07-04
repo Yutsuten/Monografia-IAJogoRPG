@@ -11,6 +11,8 @@
 % Pacotes para alterar fonte
 \usepackage[T1]{fontenc}
 \usepackage{uarial}
+% Muda fonte dos "captions"
+\usepackage[font=small]{caption}
 % Permite adicionar imagens
 \usepackage{graphicx}
 % Pacote para referências
@@ -58,7 +60,7 @@
 
 % COMANDOS PERSONALIZADOS
 % Fonte da imagem
-\newcommand{\source}[1]{Fonte: {#1}}
+\newcommand{\source}[1]{\small Fonte: {#1}}
 % Citações longas
 \def\longcitation{\list{}{\vspace{-6mm} \leftmargin4.0cm \singlespace \small}\item[]}
 \let\endlongcitation=\endlist
@@ -157,6 +159,7 @@
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil RESUMO} % \hfil centraliza o título
 	\singlespace
+	\noindent
 	Aqui se encontrará o resumo de minha Monografia.
 	A fonte que está sendo usada é Arial, com tamanho 12.
 	Em citações longas, notas de rodapé, referências, resumo (aqui!) e abstract usarei espaçamento simples entrelinhas (espaço 1) conforme descrito nos slides sobre ABNT passados em sala de aula (ppt ABNT-NBR 14724-2005.pdf).
@@ -171,6 +174,7 @@
 \thispagestyle{empty} % Oculta o número da página
 \section*{\hfil ABSTRACT} % \hfil centraliza o título
 	\singlespace
+	\noindent
 	Here you will find the abstract of my monograph.
 	The font being used is Arial size 12.
 	In long citations, footnotes, references, summary and abstract (here!) will use single line spacing (space 1) as described in the slides about ABNT given in the classroom (ppt ABNT-NBR 14724-2005.pdf).
@@ -207,8 +211,9 @@
 	O contador de páginas já havia começado a partir da folha de rosto, no entanto só começou a ficar visível a partir desta página.	
 	
 	Uma citação direta é feita da seguinte forma:
-	"Ao encontrar o texto de até 3 linhas a ser copiado literalmente, copia-se o texto e o coloca entre aspas duplas. Citação no 'interior' da citação é colocada entre aspas simples." (FONTE, ano).
+	"Ao encontrar o texto de até 3 linhas a ser copiado literalmente, copia-se o texto e o coloca entre aspas duplas. Citação no 'interior' da citação é colocada entre aspas simples." (FONTE, ano, p. XX).
 	A fonte normalmente é o nome do autor que foi citado, e o ano é o ano de publicação do artigo citado.
+	Não esquecer de colocar a página do artigo que foi copiado.
 	Se tudo isto confere, a citação foi feita corretamente.
 	
 	Agora veja na figura a seguir como deve-se colocar uma imagem na monografia:
@@ -217,9 +222,8 @@
 	\label{estrela}
 	\caption{Estrela brilhando}
 	\centering
-	\vspace{3mm}
 	\includegraphics[scale=0.5]{Star.png}\\
-	\vspace{3mm}
+	\vspace{0.5mm}
 	\source{Elaborado pelo autor.}
 \end{figure}
 
@@ -236,9 +240,8 @@
 	\label{correto}
 	\caption{Símbolo de correto}
 	\centering
-	\vspace{3mm}
 	\includegraphics[scale=0.5]{Okay.png}\\
-	\vspace{3mm}
+	\vspace{0.5mm}
 	\source{Elaborado pelo autor.}
 \end{figure}
 
@@ -257,8 +260,7 @@
 	\label{tabela1}
 	\caption{Fibonacci}
 	\centering
-	\vspace{3mm}
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{c c c}
 		\hline 
 		1 & 1 & 2 \\ 
 		\hline 
@@ -275,8 +277,7 @@
 	\label{tabela2}
 	\caption{Fibonacci, continuação}
 	\centering
-	\vspace{3mm}
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{c c c}
 		\hline 
 		13 & 21 & 34 \\ 
 		\hline 
