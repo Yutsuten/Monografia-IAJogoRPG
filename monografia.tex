@@ -13,6 +13,8 @@
 \usepackage{uarial}
 % Personaliza lista de itens
 \usepackage{enumitem}
+% Muda fonte dos "captions"
+\usepackage[font=small]{caption}
 % Permite adicionar imagens
 \usepackage{graphicx}
 % Pacote para referências
@@ -62,7 +64,7 @@
 
 % COMANDOS PERSONALIZADOS
 % Fonte da imagem
-\newcommand{\source}[1]{Fonte: {#1}}
+\newcommand{\source}[1]{\small Fonte: {#1}}
 % Citações longas
 \def\longcitation{\list{}{\vspace{-6mm} \leftmargin4.0cm \singlespace \small}\item[]}
 \let\endlongcitation=\endlist
@@ -222,7 +224,7 @@
 \section{INTRODUÇÃO}
 	<Escrever sobre a influência dos jogos na sociedade e mercado.>
 	
-	<Escrever sobre a influência de IA nos jogos.>
+	<Escrever sobre a influência da IA nos jogos.>
 
 	\subsection{Objetivos do Trabalho}
 	
@@ -256,10 +258,10 @@
 		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
 		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
 		além de ter muitos serviços integrados que aceleram o processo de desenvolvimento.
-		As linguagens de programação que podem ser usadas são Javascript e C\#
+		As linguagens de programação que podem ser usadas são UnityScript e C\#
 		(UNITY, 2016a).
 		
-		Com mais de 200 jogos na lista de jogos destacados que foram criados na Unity,
+		Com mais de 200 jogos na lista de jogos em destaque que foram criados na Unity,
 		um dos exemplos que pode-se citar é o \textit{Sky Force},
 		um jogo no estilo de ação, missões e "shooter",
 		e que está disponível na App Store e Google Play.
@@ -270,17 +272,68 @@
 		(UNITY, 2016b).
 		
 		O editor da Unity também é extensível, sendo possível implementar funcionalidades ainda não existentes
-		(UNITY, 2016).
+		(UNITY, 2016a).
 		Um exemplo de extensão é o \textit{Rival Theory},
 		que implementa vários conceitos de Inteligência Artificial,
 		desde funcionalidades básicas como \textit{pathfinding},
 		condutas de patrulha, esconder, atacar, seguir, vaguear,
 		até conceitos mais complicados como percepção e tomada de decisão
 		(RIVAL THEORY, 2015).
+		
+		\subsubsection{Interface}
+			A interface da Unity é composta por vários painéis chamados \textit{views},
+			que podem ser rearranjados, agrupados, separados e fixados
+			(UNITY, 2016c).
+			O arranjamento padrão das janelas permite o acesso às janelas mais comuns,
+			e pode ser visto na figura a seguir:
+			
+			\begin{figure}[ht!]
+				\label{interfaceUnity}
+				\caption{A interface padrão da Unity}
+				\centering
+				\includegraphics[scale=0.5]{InterfaceUnity.jpg}\\
+				\vspace{0.5mm}
+				\source{(UNITY, 2016c).}
+			\end{figure}			
+			
+			A descrição de cada painel pode ser vista na tabela a seguir:
+			
+			\begin{table}[ht]
+				\label{tabela1}
+				\caption{Descrição dos painéis na Unity}
+				\centering
+				\small
+				\begin{tabular}{p{3.5cm} p{11cm}}
+					\hline 
+					Project Window & displays your library of assets that are available to use in your project. When you import assets into your project, they appear here. \\ 
+					\hline 
+					Scene View & allows you to visually navigate and edit your scene. The scene view can show a 3D or 2D perspective, depending on the type of project you are working on. \\ 
+					\hline 
+					Hierarchy Window & is a hierarchical text representation of every object in the scene. Each item in the scene has an entry in the hierarchy, so the two windows are inherently linked. The hierarchy reveals the structure of how objects are attached to one another. \\ 
+					\hline 
+					Inspector Window & allows you to view and edit all the properties of the currently selected object. Because different types of objects have different sets of properties, the layout and contents of the inspector window will vary. \\ 
+					\hline 
+					Toolbar & provides access to the most essential working features. On the left it contains the basic tools for manipulating the scene view and the objects within it. In the centre are the play, pause and step controls. The buttons to the right give you access to your Unity Cloud Services and your Unity Account, followed by a layer visibility menu, and finally the editor layout menu (which provides some alternate layouts for the editor windows, and allows you to save your own custom layouts). \\ 
+					\hline 
+				\end{tabular}\\
+				\vspace{3mm}
+				\source{(UNITY, 2016c).}
+			\end{table}
+			
+			Os objetos contidos na cena do projeto são chamados de \textit{GameObject},
+			sendo que suas características podem ser alteradas por Componentes anexados a ele.
+			A Unity possui vários Componentes prontos,
+			no entanto é possível criar novos usando as linguagens de programação do qual se dá suporte (C\# e UnityScript).
+			Tais Componentes são chamados de Scripts,
+			e eles permitem disparar eventos,
+			modificar as propriedades de outros Componentes ou do próprio \textit{GameObject} durante o jogo,
+			e a interação com o jogador.
+			(UNITY, 2016d).
 
 	\subsection{Visual Studio}
 		<Escrever o que é o Visual Studio, o papel dele na implementação do projeto, integração com a Unity (autocomplete), etc>
-	
+
+\newpage % Coloca o conteúdo numa nova página	
 \section{CONCEITOS}
 
 	\subsection{Redes Neurais}
@@ -289,6 +342,7 @@
 	\subsection{Algoritmo Genético}
 	<Escrever teorias de Algoritmo Genético, é provavelmente é possível copiar da Fundamentação Teórica para já ter uma base.>
 
+\newpage % Coloca o conteúdo numa nova página
 \section{O JOGO}
 	
 	\subsection{Descrição do jogo}
@@ -317,6 +371,8 @@
 	\singlespace
 	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \linebreak \textless https://unity3d.com/pt/unity \textgreater. Acesso em 01 Julho 2016.\par
 	UNITY. Made with Unity - Games. 2016b. Disponível em: \linebreak \textless https://madewith.unity.com/games \textgreater. Acesso em 01 Julho 2016.\par
+	UNITY. Made with Unity - Manual: Learning the Interface. 2016c. Disponível em: \linebreak \textless https://docs.unity3d.com/Manual/LearningtheInterface.html \textgreater. Acesso em 05 Julho 2016.\par
+	UNITY. Made with Unity - Manual: Creating and Using Scripts. 2016d. Disponível em: \textless https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html \textgreater. Acesso em 05 Julho 2016.\par
 	RIVAL THEORY. Features. 2015. Disponível em: \linebreak \textless http://rivaltheory.com/rain/features/ \textgreater. Acesso em 01 Julho 2016.\par
 
 \end{document}
