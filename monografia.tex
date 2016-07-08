@@ -29,6 +29,10 @@
 \usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
 % Links do sumário para as respectivas páginas
 \usepackage[colorlinks=true,linkcolor=black]{hyperref}
+% Visualização de códigos no meio do texto
+\usepackage{listings}
+% Cores no código
+\usepackage{color}
 
 % CONFIGURAÇÃO DE VARIÁVEIS
 % Mostra numero da pagina no canto superior direito
@@ -71,6 +75,45 @@
 % Capa: objetivo do trabalho
 \def\articleobjective{\list{}{\vspace{1.5cm} \leftmargin7.0cm \singlespace \small}\item[]}
 \let\endarticleobjective=\endlist
+% Código C#
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codelightgreen}{rgb}{0.5,1,0.5}
+\definecolor{codepurple}{rgb}{0.62,0,0.84}
+\definecolor{codeblue}{rgb}{0,0,1}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codelightgreen},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+}
+\lstset{style=mystyle}
 
 
 % INICIO DO ARTIGO
@@ -294,12 +337,12 @@
 				\includegraphics[scale=0.5]{InterfaceUnity.jpg}\\
 				\vspace{0.5mm}
 				\source{(UNITY, 2016c).}
-			\end{figure}			
+			\end{figure}	
 			
 			A descrição de cada painel pode ser vista na tabela a seguir:
 			
 			\begin{table}[ht]
-				\label{tabela1}
+				\label{tabelaUnity}
 				\caption{Descrição dos painéis na Unity}
 				\centering
 				\small
@@ -331,7 +374,48 @@
 			(UNITY, 2016d).
 
 	\subsection{Visual Studio}
-		<Escrever o que é o Visual Studio, o papel dele na implementação do projeto, integração com a Unity (autocomplete), etc>
+		O Visual Studio é um Ambiente de Desenvolvimento Integrado (IDE) usado para a criação de aplicativos para Windows, Android, iOS, aplicações Web e serviços de nuvem.
+		Com ele é possível programar em C\#, Visual Basic, F\#, C++, HTML, JavaScript e Python, dentre outras linguagens de programação. (MICROSOFT, 2016)
+		
+		A integração do Visual Studio com a Unity, usando C\#, ocorre com a adição do \textit{namespace} UnityEngine ao script,
+		%(com o código "using UnityEngine"),
+		liberando a utilização da classe \textit{MonoBehaviour},
+		da qual possui implementado funcionalidades e funções internas da Unity.
+		Para utilizar a classe \textit{MonoBehaviour} nos scripts criados,
+		basta estender a classe criada com a \textit{MonoBehaviour} (UNITY, 2016d).
+		Desta forma, o cabeçalho do script fica como no código a seguir:
+		
+		\begin{lstlisting}[language=C++]
+using UnityEngine;
+
+public class nomeDaClasse : MonoBehaviour
+{
+	// Código da classe
+}\end{lstlisting}
+		
+		Com isto feito, é possível utilizar uma das principais vantagens do Visual Studio,
+		que é o \textit{AutoComplete}.
+		Ou seja, funções internas da Unity, como as do GameObject, aparecem em uma lista conforme se vai digitando,
+		facilitando muito a programação do script.
+		
+		Além da integração com a Unity,
+		ainda é possível utilizar as bibliotecas próprias do C\#,
+		como bibliotecas matemáticas, acesso à arquivo e listas.
+		
+		Na \textit{Figura 2} a seguir, é possível ver um exemplo de classe criada no Visual Studio que foi usada neste projeto:
+		
+		\begin{figure}[ht!]
+			\label{visualStudio}
+			\caption{Exemplo de classe no Visual Studio}
+			\centering
+			\includegraphics[scale=0.4]{InterfaceVisualStudio.png}\\
+			\vspace{0.5mm}
+			\source{Elaborado pelo autor.}
+		\end{figure}
+		
+		Note que no script de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
+		também foi utilizada o \textit{System.IO}, uma biblioteca para Leitura e Escrita de Arquivo.
+		Qualquer outro script criado para funcionar na Unity tem este padrão.
 
 \newpage % Coloca o conteúdo numa nova página	
 \section{CONCEITOS}
@@ -374,5 +458,6 @@
 	UNITY. Made with Unity - Manual: Learning the Interface. 2016c. Disponível em: \linebreak \textless https://docs.unity3d.com/Manual/LearningtheInterface.html \textgreater. Acesso em 05 Julho 2016.\par
 	UNITY. Made with Unity - Manual: Creating and Using Scripts. 2016d. Disponível em: \textless https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html \textgreater. Acesso em 05 Julho 2016.\par
 	RIVAL THEORY. Features. 2015. Disponível em: \linebreak \textless http://rivaltheory.com/rain/features/ \textgreater. Acesso em 01 Julho 2016.\par
+	MICROSOFT. Free Dev Tools - Visual Studio Community 2015. 2016. Disponível em: \textless https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx \textgreater. Acesso em 07 Julho 2016.\par
 
 \end{document}
