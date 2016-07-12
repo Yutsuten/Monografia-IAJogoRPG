@@ -33,6 +33,11 @@
 \usepackage{listings}
 % Cores no código
 \usepackage{color}
+% Para inserir URLs
+\usepackage{hyperref}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 
 % CONFIGURAÇÃO DE VARIÁVEIS
 % Mostra numero da pagina no canto superior direito
@@ -58,6 +63,10 @@
 \renewcommand{\familydefault}{\sfdefault}
 % Estilo de listas
 \renewcommand{\theenumi}{\alph{enumi}}
+% Cor da URL
+\hypersetup{urlcolor=black}
+% Fonte da URL
+\urlstyle{sf}
 
 
 % INFORMAÇÕES DO TRABALHO
@@ -265,7 +274,51 @@
 % INTRODUÇÃO - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
 \section{INTRODUÇÃO}
-	<Escrever sobre a influência dos jogos na sociedade e mercado.>
+	Há ainda muitas pessoas que acreditam que jogos eletrônicos são para crianças ou pessoas desocupadas.
+	Talvez isso fosse verdade no milênio passado, mas a realidade vem se mostrando ser bem diferente.
+	
+	De acordo com uma pesquisa da SuperData,
+	o mercado de jogos cresceu 8\% de 2014 a 2015,
+	com 61 bilhões de dólares circulando nesta indústria (CNBC, 2016).
+	Em 2014, o valor da indústria de jogos já havia ultrapassado o da indústria de música em 20 bilhões,
+	e está chegando ao da indústria do filmes (NYTIMES, 2014).
+	
+	Então é fato, a indústria de jogos está movendo bilhões de dólares pelo mundo,
+	já passou do de música e não para de crescer.
+	Como diz o gerente de produto da Eletronic Sports League, James Lampkin:
+	%no artigo da New York Times:
+	"Isto está se expandindo fora de controle".
+	(NYTIMES, 2014, tradução nossa).
+	Tais palavras explicam muito bem o estado atual do mercado de jogos.
+	
+	E não é só nas vendas de jogos e consoles,
+	existem muitos torneios de jogos ocorrendo pelo mundo,
+	surgindo uma nova categoria de profissionais que,
+	em poucos anos atrás era inimaginável, senão motivo de piada,
+	que é a categoria de jogador profissional de jogo eletrônico.
+	A área de trabalho já existe e é chamada de Esporte Eletrônico (NYTIMES, 2014).
+	
+	E mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
+	No Campeonato Mundial de 2015 (o quinto da série) de League of Legends,
+	foi oferecido 1 milhão de dólares para a equipe vencedora mundial do jogo,
+	como pode ser visto nas regras do campeonato\footnote{\url{https://riot-web-static.s3.amazonaws.com/lolesports/Rule\%20Sets/2015\%20Revised\%20World\%20Championship\%20Rule\%20Set\%20Version\%201\_01.pdf}}.
+	
+	Os prêmios não param por aí.
+	O jogo Dota 2 distribuiu 11 milhões de dólares para os 10 melhores do mundo,
+	sendo 5 milhões para os campeões,
+	se tornando assim o maior prêmio já oferecido em um torneio de jogo eletrônico (NYTIMES, 2014).
+	
+	E tem muita gente para assistir a estes campeonatos.
+	Nos dados mostrados pela Riot\footnote{Dados disponíveis em: \url{http://www.lolesports.com/en_US/articles/worlds-2015-viewership}}
+	sobre o Campeonato Mundial de 2015,
+	houveram 334 milhões de telespectadores "únicos" durante as 4 semanas do torneio,
+	somando 360 milhões de horas de visualizações das partidas ao vivo.
+	
+	Mas a área de jogos não está chamando apenas a atenção do mercado,
+	mas também a de pesquisadores.
+	Um exemplo é o desenvolvimento e aplicação de técnicas de Inteligência Artificial (IA) em jogos,
+	que de acordo com especialistas,
+	existem áreas dentro de IA em jogos que ainda estão inexplorados (YANNAKAKIS; TOGELIUS, 2014).
 	
 	<Escrever sobre a influência da IA nos jogos.>
 
@@ -453,11 +506,13 @@ public class nomeDaClasse : MonoBehaviour
 \section*{REFERÊNCIAS}
 \addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
 	\singlespace
-	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \linebreak \textless https://unity3d.com/pt/unity \textgreater. Acesso em 01 Julho 2016.\par
-	UNITY. Made with Unity - Games. 2016b. Disponível em: \linebreak \textless https://madewith.unity.com/games \textgreater. Acesso em 01 Julho 2016.\par
-	UNITY. Made with Unity - Manual: Learning the Interface. 2016c. Disponível em: \linebreak \textless https://docs.unity3d.com/Manual/LearningtheInterface.html \textgreater. Acesso em 05 Julho 2016.\par
-	UNITY. Made with Unity - Manual: Creating and Using Scripts. 2016d. Disponível em: \textless https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html \textgreater. Acesso em 05 Julho 2016.\par
-	RIVAL THEORY. Features. 2015. Disponível em: \linebreak \textless http://rivaltheory.com/rain/features/ \textgreater. Acesso em 01 Julho 2016.\par
-	MICROSOFT. Free Dev Tools - Visual Studio Community 2015. 2016. Disponível em: \textless https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx \textgreater. Acesso em 07 Julho 2016.\par
+	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \textless \url{https://unity3d.com/pt/unity}\textgreater. Acesso em 01 Julho 2016.\par
+	UNITY. Made with Unity - Games. 2016b. Disponível em: \textless \url{https://madewith.unity.com/games}\textgreater. Acesso em 01 Julho 2016.\par
+	UNITY. Made with Unity - Manual: Learning the Interface. 2016c. Disponível em: \textless \url{https://docs.unity3d.com/Manual/LearningtheInterface.html}\textgreater. Acesso em 05 Julho 2016.\par
+	UNITY. Made with Unity - Manual: Creating and Using Scripts. 2016d. Disponível em: \textless \url{https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html}\textgreater. Acesso em 05 Julho 2016.\par
+	RIVAL THEORY. Features. 2015. Disponível em: \textless \url{http://rivaltheory.com/rain/features/}\textgreater. Acesso em 01 Julho 2016.\par
+	MICROSOFT. Free Dev Tools - Visual Studio Community 2015. 2016. Disponível em: \textless \url{https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx}\textgreater. Acesso em 07 Julho 2016.\par
+	CNBC. Digital gaming sales hit record \$61 billion in 2015: Report. Disponível em: \textless \url{http://www.cnbc.com/2016/01/26/digital-gaming-sales-hit-record-61-billion-in-2015-report.html}\textgreater. Acesso em 11 Julho 2016.\par
+	YANNAKAKIS, Georgios N; TOGELIUS, Julian. A Panorama of Artificial and Computational Intelligence in Games. Disponível em: \textless \url{http://julian.togelius.com/Yannakakis2014Panorama.pdf}\textgreater. Acesso em 11 Julho 2016.\par
 
 \end{document}
