@@ -418,7 +418,7 @@
 				\centering
 				\includegraphics[scale=0.5]{InterfaceUnity.jpg}\\
 				\vspace{0.5mm}
-				\source{(UNITY, 2016c).}
+				\source{Unity.}
 			\end{figure}	
 			
 			A descrição de cada painel pode ser vista na tabela a seguir:
@@ -442,7 +442,7 @@
 					\hline 
 				\end{tabular}\\
 				\vspace{3mm}
-				\source{(UNITY, 2016c).}
+				\source{Unity.}
 			\end{table}
 			
 			Os objetos contidos na cena do projeto são chamados de \textit{GameObject},
@@ -484,15 +484,15 @@ public class nomeDaClasse : MonoBehaviour
 		ainda é possível utilizar as bibliotecas próprias do C\#,
 		como bibliotecas matemáticas, acesso à arquivo e listas.
 		
-		Na \textit{Figura 2} a seguir, é possível ver um exemplo de classe criada no Visual Studio que foi usada neste projeto:
+		Na \textit{Figura \ref{fig:exvs}} a seguir, é possível ver um exemplo de classe criada no Visual Studio que foi usada neste projeto:
 		
 		\begin{figure}[ht!]
-			\label{visualStudio}
 			\caption{Exemplo de classe no Visual Studio}
 			\centering
 			\includegraphics[scale=0.4]{InterfaceVisualStudio.png}\\
 			\vspace{0.5mm}
 			\source{Elaborado pelo autor.}
+			\label{fig:exvs}
 		\end{figure}
 		
 		Note que no script de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
@@ -502,11 +502,115 @@ public class nomeDaClasse : MonoBehaviour
 \newpage % Coloca o conteúdo numa nova página	
 \section{CONCEITOS}
 
+	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
+	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
+	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
+	será explicado apenas a essência deles,
+	e o que foi necessário para desenvolver este trabalho.
+
 	\subsection{Redes Neurais}
-	<Escrever teorias de Redes Neurais, é provavelmente é possível copiar da Fundamentação Teórica para já ter uma base.>
+	As Redes Neurais Artificiais foram inspiradas no funcionamento do cérebro humano,
+	e a "baixo nível"{} procura imitar o que acontece nos neurônios.
+	
+	Uma RNA é normalmente utilizada para duas finalidades:
+	reconhecimento de padrões e regressão (ou aproximação de função).
+	A arquitetura de uma RNA é formada por uma camada de entrada (input layer),
+	uma camada de saída (output layer),
+	e as camadas ocultas (hidden layers),
+	que podem ter de zero a muitas camadas.
+	
+	Um exemplo de Rede Neural Artificial com uma camada oculta pode ser visto na Figura \ref{fig:basicnn} a seguir:
+	
+	\begin{figure}[ht!]
+		\caption{RNA com uma camada oculta}
+		\centering
+		\includegraphics[scale=0.5]{BasicNN.jpg}\\
+		\vspace{0.5mm}
+		\source{Wikimedia.}
+		\label{fig:basicnn}
+	\end{figure}
+	
+	Uma Rede Neural Artificial sempre terá uma camada de entrada e uma de saída.
+	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro,
+	assim como o número de neurônios contidos nessas camadas.
+	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
+	(STACKEXCHANGE, 2013).
+	
+	Como o número de camadas ocultas é escolhido?
+	Caso os dados sejam linearmente separáveis,
+	não é necessário nenhuma camada oculta.
+	Existem muitas discussões a respeito do número de camadas ocultas a serem usadas, caso ela seja necessária,
+	mas um consenso que existe é que uma camada é suficiente para a maioria dos problemas
+	(STACKEXCHANGE, 2013).
+	
+	\begin{figure}[ht!]
+		\caption{Importância de ter camada oculta}
+		\centering
+		\includegraphics[scale=1.5]{HiddenLayers.png}\\
+		\vspace{0.5mm}
+		\source{Stackoverflow.}
+		\label{fig:nnhiddenlayer}
+	\end{figure}
+	
+	Como pode-se notar na Figura \ref{fig:nnhiddenlayer},
+	o aumento de camadas ocultas aumenta a granularidade do reconhecimento de padrões,
+	fazendo-se assim uma separação não-linear no reconhecimento dos dados de entrada.
+	
+	Para descobrir o número de neurônios a serem colocados na camada oculta
+	existem muitas regras empíricas que ajudam a escolher um valor,
+	mas uma delas que funciona com frequência é encontrar a média do número de neurônios de entrada e de saída.
+	Usa-se este valor empírico como valor inicial para número de neurônios na camada oculta,
+	e então ajusta-se este valor com testes
+	(STACKEXCHANGE, 2013).
+	
+	A escolha da função de saída dos neurônios também tem bastante influência na convergência da Rede Neural.
+	De maneira geral pode-se separar que tipo de função a ser utilizada dependendo da tarefa:
+	reconhecimento de padrões ou regressão de uma função
+	(RESEARCHGATE, 2013).
+	
+	Caso a tarefa seja de reconhecer padrões,
+	as funções recomendadas são a step, sigmóide e tangente hiperbólica.
+	O motivo é que estas funções retornam valores entre um intervalo pré-estabelecido.
+	(RESEARCHGATE, 2013).
+	
+	Por outro lado, caso a tarefa seja de regressão de uma função,
+	pode-se utilizar a função linear na camada de saída.
+	No entanto, nas camadas ocultas ainda é necessário o uso de funções não lineares.
+	Caso as camadas ocultas também sejam de função linear,
+	as soluções a serem encontradas serão apenas linearmente separáveis,
+	equivalente a uma rede sem camada oculta
+	(RESEARCHGATE).
 
 	\subsection{Algoritmo Genético}
-	<Escrever teorias de Algoritmo Genético, é provavelmente é possível copiar da Fundamentação Teórica para já ter uma base.>
+	Algoritmo genético faz parte da computação evolutiva,
+	e baseia-se na teoria de Darwin sobre a evolução das espécies.
+	
+	O algoritmo inicia com um conjunto de soluções,
+	e eles são representados por cromossomos.
+	Este conjunto é a população, e aqueles que conseguirem se adaptar melhor,
+	passarão para a próxima geração.
+	A motivação do AG é que as soluções melhoram a cada geração.
+	
+	De maneira geral, um Algoritmo Genético segue o seguinte processo:
+	
+	\begin{itemize}[noitemsep]
+		\item \textbf{Iniciar População:} Gera uma população aleatória de n cromossomos.
+		\item \textbf{Teste:} Testa o valor de fitness f(x) de cada cromossomo x da população.
+		Se a condição de parada for satisfeita, o algoritmo acaba.
+		\item \textbf{Seleção:} Seleciona 2 cromossomos de acordo com o fitness deles,
+		ou seja, quanto maior o valor de fitness, maior a probabilidade.
+		Normalmente é utilizado o método da roleta para a seleção.
+		\item \textbf{Crossover:} Copia partes dos cromossomos dos pais em cromossomos filhos,
+		aplicando uma determinada probabilidade de alternar o trecho a ser copiado.
+		\item \textbf{Mutação:} Probabilidade de algum valor do cromossomo do novo filho ser alterado.
+		\item \textbf{Inserção:} Insere os novos cromossomos na população.
+		\item \textbf{Loop:} Retorna ao passo de calcular o "fitness".
+	\end{itemize}
+	
+	No trabalho aqui desenvolvido,
+	Redes Neurais Artificiais e Algoritmos Genéticos são utilizados juntos.
+	O cromossomo do Algorítmo Genético se torna, neste caso, os pesos que estão nos neurônios da RNA.
+	Desta forma, o AG estará procurando as soluções ótimas da Rede Neural.
 
 \newpage % Coloca o conteúdo numa nova página
 \section{O JOGO}
@@ -545,5 +649,11 @@ public class nomeDaClasse : MonoBehaviour
 	YANNAKAKIS, Georgios N; TOGELIUS, Julian. A Panorama of Artificial and Computational Intelligence in Games. Disponível em: \textless \url{http://julian.togelius.com/Yannakakis2014Panorama.pdf}\textgreater. Acesso em 11 Julho 2016.\par
 	AIGAMEDEV. Top 10 Most Influential AI Games. Disponível em: \textless \url{http://aigamedev.com/open/highlights/top-ai-games/}\textgreater. Acesso em 12 Julho 2016.\par
 	ORKIN, Jeff. Three States and a Plan: The A.I. of F.E.A.R. Disponível em: \textless \url{http://alumni.media.mit.edu/~jorkin/gdc2006_orkin_jeff_fear.pdf}\textgreater. Acesso em 12 Julho 2016.\par
+	STACKEXCHANGE. How to choose the number of hidden layers and nodes in a feedforward neural network?. Disponível em: \textless \url{https://stats.stackexchange.com/questions/181/how-to-choose-the-number-of-hidden-layers-and-nodes-in-a-feedforward-neural-netw}\textgreater. Acesso em 13 Julho 2016.\par
+	STACKEXCHANGE. What does the hidden layer in a neural network compute?. Disponível em: \textless \url{https://stats.stackexchange.com/questions/63152/what-does-the-hidden-layer-in-a-neural-network-compute}\textgreater. Acesso em 13 Julho 2016.\par
+	STACKOVERFLOW. Role of Bias in Neural Networks. Disponível em: \textless \url{https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks}\textgreater. Acesso em 13 Julho 2016.\par
+	OBITKO, Marek. Introduction to Genetic Algorithms. Disponível em: \textless \url{http://www.obitko.com/tutorials/genetic-algorithms/index.php}\textgreater. Acesso em 13 Julho 2016.\par
+	RESEARCHGATE. How to select the best transfer function for a neural network model?. Disponível em: \textless \url{https://www.researchgate.net/post/How_to_select_the_best_transfer_function_for_a_neural_network_model}\textgreater. Acesso em 13 Julho 2016.\par
+	Wikimedia. File:Colored neural network.svg. Disponível em: \textless \url{https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg}\textgreater. Acesso em 13 Julho 2016.\par
 
 \end{document}
