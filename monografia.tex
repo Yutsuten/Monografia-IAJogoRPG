@@ -38,6 +38,9 @@
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
+% Para impedir as imagens de irem para lugares que não devem
+\usepackage{placeins}
+
 
 % CONFIGURAÇÃO DE VARIÁVEIS
 % Mostra numero da pagina no canto superior direito
@@ -351,13 +354,16 @@
 	%aumentando o número de trabalhos que estão explorando esta área,
 	e espera-se contribuir com a comunidade acadêmica e/ou mercado de alguma forma.
 
+	\FloatBarrier
 	\subsection{Objetivos do Trabalho}
 	
+		\FloatBarrier
 		\subsubsection{Objetivo Geral}
 			Produzir um jogo RPG em turnos que implementa conceitos avançados de Inteligência Artificial,
 			sendo esta inteligência capaz de tomar decisões de forma autônoma sobre o que deve fazer,
 			assim como ser capaz de aprender a tomar melhores decisões por meio de treinamento.
 		
+		\FloatBarrier
 		\subsubsection{Objetivos Específicos}
 			\begin{enumerate}[noitemsep]
 				\item Criar um jogo RPG razoavelmente complexo.
@@ -365,6 +371,7 @@
 				\item Criar uma Inteligência Artificial capaz de aprender conforme joga.
 			\end{enumerate}			
 	
+	\FloatBarrier
 	\subsection{Organização da Monografia}
 		Este trabalho está dividido em 5 seções, sendo esta seção (Introdução) a primeira. As outras seções são:
 		\begin{itemize}[noitemsep]
@@ -376,9 +383,11 @@
 % INTRODUÇÃO - FIM
 
 % DESENVOLVIMENTO - INÍCIO
+\FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
 \section{FERRAMENTAS UTILIZADAS}
 
+	\FloatBarrier
 	\subsection{Unity}
 		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
 		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
@@ -405,6 +414,7 @@
 		até conceitos mais complicados como percepção e árvore de condutas
 		(RIVAL THEORY, 2015).
 		
+		\FloatBarrier
 		\subsubsection{Interface}
 			A interface da Unity é composta por vários painéis chamados \textit{views},
 			que podem ser rearranjados, agrupados, separados e fixados
@@ -455,6 +465,7 @@
 			e a interação com o jogador.
 			(UNITY, 2016d).
 
+	\FloatBarrier
 	\subsection{Visual Studio}
 		O Visual Studio é um Ambiente de Desenvolvimento Integrado (IDE) usado para a criação de aplicativos para Windows, Android, iOS, aplicações Web e serviços de nuvem.
 		Com ele é possível programar em C\#, Visual Basic, F\#, C++, HTML, JavaScript e Python, dentre outras linguagens de programação. (MICROSOFT, 2016)
@@ -495,10 +506,11 @@ public class nomeDaClasse : MonoBehaviour
 			\label{fig:exvs}
 		\end{figure}
 		
-		Note que no script de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
+		Nota-se que no script de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
 		também foi utilizada o \textit{System.IO}, uma biblioteca para Leitura e Escrita de Arquivo.
 		Qualquer outro script criado para funcionar na Unity tem este padrão.
 
+\FloatBarrier
 \newpage % Coloca o conteúdo numa nova página	
 \section{CONCEITOS}
 
@@ -508,7 +520,8 @@ public class nomeDaClasse : MonoBehaviour
 	será explicado apenas a essência deles,
 	e o que foi necessário para desenvolver este trabalho.
 
-	\subsection{Redes Neurais}
+	\FloatBarrier
+	\subsection{Redes Neurais Artificiais}
 	As Redes Neurais Artificiais foram inspiradas no funcionamento do cérebro humano,
 	e a "baixo nível"{} procura imitar o que acontece nos neurônios.
 	
@@ -544,7 +557,7 @@ public class nomeDaClasse : MonoBehaviour
 	(STACKEXCHANGE, 2013).
 	
 	\begin{figure}[ht!]
-		\caption{Importância de ter camada oculta}
+		\caption{Importância da camada oculta}
 		\centering
 		\includegraphics[scale=1.5]{HiddenLayers.png}\\
 		\vspace{0.5mm}
@@ -563,24 +576,35 @@ public class nomeDaClasse : MonoBehaviour
 	e então ajusta-se este valor com testes
 	(STACKEXCHANGE, 2013).
 	
-	A escolha da função de saída dos neurônios também tem bastante influência na convergência da Rede Neural.
+	A escolha da função de saída dos neurônios também tem bastante influência na convergência da Rede Neural Artificial.
 	De maneira geral pode-se separar que tipo de função a ser utilizada dependendo da tarefa:
 	reconhecimento de padrões ou regressão de uma função
 	(RESEARCHGATE, 2013).
 	
-	Caso a tarefa seja de reconhecer padrões,
-	as funções recomendadas são a step, sigmóide e tangente hiperbólica.
+	\begin{figure}[ht!]
+		\caption{Funções de Ativação comuns na RNA}
+		\centering
+		\includegraphics[scale=0.3]{ActivationFunctions.png}\\
+		\vspace{0.5mm}
+		\source{Turing Finance.}
+		\label{fig:activationFunctions}
+	\end{figure}
+	
+	Caso a tarefa da RNA seja de reconhecer padrões,
+	as funções recomendadas são a step (b), sigmoide (d) e tangente hiperbólica (e),
+	que podem ser visualizadas na Figura \ref{fig:activationFunctions}.
 	O motivo é que estas funções retornam valores entre um intervalo pré-estabelecido.
 	(RESEARCHGATE, 2013).
 	
 	Por outro lado, caso a tarefa seja de regressão de uma função,
-	pode-se utilizar a função linear na camada de saída.
+	pode-se utilizar a função linear (a) na camada de saída.
 	No entanto, nas camadas ocultas ainda é necessário o uso de funções não lineares.
 	Caso as camadas ocultas também sejam de função linear,
 	as soluções a serem encontradas serão apenas linearmente separáveis,
 	equivalente a uma rede sem camada oculta
-	(RESEARCHGATE).
+	(RESEARCHGATE, 2013).
 
+	\FloatBarrier
 	\subsection{Algoritmo Genético}
 	Algoritmo genético faz parte da computação evolutiva,
 	e baseia-se na teoria de Darwin sobre a evolução das espécies.
@@ -595,7 +619,7 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\begin{itemize}[noitemsep]
 		\item \textbf{Iniciar População:} Gera uma população aleatória de n cromossomos.
-		\item \textbf{Teste:} Testa o valor de fitness f(x) de cada cromossomo x da população.
+		\item \textbf{Avaliação:} Testa o valor de fitness f(x) de cada cromossomo x da população.
 		Se a condição de parada for satisfeita, o algoritmo acaba.
 		\item \textbf{Seleção:} Seleciona 2 cromossomos de acordo com o fitness deles,
 		ou seja, quanto maior o valor de fitness, maior a probabilidade.
@@ -603,27 +627,56 @@ public class nomeDaClasse : MonoBehaviour
 		\item \textbf{Crossover:} Copia partes dos cromossomos dos pais em cromossomos filhos,
 		aplicando uma determinada probabilidade de alternar o trecho a ser copiado.
 		\item \textbf{Mutação:} Probabilidade de algum valor do cromossomo do novo filho ser alterado.
-		\item \textbf{Inserção:} Insere os novos cromossomos na população.
-		\item \textbf{Loop:} Retorna ao passo de calcular o "fitness".
+		\item \textbf{Loop:} Retorna ao passo de Avaliação.
 	\end{itemize}
 	
+	A Figura \ref{fig:gaflow} a seguir ilustra o que foi descrito:
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Passo a passo do Algoritmo Genético}
+		\includegraphics[scale=0.8]{GeneticAlgorithmFlow.png}\\
+		\vspace{0.5mm}
+		\source{Tech-Effigy.}
+		\label{fig:gaflow}
+	\end{figure}
+	
+	\FloatBarrier
 	No trabalho aqui desenvolvido,
-	Redes Neurais Artificiais e Algoritmos Genéticos são utilizados juntos.
-	O cromossomo do Algorítmo Genético se torna, neste caso, os pesos que estão nos neurônios da RNA.
-	Desta forma, o AG estará procurando as soluções ótimas da Rede Neural.
+	Redes Neurais Artificiais e Algoritmos Genéticos são utilizados em conjunto.
+	Na Figura \ref{fig:nn-ag} a seguir é possível visualizar como é implementação de ambos os conceitos juntos.
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{RNA e AG juntos}
+		\includegraphics[scale=0.7]{NeuralNetworkIntoChromosome.png}\\
+		\vspace{0.5mm}
+		\source{Evo-neural-network-agents.}
+		\label{fig:nn-ag}
+	\end{figure}
+	
+	Os pesos da RNA são colocados na estrutura do cromossomo,
+	e então é tratado como um cromossomo para realizar o processo do AG.
+	Ao finalizar, o cromossomo retorna à RNA como pesos,
+	usa-se e repete o processo.
 
+\FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
 \section{O JOGO}
 	
+	\FloatBarrier
 	\subsection{Descrição do jogo}
 	<Descrever o jogo, suas variáveis, complexidades, particularidades, etc>
 	
+	\FloatBarrier
 	\subsection{Rede Neural Artificial Implementado}
 	<Descrever em detalhes qual foi a Rede Neural Artificial implementada>
 	
+	\FloatBarrier
 	\subsection{Algoritmo Genético Implementado}
 	<Descrever em detalhes qual foi o Algoritmo Genético implementado>
 	
+	\FloatBarrier
 	\subsection{Funcionamento do jogo}
 	<Descrever como ocorre o funcionamento do jogo como um todo, dado que o leitor sabe os detalhes de cada parte.>
 
@@ -656,5 +709,8 @@ public class nomeDaClasse : MonoBehaviour
 	RESEARCHGATE. How to select the best transfer function for a neural network model?. Disponível em: \textless \url{https://www.researchgate.net/post/How_to_select_the_best_transfer_function_for_a_neural_network_model}\textgreater. Acesso em 13 Julho 2016.\par
 	Wikimedia. File:Colored neural network.svg. Disponível em: \textless \url{https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg}\textgreater. Acesso em 13 Julho 2016.\par
 	STACKOVERFLOW. How do you decide the parameters of a Convolutional Neural Network for image classification?. Disponível em: \textless \url{https://stackoverflow.com/questions/24509921/how-do-you-decide-the-parameters-of-a-convolutional-neural-network-for-image-cla}\textgreater. Acesso em 13 Julho 2016.\par
+	Tech-Effigy. The Genetic Algorithm - Explained. Disponível em: \textless \url{https://techeffigytutorials.blogspot.com.br/2015/02/the-genetic-algorithm-explained.html}\textgreater. Acesso em 14 Julho 2016.\par
+	Evo-neural-network-agents. Simulation of evolution of neural network driven agents in the small world with the pieces of food. Disponível em: \textless \url{https://github.com/lagodiuk/evo-neural-network-agents}\textgreater. Acesso em 14 Julho 2016.\par
+	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
 
 \end{document}
