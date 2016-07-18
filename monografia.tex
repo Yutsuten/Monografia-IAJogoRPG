@@ -18,7 +18,7 @@
 % Permite adicionar imagens
 \usepackage{graphicx}
 % Pacote para referências
-\usepackage{csquotes}
+%\usepackage{csquotes}
 % Coloca alguns termos do artigo em português (figura, tabela)
 \usepackage[brazilian]{babel}
 % Permite alterar distância entre linhas
@@ -54,7 +54,10 @@
 	% Colocando espaço de "um espaço" entre o número e o título da seção (default é espaço de 1 quad (1em))
 	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\ }
 	% Deixa os itens do sumário com pontos
-	\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+	\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
+	% Remove indentação no sumário
+	\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{3.0em}}
+	\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{3.0em}}
 \makeatother
 % Editando títulos dos índices
 \addto\captionsbrazilian{
