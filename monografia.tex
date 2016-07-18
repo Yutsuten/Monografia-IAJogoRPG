@@ -522,17 +522,49 @@ public class nomeDaClasse : MonoBehaviour
 
 	\FloatBarrier
 	\subsection{Redes Neurais Artificiais}
-	As Redes Neurais Artificiais foram inspiradas no funcionamento do cérebro humano,
-	e a "baixo nível"{} procura imitar o que acontece nos neurônios.
+	% 1 Definição
+	As Redes Neurais Artificiais são uma família de modelos inspirados no funcionamento do cérebro humano,
+	sendo que a "baixo nível"{} procuram imitar o que acontece nos neurônios.
+	São usadas para estimar ou aproximar funções que dependam de um grande número de entradas.
 	
-	Uma RNA é normalmente utilizada para duas finalidades:
-	reconhecimento de padrões e regressão (ou aproximação de função).
+	\subsubsection{Funcionamento}
+	% 2 Arquitetura
+	% 2.1 Funções de entrada e ativação
+	A unidade em uma RNA é o neurônio.
+	O neurônio recebe estímulos, que na RNA são números reais.
+	Recebendo os vários estímulos, o neurônio faz uma operação com todos os números recebidos,
+	que normalmente é um somatório.
+	Esta é a função de entrada.
+	
+	Após aplicar a função de entrada em todos os estímulos,
+	é obtido um único valor.
+	Este valor, então, é processado por uma função de ativação.
+	Existem várias funções de ativação que podem ser utilizadas,
+	e pode-se ver alguns exemplos na Figura \ref{fig:activationFunctions}.
+	
+	\begin{figure}[ht!]
+		\caption{Funções de Ativação comuns em uma RNA}
+		\centering
+		\includegraphics[scale=0.3]{ActivationFunctions.png}\\
+		\vspace{0.5mm}
+		\source{Turing Finance.}
+		\label{fig:activationFunctions}
+	\end{figure}
+	
+	Diferentes funções de ativação se adequam melhor dependendo da aplicação da RNA,
+	assim como a camada em que o neurônio se encontra.
+	
+	O resultado da função de ativação é então multiplicado por um peso,
+	e passado para o próximo neurônio como um estímulo.
+	
+	% 2.2 Particularidades (camadas existentes, papel de cada uma)
 	A arquitetura de uma RNA é formada por uma camada de entrada (input layer),
 	uma camada de saída (output layer),
-	e as camadas ocultas (hidden layers),
-	que podem ter de zero a muitas camadas.
-	
-	Um exemplo de Rede Neural Artificial com uma camada oculta pode ser visto na Figura \ref{fig:basicnn} a seguir:
+	e as camadas ocultas (hidden layers)
+	que poderão conter de zero a muitas camadas.
+	Cada camada na RNA terá \textit{n} neurônios,
+	sendo \textit{n} qualquer valor maior ou igual a 1.
+	Um exemplo de Rede Neural Artificial com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
 	
 	\begin{figure}[ht!]
 		\caption{RNA com uma camada oculta}
@@ -543,18 +575,27 @@ public class nomeDaClasse : MonoBehaviour
 		\label{fig:basicnn}
 	\end{figure}
 	
+	Como ilustrado na Figura \ref{fig:basicnn},
+	cada neurônio de uma camada se conecta com todos os outros neurônios da camada seguinte.
+	Existem muitas variações de arquiteturas de RNA,
+	não sendo todas que seguem o padrão visto na Figura \ref{fig:basicnn},
+	porém esta é a arquitetura mais "tradicional"{}.
+	
 	Uma Rede Neural Artificial sempre terá uma camada de entrada e uma de saída.
-	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro,
-	assim como o número de neurônios contidos nessas camadas.
+	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro.
 	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
 	(STACKEXCHANGE, 2013).
 	
-	Como o número de camadas ocultas é escolhido?
+	Então, se o número de camadas ocultas varia,
+	de que maneira pode-se determinar o número de camadas ocultas a serem utilizadas em um determinado problema?
 	Caso os dados sejam linearmente separáveis,
 	não é necessário nenhuma camada oculta.
-	Existem muitas discussões a respeito do número de camadas ocultas a serem usadas, caso ela seja necessária,
-	mas um consenso que existe é que uma camada é suficiente para a maioria dos problemas
+	Caso contrário, se forem dados não lineares,
+	uma ou mais camadas ocultas serão necessárias
 	(STACKEXCHANGE, 2013).
+	Quanto mais camadas ocultas forem utilizadas,
+	maior a granularidade dos resultados obtidos na RNA,
+	como pode ser visto na Figura \ref{fig:nnhiddenlayer}.
 	
 	\begin{figure}[ht!]
 		\caption{Importância da camada oculta}
@@ -565,44 +606,60 @@ public class nomeDaClasse : MonoBehaviour
 		\label{fig:nnhiddenlayer}
 	\end{figure}
 	
-	Como pode-se notar na Figura \ref{fig:nnhiddenlayer},
-	o aumento de camadas ocultas aumenta a granularidade do reconhecimento de padrões,
-	fazendo-se assim uma separação não-linear no reconhecimento dos dados de entrada.
-	
-	Para descobrir o número de neurônios a serem colocados na camada oculta
-	existem muitas regras empíricas que ajudam a escolher um valor,
-	mas uma delas que funciona com frequência é encontrar a média do número de neurônios de entrada e de saída.
-	Usa-se este valor empírico como valor inicial para número de neurônios na camada oculta,
-	e então ajusta-se este valor com testes
+	Deve-se lembrar que, apesar de muitas camadas ocultas aumentar a granularidade dos resultados,
+	isto vem com um custo:
+	mais tempo de processamento e
+	influência no tempo de aprendizagem.
+	É por este motivo que deve-se buscar a arquitetura otimizada ao problema,
+	com baixo tempo de processamento e alto desempenho.
+	Outro detalhe importante é a necessidade de colocar funções de ativação não-lineares nas camadas ocultas,
+	uma vez que são elas que garantem a não-linearidade dos resultados
 	(STACKEXCHANGE, 2013).
 	
-	A escolha da função de saída dos neurônios também tem bastante influência na convergência da Rede Neural Artificial.
-	De maneira geral pode-se separar que tipo de função a ser utilizada dependendo da tarefa:
-	reconhecimento de padrões ou regressão de uma função
-	(RESEARCHGATE, 2013).
+	Existem muitas discussões a respeito do número de camadas ocultas a serem usadas, caso ela seja necessária,
+	mas um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
+	(STACKEXCHANGE, 2013).
 	
-	\begin{figure}[ht!]
-		\caption{Funções de Ativação comuns na RNA}
-		\centering
-		\includegraphics[scale=0.3]{ActivationFunctions.png}\\
-		\vspace{0.5mm}
-		\source{Turing Finance.}
-		\label{fig:activationFunctions}
-	\end{figure}
+	Considerando a necessidade de colocar uma camada oculta na RNA,
+	existem regras empíricas que ajudam a escolher um número de neurônios a serem colocados na camada oculta.
+	Uma delas é encontrar a média do número de neurônios de entrada e de saída,
+	e usar este valor como ponto de partida,
+	ajustando-o então com testes
+	(STACKEXCHANGE, 2013).
 	
+	\subsubsection{Tipos de aprendizado}
+	% 3 Tipos de aprendizado (com exemplos de utilização)
+	Um dos maiores atrativos de uma RNA é sua capacidade de aprender,
+	e atualmente existem três paradigmas de aprendizagem:
+	Aprendizado Supervisionado, Aprendizado Não-supervisionado e Aprendizado Reforçado.
+	
+	No Aprendizado Supervisionado,
+	tem-se os dados de entrada, e infere-se os dados de saída.
+	Sabendo-se estas duas informações, treina-se a RNA para que produza os resultados esperados,
+	ajustando os pesos de suas conexões.
+	Esta forma de aprendizagem é utilizada principalmente para duas finalidades:
+	reconhecimento de padrões e regressão de funções.
+	
+	Dependendo da finalidade da RNA no Aprendizado Supervisionado,
+	diferentes funções de ativação são recomendadas na camada de saída
+	(as funções de ativação podem ser vistas na Figura \ref{fig:activationFunctions}, página \pageref{fig:activationFunctions}).
 	Caso a tarefa da RNA seja de reconhecer padrões,
-	as funções recomendadas são a step (b), sigmoide (d) e tangente hiperbólica (e),
-	que podem ser visualizadas na Figura \ref{fig:activationFunctions}.
-	O motivo é que estas funções retornam valores entre um intervalo pré-estabelecido.
-	(RESEARCHGATE, 2013).
+	as funções recomendadas são a step (b), sigmoide (d) e tangente hiperbólica (e).
+	Por outro lado, se a tarefa for de regressão de uma função,
+	a função linear (a) é a mais recomendada (RESEARCHGATE, 2013).
 	
-	Por outro lado, caso a tarefa seja de regressão de uma função,
-	pode-se utilizar a função linear (a) na camada de saída.
-	No entanto, nas camadas ocultas ainda é necessário o uso de funções não lineares.
-	Caso as camadas ocultas também sejam de função linear,
-	as soluções a serem encontradas serão apenas linearmente separáveis,
-	equivalente a uma rede sem camada oculta
-	(RESEARCHGATE, 2013).
+	No Aprendizado Não-supervisionado,
+	tem-se os dados de entrada e uma função de custo a ser minimizada.
+	Com o decorrer das iterações,
+	os pesos da RNA serão adaptados para minimizar o custo.
+	Tarefas que usam tal paradigma são os que envolvem problemas de estimativa.
+	
+	No Aprendizado Reforçado,
+	os dados de entrada são desconhecidos,
+	e o cálculo do custo é feita de maneira dinâmica.
+	Os dados de entrada são gerados através das interações do RNA com o ambiente.
+	Exemplos de utilização deste paradigma são
+	programação dinâmica e problemas de controle.
 
 	\FloatBarrier
 	\subsection{Algoritmo Genético}
@@ -683,11 +740,13 @@ public class nomeDaClasse : MonoBehaviour
 % DESENVOLVIMENTO - FIM
 
 % CONCLUSÃO - INÍCIO
+\FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
 \section{RESULTADOS}
 	<Inserir gráficos de evolução do algoritmo, imagens do jogo, explicar desempenho da aprendizagem, etc.>
 % CONCLUSÃO - FIM
 
+\FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
 \section*{\hfil REFERÊNCIAS}
 \addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
