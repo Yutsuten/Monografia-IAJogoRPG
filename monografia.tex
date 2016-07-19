@@ -40,6 +40,8 @@
 \makeatother
 % Para impedir as imagens de irem para lugares que não devem
 \usepackage{placeins}
+% Usado para centralizar verticalmente em tabelas
+\usepackage{array}
 
 
 % CONFIGURAÇÃO DE VARIÁVEIS
@@ -423,25 +425,25 @@
 			que podem ser rearranjados, agrupados, separados e fixados
 			(UNITY, 2016c).
 			O arranjamento padrão das janelas permite o acesso às janelas mais comuns,
-			e pode ser visto na figura a seguir:
+			e pode ser visto na Figura \ref{fig:interfaceUnity} a seguir:
 			
 			\begin{figure}[ht!]
-				\label{interfaceUnity}
 				\caption{A interface padrão da Unity}
 				\centering
 				\includegraphics[scale=0.5]{InterfaceUnity.jpg}\\
 				\vspace{0.5mm}
 				\source{Unity.}
+				\label{fig:interfaceUnity}
 			\end{figure}	
 			
-			A descrição de cada painel pode ser vista na tabela a seguir:
+			A descrição de cada painel pode ser vista na Tabela \ref{tab:unity} a seguir:
 			
 			\begin{table}[ht]
-				\label{tabelaUnity}
 				\caption{Descrição dos painéis na Unity}
 				\centering
 				\small
-				\begin{tabular}{p{3.1cm} p{11.9cm}}
+				\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+				\begin{tabular}{m{3.1cm} m{11.9cm}}
 					\hline 
 					Project Window & Exibe a biblioteca de Assets que estão disponíveis para uso no projeto. Ao importar os Assets no projeto, eles aparecerão aqui. \\ 
 					\hline 
@@ -456,6 +458,7 @@
 				\end{tabular}\\
 				\vspace{3mm}
 				\source{Unity.}
+				\label{tab:unity}
 			\end{table}
 			
 			Os objetos contidos na cena do projeto são chamados de \textit{GameObject},
@@ -668,48 +671,165 @@ public class nomeDaClasse : MonoBehaviour
 	\subsection{Algoritmo Genético}
 	% 1 Definição
 	Algoritmo genético faz parte da computação evolutiva,
-	e baseia-se na teoria de Darwin sobre a evolução das espécies.
+	e inspirou-se na teoria de Darwin sobre a evolução das espécies.
+	É uma busca heurística usada para encontrar soluções de otimização e resolver problemas de busca.
 	
+	\FloatBarrier
+	\subsubsection{Conceitos de AG}
 	% 2 Conceitos
 	% 2.1 Cromossomos
+	A unidade que caracteriza um determinado indivíduo na população é o cromossomo.
 	% 2.1.1 Gene
+	O cromossomo é constituído de vários genes,
+	que carregam uma informação ou característica de um indivíduo.
 	% 2.1.2 Representação do cromossomo
+	O gene pode ser representado de várias formas dentro do AG,
+	sendo a mais simples delas a representação binária,
+	como pode ser visto na Tabela \ref{tab:cromosome}.
+	
+	\begin{table}[ht]
+		\caption{Representação binária de cromossomos}
+		\centering
+		\begin{tabular}{c c c c c c c c c c c}
+			\hline 
+			0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\ 
+			\hline 
+			1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\ 
+			\hline 
+		\end{tabular} \\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:cromosome}
+	\end{table}
+	
+	Outras representações de cromossomos também existem.
+	Por exemplo, existe a codificação por permutação,
+	utilizado em problemas de ordenação.
+	Neste caso, todo cromossomo é um vetor de números,
+	e cada número representa uma posição.
+	
+	Outro exemplo é codificação por valor.
+	Este valor poderá ser qualquer coisa relacionada ao problema,
+	como números reais ou sequência de caracteres.
+	E como último exemplo existe a codificação em árvore,
+	em que cada cromossomo é uma árvore de objetos,
+	como funções ou comandos em uma linguagem de programação.
+	
 	% 2.2 Indivíduo
+	Um indivíduo no AG sempre possuirá um cromossomo.
+	Este indivíduo carrega uma das possíveis soluções do problema.
+	%e pode ser uma solução boa ou não.
+	
 	% 2.3 População
+	O indivíduo faz parte de uma população.
+	%Logo, pode-se dizer que uma população é um conjunto de soluções.
+	% 2.3.1 Tamanho de população
+	Para se resolver um problema usando AG,
+	nem sempre uma população enorme irá se traduzir em uma convergência mais rápida.
+	De acordo com algumas pesquisas,
+	população em torno de 30 indivíduos se mostram ser eficientes,
+	apesar de que outros valores possam ser melhores dependendo do problema
+	(OBITKO, 1998).
+	
 	% 2.4 Geração
+	Uma geração diz respeito à iteração do qual a população se encontra.
+	Uma população nova criada a partir de uma população antiga é uma nova geração.
+	Tem-se, então, várias gerações de populações diferentes (ou evoluídas).
+	
 	% 2.5 Avaliação
 	% 2.5.1 Fitness (aptidão)
+	Durante o algoritmo do AG, deve-se calcular o o fitness (nível de aptidão) de cada indivíduo da população.
+	A forma de se calcular o fitness do indivíduo depende do problema,
+	e este cálculo faz parte do processo de Avaliação da população,
+	que pode ser visto em mais detalhes na Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow} à frente.
+	
 	% 2.6 Seleção
+	No processo de Seleção,
+	indivíduos da população são selecionados para passarem para a próxima geração ou se reproduzirem.
+	A Seleção usa o valor de fitness para dar maiores chances de selecionar os indivíduos mais adaptados.
+	
 	% 2.6.1 Roleta
+	Um método comum para se selecionar indivíduos é o método da Roleta.
+	Neste método, um intervalo numérico relativo ao valor de fitness é atribuído a cada indivíduo.
+	Então é sorteado aleatoriamente um valor no intervalo de todos os indivíduos.
+	O indivíduo que conter o número sorteado dentro de seu intervalo é o escolhido para passar para a próxima geração ou se reproduzir.
+	Percebe-se assim que indivíduos com maior fitness terão um intervalo maior e, portanto, maiores chances de serem selecionados.
+	
 	% 2.6.2 Ranking
+	Outro exemplo de método de Seleção é o de Ranking.
+	De forma similar ao da Roleta, é usado o valor de fitness.
+	No entanto, o diferencial está no fato de ordenar os indivíduos em um ranking,
+	e atribuir um intervalo numérico dependendo do ranking do indivíduo
+	(quanto maior o ranking, maior o intervalo atribuído).
+	
 	% 2.7 Crossover
+	Após a seleção existe o Crossover (ou cruzamento).
+	%análogo à reprodução que se estuda em biologia.
+	Se for decidido que haverá um crossover,
+	informações do cromossomo de 2 indivíduos são misturados,
+	criando "cromossomos filhos"{}.
+	Neste processo, são selecionados pontos nos cromossomos pais,
+	e os cromossomos filhos copiam do primeiro cromossomo pai até aquele ponto,
+	passando então a copiar do segundo cromossomo pai.
+	O crossover pode ter um único ponto ou vários pontos de crossover.
+	Também existe o crossover uniforme,
+	em que é copiado vários pequenos trechos de ambos os pais,
+	com taxa de 50\% de se copiar de cada um deles.
+	
 	% 2.7.1 Taxa de Crossover
+	No entanto, o crossover não necessariamente ocorre sempre.
+	Existe uma probabilidade dele acontecer,
+	e essa probabilidade é a taxa de crossover.
+	Considerando-se, por exemplo, uma taxa de crossover de 90\%,
+	tem-se que 90\% dos indivíduos selecionados passarão pelo processo de crossover,
+	e que 10\% serão copiados para a nova população.
+	
 	% 2.8 Mutação
+	Após o crossover,
+	os cromossomos passam pelo processo de Mutação.
+	A mutação permite a mudança aleatória de alguns genes escolhidos aleatoriamente.
 	% 2.8.1 Taxa de Mutação
+	A chance de ocorrer uma mutação em um determinado gene é determinado pela taxa de mutação.
+	Por exemplo, se a taxa de mutação for de 1\%,
+	isto significa que 1\% dos genes terão seus valores alterados.
+	
 	% 2.9 Elitismo
+	A fim de não se perder bons resultados por causa do Crossover e Mutação,
+	uma técnica muito aplicada e eficiente é a do Elitismo.
+	Nesta técnica, o melhor (ou melhores) indivíduos da população são copiados sem nenhuma alteração para a próxima geração.
+	
+	\FloatBarrier
+	\subsubsection{Processo}
 	% 3 Processo
-	O algoritmo inicia com um conjunto de soluções,
-	e eles são representados por cromossomos.
-	Este conjunto é a população, e aqueles que conseguirem se adaptar melhor,
-	passarão para a próxima geração.
-	A motivação do AG é que as soluções melhoram a cada geração.
+	O Algoritmo Genético mais simples de ser representado tem 5 etapas,
+	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
+	A melhor condição para se parar é uma boa "avaliação"{} (fitness) dos indivíduos,
+	mas também é possível parar por um limite de gerações.
 	
-	De maneira geral, um Algoritmo Genético segue o seguinte processo:
-	
-	\begin{itemize}[noitemsep]
-		\item \textbf{Iniciar População:} Gera uma população aleatória de n cromossomos.
-		\item \textbf{Avaliação:} Testa o valor de fitness f(x) de cada cromossomo x da população.
-		Se a condição de parada for satisfeita, o algoritmo acaba.
-		\item \textbf{Seleção:} Seleciona 2 cromossomos de acordo com o fitness deles,
-		ou seja, quanto maior o valor de fitness, maior a probabilidade.
-		Normalmente é utilizado o método da roleta para a seleção.
-		\item \textbf{Crossover:} Copia partes dos cromossomos dos pais em cromossomos filhos,
-		aplicando uma determinada probabilidade de alternar o trecho a ser copiado.
-		\item \textbf{Mutação:} Probabilidade de algum valor do cromossomo do novo filho ser alterado.
-		\item \textbf{Loop:} Retorna ao passo de Avaliação.
-	\end{itemize}
-	
-	A Figura \ref{fig:gaflow} a seguir ilustra o que foi descrito:
+	\begin{table}[h]
+		\caption{Ciclo do Algoritmo Genético}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{>{\centering\arraybackslash}m{3.5cm} m{11.5cm}}
+			\hline 
+			\textbf{Inicia População} & Gera uma população aleatória de n cromossomos. \\ 
+			\hline 
+			\textbf{Avaliação} & Testa o valor de fitness f(x) de cada cromossomo x da população. Se a condição de parada for satisfeita, o algoritmo acaba. \\ 
+			\hline 
+			\textbf{Seleção} & Seleciona 2 cromossomos de acordo com o fitness deles, ou seja, quanto maior o valor de fitness, maior a probabilidade. \\ 
+			\hline 
+			\textbf{Crossover} & Copia partes dos cromossomos dos pais em cromossomos filhos. \\ 
+			\hline 
+			\textbf{Mutação} & Aplica a probabilidade de alterar os genes dos indivíduos da nova população. \\ 
+			\hline 
+			\textbf{Loop} & Retorna ao passo de Avaliação. \\ 
+			\hline 
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:agCycle}
+	\end{table}
 	
 	\begin{figure}[ht!]
 		\centering
@@ -720,9 +840,15 @@ public class nomeDaClasse : MonoBehaviour
 		\label{fig:gaflow}
 	\end{figure}
 	
+	A Figura \ref{fig:gaflow} ilustra o que foi descrito.
+	O ciclo de um Algoritmo Genético pode ser representado como na Tabela \ref{tab:agCycle}, na ordem apresentada.
+	A maior motivação de se utilizar um AG é que, a cada geração,
+	as soluções ficam melhores.
+	
+	\FloatBarrier
+	\subsubsection{Exemplos de aplicação}
 	% 4 Exemplos de aplicação
-	
-	
+	<Exemplos de aplicação do Algoritmo Genético>
 	
 	\FloatBarrier
 	\subsubsection{Variação com RNA}
