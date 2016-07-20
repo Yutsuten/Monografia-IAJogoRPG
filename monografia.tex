@@ -575,7 +575,7 @@ public class nomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{RNA com uma camada oculta}
 		\centering
-		\includegraphics[scale=0.5]{BasicNN.jpg}\\
+		\includegraphics[scale=0.45]{BasicNN.jpg}\\
 		\vspace{0.5mm}
 		\source{Wikimedia.}
 		\label{fig:basicnn}
@@ -754,6 +754,16 @@ public class nomeDaClasse : MonoBehaviour
 	Então é sorteado aleatoriamente um valor no intervalo de todos os indivíduos.
 	O indivíduo que conter o número sorteado dentro de seu intervalo é o escolhido para passar para a próxima geração ou se reproduzir.
 	Percebe-se assim que indivíduos com maior fitness terão um intervalo maior e, portanto, maiores chances de serem selecionados.
+	Uma ilustração do que foi descrito pode ser visto na Figura \ref{fig:roulette}.
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Método da roleta para Seleção}
+		\includegraphics[scale=0.7]{Roulette.jpg}\\
+		\vspace{0.5mm}
+		\source{Stack overglow.}
+		\label{fig:roulette}
+	\end{figure}
 	
 	% 2.6.2 Ranking
 	Outro exemplo de método de Seleção é o de Ranking.
@@ -787,14 +797,14 @@ public class nomeDaClasse : MonoBehaviour
 	% 2.8 Mutação
 	Após o crossover,
 	os cromossomos passam pelo processo de Mutação.
-	A mutação permite a mudança aleatória de alguns genes escolhidos aleatoriamente.
+	A mutação permite a mudança de alguns genes escolhidos aleatoriamente.
 	% 2.8.1 Taxa de Mutação
 	A chance de ocorrer uma mutação em um determinado gene é determinado pela taxa de mutação.
 	Por exemplo, se a taxa de mutação for de 1\%,
 	isto significa que 1\% dos genes terão seus valores alterados.
 	
 	% 2.9 Elitismo
-	A fim de não se perder bons resultados por causa do Crossover e Mutação,
+	A fim de não se perder boas soluções por causa do Crossover e Mutação,
 	uma técnica muito aplicada e eficiente é a do Elitismo.
 	Nesta técnica, o melhor (ou melhores) indivíduos da população são copiados sem nenhuma alteração para a próxima geração.
 	
@@ -803,8 +813,7 @@ public class nomeDaClasse : MonoBehaviour
 	% 3 Processo
 	O Algoritmo Genético mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
-	A melhor condição para se parar é uma boa "avaliação"{} (fitness) dos indivíduos,
-	mas também é possível parar por um limite de gerações.
+	O processo ocorre como explica a Tabela \ref{tab:agCycle} e ilustra a Figura \ref{fig:gaflow} a seguir:
 	
 	\begin{table}[h]
 		\caption{Ciclo do Algoritmo Genético}
@@ -813,17 +822,15 @@ public class nomeDaClasse : MonoBehaviour
 		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
 		\begin{tabular}{>{\centering\arraybackslash}m{3.5cm} m{11.5cm}}
 			\hline 
-			\textbf{Inicia População} & Gera uma população aleatória de n cromossomos. \\ 
+			\textbf{Inicia População} & Gera uma população aleatória de n indivíduos. \\ 
 			\hline 
-			\textbf{Avaliação} & Testa o valor de fitness f(x) de cada cromossomo x da população. Se a condição de parada for satisfeita, o algoritmo acaba. \\ 
+			\textbf{Avaliação} & Calcula o valor de fitness de cada cromossomo na população. Se a condição de parada for satisfeita, o algoritmo acaba. \\ 
 			\hline 
-			\textbf{Seleção} & Seleciona 2 cromossomos de acordo com o fitness deles, ou seja, quanto maior o valor de fitness, maior a probabilidade. \\ 
+			\textbf{Seleção} & Seleciona 2 cromossomos de acordo com o fitness. Quanto maior o valor de fitness, maior a probabilidade de ser selecionado. \\ 
 			\hline 
-			\textbf{Crossover} & Copia partes dos cromossomos dos pais em cromossomos filhos. \\ 
+			\textbf{Crossover} & Copia partes dos cromossomos dos pais em cromossomos filhos, inserindo-os na nova população. \\ 
 			\hline 
-			\textbf{Mutação} & Aplica a probabilidade de alterar os genes dos indivíduos da nova população. \\ 
-			\hline 
-			\textbf{Loop} & Retorna ao passo de Avaliação. \\ 
+			\textbf{Mutação} & Aplica a probabilidade de alterar aleatoriamente os genes dos indivíduos da nova população, e retorna ao passo de Avaliação. \\ 
 			\hline 
 		\end{tabular}\\
 		\vspace{3mm}
@@ -834,27 +841,73 @@ public class nomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{Passo a passo do Algoritmo Genético}
-		\includegraphics[scale=0.8]{GeneticAlgorithmFlow.png}\\
+		\includegraphics[scale=0.7]{GeneticAlgorithmFlow.png}\\
 		\vspace{0.5mm}
 		\source{Tech-Effigy.}
 		\label{fig:gaflow}
 	\end{figure}
 	
-	A Figura \ref{fig:gaflow} ilustra o que foi descrito.
-	O ciclo de um Algoritmo Genético pode ser representado como na Tabela \ref{tab:agCycle}, na ordem apresentada.
-	A maior motivação de se utilizar um AG é que, a cada geração,
-	as soluções ficam melhores.
+	A condição de parada pode ocorrer por mais de um motivo.
+	A melhor condição para se parar é uma boa "avaliação"{} (fitness) dos indivíduos,
+	mas também é possível parar por causa de um limite de gerações ou iterações.
+	
+	Como é possível notar,
+	a repetição das etapas de Avaliação, Seleção, Crossover e Mutação melhora gradativamente as soluções encontradas,
+	sendo esta a maior motivação de se utilizar um AG.	
 	
 	\FloatBarrier
 	\subsubsection{Exemplos de aplicação}
 	% 4 Exemplos de aplicação
-	<Exemplos de aplicação do Algoritmo Genético>
+	Como exemplos de aplicação de AG,
+	será citado
+	Design Automotivo, Robótica, Otimização de rotas e Jogos.
+	
+	No caso de Design Automotivo,
+	AGs podem auxiliar na escolha de materiais e seus formatos para a produção de veículos mais rápidos, leves, econômicos e mais seguros.
+	A Figura \ref{fig:automotiveDesign} ilustra um exemplo de design de carro.
+	Por se tratar de um problema de otimização,
+	o AG pode encontrar várias soluções que irão ajudar o designer a projetar o veículo
+	(BRAINZ, 2010).
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Exemplo de design de carro}
+		\includegraphics[scale=0.7]{AutomotiveDesign.jpg}\\
+		\vspace{0.5mm}
+		\source{BRAINZ.}
+		\label{fig:automotiveDesign}
+	\end{figure}
+	
+	A aplicação de AG em Robótica procura os designs de robôs mais otimizados para as suas tarefas.
+	Como existem muitas "tarefas"{} que podem ser dadas aos robôs,
+	diferentes designs são necessários.
+	Um AG pode agilizar o processo de desenvolvimento de design de um robô,
+	considerando as inúmeras variáveis e criando um design melhorado
+	(BRAINZ, 2010).
+	
+	AGs também são capazes de encontrar boas soluções em problemas de otimização de rotas.
+	As rotas podem ser de, por exemplo:
+	um navio no oceano,
+	um carro na estrada ou cidade,
+	e dados trafegando por roteadores na internet
+	(BRAINZ, 2010).
+	
+	E como último exemplo,
+	é possível utilizar AG em jogos eletrônicos.
+	O jogo The Sims permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
+	(BRAINZ, 2010).
+	O jogo Creatures simula a vida pequenas criaturas,
+	e procura ser fiel ao simular a vida deles como se fossem pequenos animais,
+	criando seu "DNA"{} e características passadas geneticamente
+	(AIGAMEDEV, 2007).
 	
 	\FloatBarrier
 	\subsubsection{Variação com RNA}
-	No trabalho aqui desenvolvido,
-	Redes Neurais Artificiais e Algoritmos Genéticos são utilizados em conjunto.
-	Na Figura \ref{fig:nn-ag} a seguir é possível visualizar como é implementação de ambos os conceitos juntos.
+	Uma diferente forma de se trabalhar com AG é juntá-la com RNA.
+	Desta maneira, a RNA terá como papel o processamento de dados complexos,
+	e o AG fará a busca dos pesos otimizados na RNA.
+	
+	Na Figura \ref{fig:nn-ag} a seguir, é possível visualizar como é implementação dos conceitos juntos.
 	
 	\begin{figure}[ht!]
 		\centering
@@ -869,6 +922,9 @@ public class nomeDaClasse : MonoBehaviour
 	e então é tratado como um cromossomo para realizar o processo do AG.
 	Ao finalizar, o cromossomo retorna à RNA como pesos,
 	usa-se e repete o processo.
+	
+	Este foi o método escolhido para a criação da Inteligência Artificial neste trabalho:
+	Algoritmo Genético otimizando os pesos de uma Rede Neural Artificial.
 
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
@@ -924,5 +980,7 @@ public class nomeDaClasse : MonoBehaviour
 	Tech-Effigy. The Genetic Algorithm - Explained. Disponível em: \textless \url{https://techeffigytutorials.blogspot.com.br/2015/02/the-genetic-algorithm-explained.html}\textgreater. Acesso em 14 Julho 2016.\par
 	Evo-neural-network-agents. Simulation of evolution of neural network driven agents in the small world with the pieces of food. Disponível em: \textless \url{https://github.com/lagodiuk/evo-neural-network-agents}\textgreater. Acesso em 14 Julho 2016.\par
 	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
+	BRAINZ. 15 Real-World Uses of Genetic Algorithms. Disponível em: \textless \url{http://brainz.org/15-real-world-applications-genetic-algorithms/}\textgreater. Acesso em 20 Julho 2016.\par
+	
 
 \end{document}
