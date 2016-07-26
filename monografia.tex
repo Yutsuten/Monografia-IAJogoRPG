@@ -42,6 +42,8 @@
 \usepackage{placeins}
 % Usado para centralizar verticalmente em tabelas
 \usepackage{array}
+% Mesclar células de uma mesma coluna no tabular
+\usepackage{multirow}
 
 
 % CONFIGURAÇÃO DE VARIÁVEIS
@@ -345,11 +347,11 @@
 	então durante o jogo eles buscam o plano que irá completar o objetivo com maior prioridade.
 	O planejamento feito é similar ao STRIPS,
 	tendo-se a situação atual e quais são as ações necessárias para cumprir o objetivo.
-	Além disto, foi implementado uma extensão da conduta individual dos NPCs,
+	Além disto, foi implementado uma extensão da conduta individual dos NPCs
 	com uma conduta em equipe.
 	No entanto, como a conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
 	os extintos básicos do NPC podem sobrescrever a conduta de equipe
-	caso a segunda opção seja muito arriscado para si mesmo (ORKIN, 2006).
+	caso a segunda opção seja muito arriscada para si mesmo (ORKIN, 2006).
 	
 	Percebe-se, desta forma, que a área de jogos está muito ativa e em pleno crescimento,
 	tanto no mercado quando em pesquisas.
@@ -932,7 +934,108 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\FloatBarrier
 	\subsection{Descrição do jogo}
-	<Descrever o jogo, suas variáveis, complexidades, particularidades, etc>
+	% 1 Visão geral do jogo
+	O jogo desenvolvido neste projeto é um jogo RPG em turnos,
+	do qual 2 times de 3 personagens cada se enfrentam numa batalha cujo objetivo é derrotar o time inimigo.
+	
+	% 2 Descrição breve de como ocorre a batalha (turnos, 3x3, colocar imagem)
+	A complexidade do jogo se compõe de:
+	uma lista de atributos para cada personagem,
+	diferentes habilidades para dar dano ou curar,
+	e itens consumíveis,
+	tudo junto com uma verificação elemental,
+	que pode dar alguma vantagem ou não.
+	A seguir será descrito cada uma destas partes.
+	
+	% 3 Explicar detalhadamente cada atributo de personagem
+	% 3.1 Atributos (em que favorecem, desfavorecem ou melhoram durante a batalha)
+	Primeiramente será explicado a respeito dos atributos de cada personagem,
+	e está descrito na Tabela \ref{tab:characterStats}.
+	
+	\begin{table}[h]
+		\caption{Atributos dos personagens}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{>{\centering\arraybackslash}m{3.5cm} m{11.5cm}}
+			\hline 
+			\textbf{HP (Health Points)} & Pontos de vida, é o quanto de dano o personagem pode receber antes de ser incapacitado. \\ 
+			\hline 
+			\textbf{MP (Magic Points)} & Pontos de magia, é consumido ao utilizar habilidades. \\ 
+			\hline 
+			\textbf{ATK (Attack)} & Um valor alto de ataque permite infligir maiores danos físicos. \\ 
+			\hline 
+			\textbf{DEF (Defense)} & Um valor alto de defesa reduz os danos físicos que serão infligidos no HP. \\ 
+			\hline 
+			\textbf{MGK (Magic)} & Equivalente ao ATK, mas infligindo danos mágicos. \\ 
+			\hline 
+			\textbf{RES (Resistance)} & Equivalente ao DEF, mas reduzindo danos mágicos que serão infligidos no HP. \\ 
+			\hline 
+			\textbf{SPD (Speed)} & Velocidade do personagem, e valores altos o permite executar mais comandos em menos tempo. \\ 
+			\hline 
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:characterStats}
+	\end{table}
+	
+	Percebe-se que existe uma diferenciação de 2 tipos básicos de danos:
+	o físico e o mágico.
+	%Desta forma, no momento do ataque é verificado qual é o tipo de dano a ser causado.
+	Para ambos os casos
+	existem atributos ofensivos que tendem a aumentar o dano (ATK para dano físico e MGK para dano mágico),
+	e atributos defensivos que tendem a reduzir o dano (DEF para dano físico e RES para dano mágico).
+	
+	Após um calculo de dano,
+	aquele valor é subtraído no HP do defensor.
+	Caso o HP deste personagem chegue a 0,
+	ele é considerado como incapacitado e não participa mais da batalha.
+	
+	A única maneira de se causar danos mágicos é através de habilidades.
+	Como visto na Tabela \ref{tab:characterStats},
+	utilizá-las consome MP.
+	Caso o MP seja insuficiente para utilizar a habilidade,
+	ela não poderá ser usada.
+	
+	% 3.2 Explicar sobre as fraquezas e pontos fortes, elementos e suas taxas no dano
+	Assim como os personagens tem atributos,
+	eles também tem uma lista de pontos fracos e fortes.
+	Esta lista é composta por 5 diferentes danos que é possível receber
+	(sendo 4 delas sub-divisões do dano mágico)
+	e seu valor (alta resistência, normal ou fraco).
+	Mais detalhes sobre tipos de danos podem ser vistos na Tabela \ref{tab:damageTypes}.
+	
+	\begin{center}
+		\begin{table}[h]
+			\caption{Tipos de danos}
+			\centering
+			\small
+			\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+			\begin{tabular}{>{\centering\arraybackslash}c|c}
+				%\hline 
+				%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
+				\hline 
+				Ataque físico & Dano físico \\ 
+				\hline 
+				\multirow{4}{*}{Ataque mágico (elemental)} & Dano de água \\\cline{2-2}
+										& Dano de fogo \\\cline{2-2}
+										& Dano de terra \\\cline{2-2}
+										& Dano de vento \\
+				\hline 
+			\end{tabular}\\
+			\vspace{3mm}
+			\source{Elaborado pelo autor.}
+			\label{tab:damageTypes}
+		\end{table}
+	\end{center}
+	
+	<Explicar mais sobre os pontos fracos e fortes>
+	
+	%%% 3.3 Skills existentes, suas taxas de dano, elemento e consumo de MP
+	
+	% 4 Comandos: Ataque, Defesa, Skill (3.3) e Item - Explicar cálculos executados
+	
+	% 5 Times: Valores atribuídos para cada personagem (stats, fraq. e ponto forte, elem. das skills)
 	
 	\FloatBarrier
 	\subsection{Rede Neural Artificial Implementado}
@@ -981,6 +1084,6 @@ public class nomeDaClasse : MonoBehaviour
 	Evo-neural-network-agents. Simulation of evolution of neural network driven agents in the small world with the pieces of food. Disponível em: \textless \url{https://github.com/lagodiuk/evo-neural-network-agents}\textgreater. Acesso em 14 Julho 2016.\par
 	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
 	BRAINZ. 15 Real-World Uses of Genetic Algorithms. Disponível em: \textless \url{http://brainz.org/15-real-world-applications-genetic-algorithms/}\textgreater. Acesso em 20 Julho 2016.\par
-	
+	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
 
 \end{document}
