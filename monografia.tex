@@ -44,6 +44,8 @@
 \usepackage{array}
 % Mesclar células de uma mesma coluna no tabular
 \usepackage{multirow}
+% Fórmulas
+\usepackage{mathtools}
 
 
 % CONFIGURAÇÃO DE VARIÁVEIS
@@ -943,14 +945,16 @@ public class nomeDaClasse : MonoBehaviour
 	uma lista de atributos para cada personagem,
 	diferentes habilidades para dar dano ou curar,
 	e itens consumíveis,
-	tudo junto com uma verificação elemental,
-	que pode dar alguma vantagem ou não.
+	tudo junto com uma verificação elemental que pode dar alguma vantagem ao dano ou não.
 	A seguir será descrito cada uma destas partes.
 	
 	% 3 Explicar detalhadamente cada atributo de personagem
 	% 3.1 Atributos (em que favorecem, desfavorecem ou melhoram durante a batalha)
-	Primeiramente será explicado a respeito dos atributos de cada personagem,
-	e está descrito na Tabela \ref{tab:characterStats}.
+	\subsubsection{Atributos dos personagens}
+	%Primeiramente será explicado a respeito dos atributos de cada personagem,
+	%e está descrito na Tabela \ref{tab:characterStats}.
+	A Tabela \ref{tab:characterStats} a seguir define quais são os atributos dos personagens,
+	e mostra uma breve descrição de seu papel durante o jogo.
 	
 	\begin{table}[h]
 		\caption{Atributos dos personagens}
@@ -1005,33 +1009,122 @@ public class nomeDaClasse : MonoBehaviour
 	e seu valor (alta resistência, normal ou fraco).
 	Mais detalhes sobre tipos de danos podem ser vistos na Tabela \ref{tab:damageTypes}.
 	
-	\begin{center}
-		\begin{table}[h]
-			\caption{Tipos de danos}
-			\centering
-			\small
-			\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
-			\begin{tabular}{>{\centering\arraybackslash}c|c}
-				%\hline 
-				%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
-				\hline 
-				Ataque físico & Dano físico \\ 
-				\hline 
-				\multirow{4}{*}{Ataque mágico (elemental)} & Dano de água \\\cline{2-2}
-										& Dano de fogo \\\cline{2-2}
-										& Dano de terra \\\cline{2-2}
-										& Dano de vento \\
-				\hline 
-			\end{tabular}\\
-			\vspace{3mm}
-			\source{Elaborado pelo autor.}
-			\label{tab:damageTypes}
-		\end{table}
-	\end{center}
+	\begin{table}[h]
+		\caption{Tipos de danos}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{>{\centering\arraybackslash}c|c}
+			%\hline 
+			%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
+			\hline 
+			Ataque físico & Dano físico \\ 
+			\hline 
+			\multirow{4}{*}{Ataque mágico (elemental)}	& Dano de água \\\cline{2-2}
+														& Dano de fogo \\\cline{2-2}
+														& Dano de terra \\\cline{2-2}
+														& Dano de vento \\
+			\hline 
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:damageTypes}
+	\end{table}
 	
-	<Explicar mais sobre os pontos fracos e fortes>
+	Então se, por exemplo, um personagem tem fraqueza em dano de água e levar este tipo de ataque,
+	o dano a ser causado em seu HP será aumentado em relação ao dano normal.
+	Por outro lado, se este mesmo personagem fosse resistente à água,
+	o mesmo ataque teria o dano no HP reduzido em relação ao dano normal.
 	
-	%%% 3.3 Skills existentes, suas taxas de dano, elemento e consumo de MP
+	% 3.3 Cálculo do dano, skills existentes, suas taxas de dano, elemento e consumo de MP
+	\subsubsection{Cálculos de dano e velocidade}
+	%O primeiro passo para o cálculo de um dano neste jogo é o cálculo de um multiplicador,
+	%que é calculado da seguinte forma:
+	
+	%\begin{equation}
+	%	Multiplicador = \begin{cases}
+	%				\frac{ATK}{0,3 ATK + 1,2 DEF}	& se \frac{ATK}{0,3 ATK + 1,2 DEF} \geq 0,2 \\
+	%					0,2								& se \frac{ATK}{0,3 ATK + 1,2 DEF} < 0,2
+	%					\end{cases}
+	%	\label{eq:multiplier}
+	%\end{equation}
+	O cálculo de danos no jogo é dada pelas seguintes fórmulas:
+	
+	\begin{equation}
+		Dano = 0,3 ATK \times \left(\frac{ATK}{0,3 ATK + 1,2 DEF}\right)
+		\label{eq:physicalDamageFormula}
+	\end{equation}
+	
+	\begin{equation}
+		Dano = 0,3 MAG \times \left(\frac{MAG}{0,3 MAG + 1,2 RES}\right)
+		\label{eq:magicalDamageFormula}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	A fórmula \eqref{eq:physicalDamageFormula} é usada para calcular danos físicos,
+	e o valor de ATK a ser usado é do atacante,
+	DEF é do defensor,
+	e o dano calculado é o que será reduzido do HP do defensor.
+	
+	A fórmula \eqref{eq:magicalDamageFormula} é usada para calcular danos mágicos,
+	sendo MAG atributo do atacante,
+	RES do defensor,
+	e como a primeira fórmula, o dano é subtraído do HP do defensor.
+	
+	Após o cálculo do dano,
+	é verificado qual é o tipo de dano a ser dado
+	(detalhes dos tipos de danos estão na Tabela \ref{tab:damageTypes}),
+	e qual a resistência àquele tipo de dano em específico que o defensor tem.
+	Caso o defensor tenha fraqueza neste tipo de ataque,
+	o dano ainda passa pela Fórmula \eqref{eq:damageBonus}.
+	
+	\begin{equation}
+		Dano final = 1,5 \times Dano
+		\label{eq:damageBonus}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Por outro lado, caso o defensor tenha resistência no tipo do dano,
+	a fórmula a ser usada será a Fórmula \eqref{eq:damageReduction}
+	
+	\begin{equation}
+		Dano final = 0,6 \times Dano
+		\label{eq:damageReduction}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Se o personagem não tem fraqueza nem resistência ao dano,
+	o dano final será o mesmo que o calculado nas Fórmulas \eqref{eq:physicalDamageFormula} e \eqref{eq:magicalDamageFormula}.
+	
+	Por último, tem-se a influência do SPD na frequência de se efetuar comandos.
+	A partida é composta por vários turnos,
+	e é possível que ninguém ou apenas um personagem efetue alguma ação.
+	Os personagens tem uma variável de "preparado para efetuar comando"{} que inicia-se em 0 e completa-se ao chegar em 1000,
+	mas podendo ultrapassar.
+	Em todos os turnos, todos os personagens ganham pontos nessa variável,
+	e a quantidade que ganham é determinada pela Fórmula \eqref{eq:speedCalculation} a seguir:
+	
+	\begin{equation}
+		Preparado = Preparado + SPD
+		\label{eq:speedCalculation}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Após este cálculo,
+	o jogo ordena todos os personagens que ainda estão batalhando de acordo com esta variável.
+	Se o primeiro da lista tiver 1000 pontos ou mais, um turno é atribuído a ele,
+	e então essa variável é reduzida em 1000 pontos,
+	com o personagem voltando, então, ao final da lista.
+	
+	As fórmulas aqui apresentadas foram usadas na implementação do jogo,
+	mas é importante deixar claro que também foi adicionado alguma aleatoriedade nas fórmulas,
+	a fim de aumentar mais um pouco a complexidade do jogo e deixá-lo um pouco menos determinístico.
+	Os danos finais podem variar 15\% para mais ou para menos do que foi calculado.
+	E a velocidade, no cálculo do "preparado"{}, SPD tem um acréscimo aleatório entre 0 e 9 unidades.
 	
 	% 4 Comandos: Ataque, Defesa, Skill (3.3) e Item - Explicar cálculos executados
 	
