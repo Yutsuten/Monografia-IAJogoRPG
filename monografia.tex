@@ -561,7 +561,7 @@ public class nomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{Funções de Ativação comuns em uma RNA}
 		\centering
-		\includegraphics[scale=0.3]{ActivationFunctions.png}\\
+		\includegraphics[scale=0.39]{ActivationFunctions.png}\\
 		\vspace{0.5mm}
 		\source{Turing Finance.}
 		\label{fig:activationFunctions}
@@ -771,7 +771,7 @@ public class nomeDaClasse : MonoBehaviour
 		\caption{Método da roleta para Seleção}
 		\includegraphics[scale=0.7]{Roulette.jpg}\\
 		\vspace{0.5mm}
-		\source{Stack overglow.}
+		\source{Stack overflow.}
 		\label{fig:roulette}
 	\end{figure}
 	
@@ -1228,8 +1228,50 @@ public class nomeDaClasse : MonoBehaviour
 	mas é fraco em ataques físicos e tem baixo HP.
 	
 	\FloatBarrier
-	\subsection{Rede Neural Artificial Implementado}
-	<Descrever em detalhes qual foi a Rede Neural Artificial implementada>
+	\subsection{Rede Neural Artificial Implementada}
+	A RNA implementada possui 2 camadas,
+	uma de entrada e outra de saída,
+	e está ilustrada na Figura \ref{fig:gameNN}.
+	Não foi colocada nenhuma camada oculta por dois motivos:
+	melhor performance e
+	porque bons resultados foram alcançados mesmo com sua ausência.
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Rede Neural Artificial implementada}
+		\includegraphics[scale=0.9]{GameNN.png}\\
+		\vspace{0.5mm}
+		\source{Elaborado pelo autor.}
+		\label{fig:gameNN}
+	\end{figure}
+	
+	A camada de entrada possui 33 neurônios,
+	que recebem valores entre -1000 e 1000.
+	Em sua função de ativação,
+	seus valores são multiplicados linearmente por uma constante de 0,002,
+	reduzindo o intervalo dos valores para -2 e 2.
+	
+	A camada de saída possui 12 neurônios,
+	e na função de entrada é feito um somatório dos estímulos vindos da camada de entrada multiplicados por um peso.
+	Na função de ativação é aplicada a função sigmoide \eqref{eq:sigmoid}
+	produzindo saídas no intervalo de 0 a 1
+	(ilustrada na Figura \ref{fig:activationFunctions},
+	gráfico \textbf{d},
+	página \pageref{fig:activationFunctions}).
+	
+	\begin{equation}
+		S(t) = \frac{1}{1 + e^{-t}}
+		\label{eq:sigmoid}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	A implementação foi feita com o uso de dois vetores e uma matriz,
+	sendo que os vetores representam os neurônios da camada de entrada e saída,
+	e a matriz é a matriz de pesos da RNA.
+	Após o preenchimento do vetor de entrada e a matriz de pesos,
+	são feitos os cálculos explicados acima para obter-se o vetor de saída,
+	que é o resultado.
 	
 	\FloatBarrier
 	\subsection{Algoritmo Genético Implementado}
@@ -1275,5 +1317,6 @@ public class nomeDaClasse : MonoBehaviour
 	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
 	BRAINZ. 15 Real-World Uses of Genetic Algorithms. Disponível em: \textless \url{http://brainz.org/15-real-world-applications-genetic-algorithms/}\textgreater. Acesso em 20 Julho 2016.\par
 	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
+	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 13 Julho 2016.\par
 
 \end{document}
