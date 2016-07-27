@@ -64,6 +64,12 @@
 	% Remove indentação no sumário
 	\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{3.0em}}
 	\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{3.0em}}
+	% Criando linhas mais grossas nas tabelas
+	\newcommand{\thickhline}{%
+    	\noalign {\ifnum 0=`}\fi \hrule height 1pt
+    	\futurelet \reserved@a \@xhline
+	}
+	\newcolumntype{?}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 \makeatother
 % Editando títulos dos índices
 \addto\captionsbrazilian{
@@ -950,7 +956,7 @@ public class nomeDaClasse : MonoBehaviour
 	
 	% 3 Explicar detalhadamente cada atributo de personagem
 	% 3.1 Atributos (em que favorecem, desfavorecem ou melhoram durante a batalha)
-	\subsubsection{Atributos dos personagens}
+	\subsubsection{Descrição dos atributos}
 	%Primeiramente será explicado a respeito dos atributos de cada personagem,
 	%e está descrito na Tabela \ref{tab:characterStats}.
 	A Tabela \ref{tab:characterStats} a seguir define quais são os atributos dos personagens,
@@ -1117,8 +1123,8 @@ public class nomeDaClasse : MonoBehaviour
 	Após este cálculo,
 	o jogo ordena todos os personagens que ainda estão batalhando de acordo com esta variável.
 	Se o primeiro da lista tiver 1000 pontos ou mais, um turno é atribuído a ele,
-	e então essa variável é reduzida em 1000 pontos,
-	com o personagem voltando, então, ao final da lista.
+	a variável dele é reduzida em 1000 pontos,
+	voltando assim ao final da lista.
 	
 	As fórmulas aqui apresentadas foram usadas na implementação do jogo,
 	mas é importante deixar claro que também foi adicionado alguma aleatoriedade nas fórmulas,
@@ -1127,8 +1133,99 @@ public class nomeDaClasse : MonoBehaviour
 	E a velocidade, no cálculo do "preparado"{}, SPD tem um acréscimo aleatório entre 0 e 9 unidades.
 	
 	% 4 Comandos: Ataque, Defesa, Skill (3.3) e Item - Explicar cálculos executados
+	\subsubsection{Comandos}
+	Quando um personagem recebe um turno,
+	ele pode escolher um entre 4 comandos básicos:
+	Atacar, Defender, Usar Habilidade e Usar Item.
+	
+	\textbf{Ataque} é o comando ofensivo mais simples de todos.
+	Não consome MP,
+	e causa dano físico razoavelmente baixo.
+	
+	\textbf{Defesa} é um comando defensivo que reduz o dano a ser recebido.
+	Após todos os cálculos de dano,
+	é verificado se o personagem está defendendo.
+	Se estiver, aquele dano é reduzido em 50\%.
+	
+	\textbf{Habilidade} é um comando que possui 3 subcomandos,
+	cada um deles representando uma habilidade diferente:
+	
+	\begin{itemize}[noitemsep]
+    	\item \textbf{Habilidade Fraca} é uma habilidade que pode causar tanto dano físico quanto mágico,
+		consome 50 MP,
+		e após os cálculos de dano,
+		o valor de dano é aumentado em 50\%.
+    	\item \textbf{Habilidade Forte} é semelhante a fraca,
+    	consome 110 MP,
+		e causa um aumento de dano de 100\%.
+    	\item \textbf{Habilidade de Cura} é uma habilidade que permite recuperar o HP de algum personagem.
+		Por ser uma habilidade de suporte,
+		a RES do alvo é ignorada,
+		sendo aplicada uma cura equivalente a 50\% do MGK do personagem que está aplicando a cura.
+  	\end{itemize}
+	
+	\textbf{Item} é um comando que permite o uso de itens consumíveis durante a batalha.
+	Existem 6 itens diferentes,
+	um é Poção e os outros 5 são ofensivos, um para cada tipo de dano existente no jogo.
+	A poção tem valor constante de cura,
+	e os outros tem um valor de "ataque"{} semelhante a ATK ou MGK,
+	que é independente do personagem que irá usá-lo.
 	
 	% 5 Times: Valores atribuídos para cada personagem (stats, fraq. e ponto forte, elem. das skills)
+	\subsubsection{Atributos dos personagens}
+	A escolha dos valores de atributos,
+	elemento das habilidades,
+	pontos fracos e fortes foram escolhidos de forma a deixar a batalha estratégica e interessante.
+
+	Os personagens de ambos os times foram criados com parâmetros iguais,
+	de forma que se tenha uma batalha de "igual para igual"{}.
+	Todas estas informações foram resumidas
+	e estão ilustradas na Tabela \ref{tab:charactersParamters} a seguir.
+	
+	\begin{table}[h]
+		\caption{Parâmetro dos personagens}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{c?c|c|c}
+			%\hline 
+			%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
+			\thickhline 
+			\textbf{Parâmetro}			& \textbf{Pers. 1 (Tanker)}	& \textbf{Pers. 2 (Guerreiro)}	& \textbf{Pers. 3 (Mago)}	\\\thickhline
+			\textbf{HP Max}				& 650						& 450							& 300						\\\hline 
+			\textbf{MP Max}				& 250						& 400							& 700						\\\hline 
+			\textbf{ATK}				& 150						& 350							& 200						\\\hline 
+			\textbf{DEF}				& 300						& 250							& 100						\\\hline 
+			\textbf{MGK}				& 100						& 150							& 320						\\\hline 
+			\textbf{RES}				& 300						& 100							& 350						\\\hline
+			\textbf{SPD}				& 70						& 85							& 78						\\\thickhline
+			\textbf{Defesa Física}		& Alta						& Normal						& Baixa 					\\\hline
+			\textbf{Defesa de Água}		& Baixa						& Normal						& Normal 					\\\hline
+			\textbf{Defesa de Fogo}		& Normal					& Alta							& Alta	 					\\\hline
+			\textbf{Defesa de Terra}	& Alta						& Normal						& Normal 					\\\hline
+			\textbf{Defesa de Vento}	& Normal					& Baixa							& Normal 					\\\thickhline
+			\textbf{Hab. Fraca}			& Vento						& Fogo							& Terra 					\\\hline
+			\textbf{Hab. Forte}			& Terra						& Água							& Fogo	 					\\\thickhline
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:charactersParamters}
+	\end{table}
+	
+	Percebe-se que foram criados 3 tipos diferentes de personagens,
+	cada um com suas características.
+	
+	O \textbf{Tanker} é um personagem resistente a danos,
+	com bastante HP,
+	mas que não é capaz de causar grandes danos.
+	
+	O \textbf{Guerreiro} é um personagem especializado em ataques físicos,
+	possui um HP razoável e é rápido em seus movimentos.
+	No entanto, suas habilidades mágicas não são das melhores.
+	
+	O \textbf{Mago} é um personagem especializado em usar magias,
+	capaz de causar grandes danos em suas habilidades,
+	mas é fraco em ataques físicos e tem baixo HP.
 	
 	\FloatBarrier
 	\subsection{Rede Neural Artificial Implementado}
