@@ -1326,23 +1326,151 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\FloatBarrier
 	\subsection{Funcionamento do jogo}
+	Visto a descrição das variáveis do jogo na seção 4.1
+	e a explicação da implementação da Rede Neural Artificial e Algoritmo Genético nas seções 4.2 e 4.3,
+	será explicado aqui como cada uma destas partes foram juntadas umas nas outras para formarem o todo,
+	%que é um jogo jogado por uma Inteligência Artificial capaz de aprender e mostrar bons resultados.
+	que é o trabalho desenvolvido.
+	
+	\subsubsection{Preparação da batalha}
 	% Abertura do jogo pela primeira vez
+	Ao abrir o jogo pela primeira vez,
 	% criação da população e salvando os dados num arquivo (é salvo junto com a informação de quem já foi avaliado ou não)
+	o script do Algoritmo Genético cria uma população aleatória e a salva em um arquivo.
+	% Caso tenha fechado o jogo e aberto de novo, as informaçõoes são carregadas de arquivo.
+	Desta forma, caso o jogo seja fechado e aberto novamente,
+	as informações da população são carregadas do arquivo.
+	Neste arquivo são salvos o número que representa a geração atual
+	e informações de cada indivíduo da população: os cromossomos, seu fitness e se o cromossomo já foi avaliado.
+	
 	% Primeiros 2 tem seus cromossomos carregados na RNA, uma para cada time
+	Após a população ter sido criada ou carregada,
+	procura-se os dois primeiros indivíduos que ainda não foram avaliados.
+	Ao encontrar, a informação de seus cromossomos é carregada na matriz de pesos de uma RNA.
+	Nesta parte, cada RNA representará a inteligência de um time,
+	que por sua vez "emula"{} um jogador real.
+	
+	\subsubsection{Durante a batalha}
 	% Inicia-se a batalha, procura-se o primeiro a receber turno
+	Ao iniciar a batalha, cada time tem uma RNA que a representa e controla.
 	% O que recebeu turno roda a RNA respectiva a seu time
+	O personagem que receber o turno é o que poderá efetuar um comando,
+	e neste momento o script de Rede Neural do seu time entra em ação 6 vezes,
+	uma para cada diferente personagem ainda em batalha.
+	
 	% Explicar quais são os valores de entrada que estão sendo usadas na camada de entrada
+	Em cada execução da Rede Neural, são usadas como entrada alguns parâmetros do personagem que possuí o turno,
+	e parâmetros do possível alvo.
+	As informações usadas como entrada na RNA estão descritas na Tabela \ref{tab:nnInput}.
+	
+	\begin{table}[h]
+		\caption{Valores de entrada na RNA}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{c|c|c|c}
+			\hline 
+			\textbf{Atacante}			& \multicolumn{2}{c|}{\textbf{Possível alvo}}	& \textbf{Outros}		\\\hline
+			MP usado					& HP perdido		& Def. Física*		& Itens disponíveis* (6)		\\ 
+			ATK							& MP usado			& Def. Água*		& Alvo é inimigo?				\\ 
+			MAG							& ATK				& Def. Fogo*		& 								\\ 
+			SPD							& DEF				& Def. Terra*		& 								\\ 
+			Elem. Hab. Fraca* (5)		& MAG				& Def. Vento*		& 								\\ 
+			Elem. Hab. Forte* (5)		& RES									& 								\\
+										& SPD									& 								\\\hline
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:nnInput}
+	\end{table}
+	
+	% Explicação em detalhes de cada entrada na RNA
+	No total são 33 entradas,
+	em que os que foram marcados com um (X), sendo X um número,
+	significa que aquele atributo ainda foi quebrado em X neurônios diferentes.
+	No caso da habilidade,
+	é subdividido em 5 neurônios para que cada um simbolize um elemento.
+	Já nos itens disponíveis,
+	são usados 6 neurônios por causa da existência de 6 diferentes itens.
+	
+	Valores na tabela que contém um * (asterisco) representa que eles tem valor binário.
+	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de -1000.
+	Por outro lado, se o valor for "verdadeiro"{}, "sim"{} ou "forte"{}. terá o valor de 1000.
+	
+	Os demais valores vem com intervalo de 0 a 1000,
+	mas que são convertidos para um intervalo de -1000 a 1000,
+	ficando no mesmo padrão que as outras entradas.
+	Como já visto na seção 4.2,
+	o intervalo de -1000 a 1000 é multiplicado por uma constante para se reduzir ao intervalo de -2 a 2.
+	
 	% Explicar que cada valor de saída siginifica um comando e a chance de usar ele
-	% Verificação se é viáver efetuar o comando (item ou disponível)
+	Após inserir esses dados nos neurônios de entrada da RNA da equipe,
+	é possível fazer os cálculos para se obter seus dados de saída,
+	composto por 12 neurônios.
+	
+	Como já explicado, as saídas tem valores entre 0 e 1.
+	A saída do primeiro neurônio é a que calcula a probabilidade daquele personagem se tornar alvo.
+	Quanto mais próximo de 1, maior a probabilidade,
+	e quanto mais próximo de 0, menor.
+	Os outros 11 neurônios representam, cada um, a probabilidade de utilizar um determinado comando naquele personagem, caso ele vire alvo.
+	O papel de cada neurônio de saída está ilustrada na Tabela \ref{tab:nnOutput}.
+	
+	\begin{table}[h]
+		\caption{Significado dos valores de saída da RNA}
+		\centering
+		\small
+		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
+		\begin{tabular}{c|c|c}
+			\thickhline 
+			\textbf{Alvo}				& \textbf{Atacar}						& \textbf{Defender}				\\\hline
+			Prob. de virar alvo			& Prob. de atacar						& Prob. de defender				\\\thickhline
+			\textbf{Habilidade}			& 					\multicolumn{2}{c}{\textbf{Usar item}}				\\\hline
+			Prob. usar a fraca			& Prob. item dano físico				& Prob. item dano terra			\\ 
+			Prob. usar a forte			& Prob. item dano água					& Prob. item dano vento			\\ 
+			Prob. usar a cura			& Prob. item dano fogo					& Prob. item poção				\\\thickhline
+		\end{tabular}\\
+		\vspace{3mm}
+		\source{Elaborado pelo autor.}
+		\label{tab:nnOutput}
+	\end{table}
+	
+	Então, na verificação de um personagem,
+	tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
+	Para utilizar esses dados,
+	foi criada uma estrutura que une "alvo"{} a "comando"{} em uma única probabilidade,
+	se segue a fórmula \eqref{eq:targetCommand} a seguir:
+	
+	\begin{equation}
+		Probabilidade = 1,5 \times Prob. de virar alvo + Prob. comando
+		\label{eq:targetCommand}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Desta forma, cria-se 11 combinações de alvo + comando em um personagem.
+	Repetindo este processo nos $N$ personagens ainda em batalha,
+	obtêm-se $11 \times N$ combinações de alvo e comando no final.
+	
+	Com todas estas possibilidades em mãos,
+	é feita uma ordenação delas de forma que a maior fique em primeiro.
+	% Verificação se é viável efetuar o comando (item ou disponível)
+	Neste momento,
+	o jogo tenta executar a melhor combinação de alvo e comando.
+	Caso falhe (por falta de item ou MP),
+	tenta-se executar o próximo comando da lista.
 	% Efetua-se o comando
+	Repete-se as tentativas até que consiga executar algum com sucesso.
+	
 	% Feedback do comando para avaliação (fitness)
 	% Bônus no fitness por derrotar (mostrar fórmula)
 	% Repete-se o processo até a batalha acabar
 	% Condições de parada: time derrotado ou limite de turnos
+	
+	\subsubsection{Após a batalha}
 	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
 	% Carrega-se os 2 próximos e faz tudo novamente.
 	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
-	% Caso tenha fechado o jogo e aberto de novo, as informaçõoes são carregadas de arquivo.
+	
 
 % DESENVOLVIMENTO - FIM
 
