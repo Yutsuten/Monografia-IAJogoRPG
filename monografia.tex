@@ -1275,11 +1275,74 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\FloatBarrier
 	\subsection{Algoritmo Genético Implementado}
-	<Descrever em detalhes qual foi o Algoritmo Genético implementado>
+	% Tamanho da população
+	A população do AG implementado é composta por 40 indivíduos,
+	sendo o cromossomo do indivíduo uma matriz de valores reais.
+	% População inicializada
+	Os genes do cromossomo são inicializados com valores aleatórios entre -1,0 e 1,0.
+	
+	% Avaliação: cálculo do fitness
+	Na avaliação,
+	dois indivíduos são selecionados e seus cromossomos
+	(que representam a matriz de pesos na RNA)
+	são carregados na Rede Neural Artificial.
+	Após a execução da RNA em cada comando do jogo,
+	é dada uma nota (fitness) sobre a influência que a RNA causou,
+	sendo que esta nota pode ser
+	positiva se o resultado foi bom,
+	ou negativa caso o resultado tenha sido indesejável.
+	Mais detalhes sobre os cálculos será mostrado na próxima seção:
+	4.4 Funcionamento do jogo.
+	
+	% Seleção - roleta e montagem da nova população
+	% Elitismo
+	Após a avaliação de todos os indivíduos da população,
+	entra-se no processo de seleção.
+	Nesta parte, cria-se a nova população ainda vazia,
+	e o objetivo passa a ser preenchê-la até ficar com 40 indivíduos.
+	Os primeiros 2 indivíduos que entram nessa nova população são resultado do Elitismo,
+	que copia os 2 com melhor fitness da população antiga para lá sem nenhuma modificação.
+	
+	Para as 38 vagas restantes,
+	repete-se o seguinte processo para preenchê-las:
+	Primeiro, seleciona-se 2 indivíduos usando o método da Roleta.
+	% Crossover (uniforme), taxa
+	Após isto, é calculado na taxa de crossover, de 90\%, se haverá crossover ou não.
+	Caso haja, é aplicado o crossover uniforme para a geração dos cromossomos filhos,
+	que são adicionados na nova população.
+	Caso não haja, os indivíduos selecionados são copiados para a nova população.
+	
+	% Mutação (taxa)
+	Na última etapa, a de mutação, a nova população já está preenchida com 40 indivíduos.
+	Para cada gene dos 38 cromossomos criados na seleção e crossover,
+	é calculada uma chance de 1,5\% de se ocorrer a mutação.
+	Se for determinado que haverá uma mutação em um gene,
+	haverá uma alteração de 0,3 unidades para mais ou para menos nele,
+	escolhido aleatoriamente.
+	
+	Finalizada a mutação,
+	a nova população se torna a população atual e retorna-se na Avaliação,
+	repetindo o processo.
 	
 	\FloatBarrier
 	\subsection{Funcionamento do jogo}
-	<Descrever como ocorre o funcionamento do jogo como um todo, dado que o leitor sabe os detalhes de cada parte.>
+	% Abertura do jogo pela primeira vez
+	% criação da população e salvando os dados num arquivo (é salvo junto com a informação de quem já foi avaliado ou não)
+	% Primeiros 2 tem seus cromossomos carregados na RNA, uma para cada time
+	% Inicia-se a batalha, procura-se o primeiro a receber turno
+	% O que recebeu turno roda a RNA respectiva a seu time
+	% Explicar quais são os valores de entrada que estão sendo usadas na camada de entrada
+	% Explicar que cada valor de saída siginifica um comando e a chance de usar ele
+	% Verificação se é viáver efetuar o comando (item ou disponível)
+	% Efetua-se o comando
+	% Feedback do comando para avaliação (fitness)
+	% Bônus no fitness por derrotar (mostrar fórmula)
+	% Repete-se o processo até a batalha acabar
+	% Condições de parada: time derrotado ou limite de turnos
+	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
+	% Carrega-se os 2 próximos e faz tudo novamente.
+	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
+	% Caso tenha fechado o jogo e aberto de novo, as informaçõoes são carregadas de arquivo.
 
 % DESENVOLVIMENTO - FIM
 
