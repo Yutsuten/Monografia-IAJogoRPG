@@ -1543,9 +1543,18 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\subsubsection{Após a batalha}
 	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
-	% Carrega-se os 2 próximos e faz tudo novamente.
-	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
+	Declarada o final da batalha,
+	ter-se-á o valor de fitness de ambas as equipes.
+	Estes valores vão para o script do Algoritmo Genético,
+	que registra em sua estrutura o fitness de cada um dos dois "indivíduos"{} e então salva no arquivo.
 	
+	% Carrega-se os 2 próximos e faz tudo novamente.
+	Para continuar o treinamento da Inteligencia Artificial,
+	o script do AG procura os dois próximos cromossomos que ainda não foram avaliados e carrega-os na RNA,
+	repetindo todo o processo.
+	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
+	Se todos os indivíduos da população já tiverem sido avaliados,
+	o AG passa para a sua próxima etapa e cria a nova geração.
 
 % DESENVOLVIMENTO - FIM
 
