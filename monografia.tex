@@ -365,7 +365,7 @@
 	tanto no mercado quando em pesquisas.
 	Existem áreas inexploradas de IA em jogos,
 	com novas fronteiras a serem exploradas.
-	Com isto em mente, este trabalho foi desenvolvido,
+	Com isto em mente este trabalho foi desenvolvido,
 	%aumentando o número de trabalhos que estão explorando esta área,
 	e espera-se contribuir com a comunidade acadêmica e/ou mercado de alguma forma.
 
@@ -511,7 +511,7 @@ public class nomeDaClasse : MonoBehaviour
 		ainda é possível utilizar as bibliotecas próprias do C\#,
 		como bibliotecas matemáticas, acesso à arquivo e listas.
 		
-		Na \textit{Figura \ref{fig:exvs}} a seguir, é possível ver um exemplo de classe criada no Visual Studio que foi usada neste projeto:
+		Na Figura \ref{fig:exvs} a seguir, é possível ver um exemplo de classe criada no Visual Studio que foi usada neste projeto:
 		
 		\begin{figure}[ht!]
 			\caption{Exemplo de classe no Visual Studio}
@@ -533,8 +533,7 @@ public class nomeDaClasse : MonoBehaviour
 	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
 	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
-	será explicado apenas a essência deles,
-	e o que foi necessário para desenvolver este trabalho.
+	será explicado apenas a essência deles e o foi necessário para desenvolver este trabalho.
 
 	\FloatBarrier
 	\subsection{Redes Neurais Artificiais}
@@ -1510,7 +1509,7 @@ public class nomeDaClasse : MonoBehaviour
 	e reduz-se em 1,5\% de seu valor atual em cada turno a partir do primeiro personagem que efetuar seu segundo comando na batalha.
 	O gráfico dos valores do bônus de derrotar está ilustrado na Figura \ref{fig:defeatBonusGraph}.
 	O principal motivo da existência deste bônus é encorajar a estratégia de derrotar rapidamente os adversários,
-	um de cada vez,
+	%um de cada vez,
 	dado que cada personagem a menos no time inimigo é um a menos para causar danos no time aliado.
 	
 	\begin{figure}[ht!]
@@ -1562,7 +1561,47 @@ public class nomeDaClasse : MonoBehaviour
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
 \section{RESULTADOS}
-	<Inserir gráficos de evolução do algoritmo, imagens do jogo, explicar desempenho da aprendizagem, etc.>
+
+	Para o visual do jogo procurou-se deixá-lo o mais agradável possível,
+	então foram usadas imagens disponibilizadas por usuários do site OpenGameArt\footnote{Link do site: \url{http://opengameart.org/}},
+	e o resultado pode ser visto na Figura \ref{fig:gameScreenshot}.
+
+	\begin{figure}[ht!]
+		\centering
+		\caption{Screenshot do jogo}
+		\includegraphics[scale=0.6]{GameScreenshot.jpg}\\
+		\vspace{0.5mm}
+		\source{Elaborado pelo autor.}
+		\label{fig:gameScreenshot}
+	\end{figure}
+
+	Já a respeito da Inteligência Artificial,
+	um treinamento de 20 gerações foi feito e os resultados estão ilustrados na Figura \ref{fig:fitnessResults}.
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Fitness durante 20 gerações}
+		\includegraphics[scale=0.7]{AI-Result.png}\\
+		\vspace{0.5mm}
+		\source{Elaborado pelo autor.}
+		\label{fig:fitnessResults}
+	\end{figure}
+	
+	Percebeu-se que os personagens aprenderam a melhorar sua performance com sucesso,
+	e com melhoras significativas nas primeiras gerações.
+	Na primeira geração, a média de fitness foi muito próxima a zero,
+	o que mostra que quase metade das equipes tinha desempenho negativo.
+	Este quadro muda completamente na 20$^a$ geração,
+	do qual a equipe de pior desempenho foi melhor que a média da primeira.
+	
+	É possível notar também que, por sorte, logo na primeira geração,
+	já houve uma equipe com alto desempenho.
+	Esta equipe não só se manteve mas continuou melhorando lentamente.
+	
+	Por fim, o indicador que melhor mostrou a constante evolução da inteligência no jogo é a média do fitness,
+	do qual é possível perceber um constante aumento,
+	com apenas pequenas quedas pontuais.
+	
 % CONCLUSÃO - FIM
 
 \FloatBarrier
@@ -1592,6 +1631,6 @@ public class nomeDaClasse : MonoBehaviour
 	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
 	BRAINZ. 15 Real-World Uses of Genetic Algorithms. Disponível em: \textless \url{http://brainz.org/15-real-world-applications-genetic-algorithms/}\textgreater. Acesso em 20 Julho 2016.\par
 	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
-	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 13 Julho 2016.\par
+	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 20 Julho 2016.\par
 
 \end{document}
