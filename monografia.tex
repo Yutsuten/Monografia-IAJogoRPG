@@ -1462,9 +1462,84 @@ public class nomeDaClasse : MonoBehaviour
 	Repete-se as tentativas até que consiga executar algum com sucesso.
 	
 	% Feedback do comando para avaliação (fitness)
+	Após o comando executado pelo personagem,
+	existe a avaliação de sua escolha.
+	A nota inicial é 0 (zero),
+	e a primeira verificação que se faz é atacou aliado ou curou inimigo.
+	Caso tenha feito isto,
+	recebe um decréscimo de 100 em sua nota.
+	Caso contrário,
+	se tiver atacado um inimigo ou curado um aliado,
+	recebe um acréscimo de 50 pontos na nota.
+	
+	Logo em seguida,
+	recebe também uma nota referente ao quão bom foi o dano ou cura.
+	Em caso de dano,
+	a nota é a que está representada na fórmula \eqref{eq:damageGrade} a seguir.
+	
+	\begin{equation}
+		Nota = dano^{1,5}
+		\label{eq:damageGrade}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Se este dano foi feito num inimigo,
+	soma-se esta nota na que já foi previamente calculada.
+	Por outro lado,
+	se o dano foi em um aliado,
+	subtrai-se na nota que já tem.
+	
+	Algo similar acontece na cura,
+	que usa a fórmula \eqref{eq:healGrade} a seguir.
+	
+	\begin{equation}
+		Nota = cura^{1,4}
+		\label{eq:healGrade}
+	\end{equation}
+	
+	\vspace{3mm}
+	
+	Inversamente ao dano,
+	esta nota é acrescida se for feita em aliado e decrescida se for feita em inimigo.
+	
 	% Bônus no fitness por derrotar (mostrar fórmula)
+	E como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
+	se sim um bônus na nota será dada.
+	O bônus é inicialmente de 10.000 (dez mil) pontos,
+	e reduz-se em 1,5\% de seu valor atual em cada turno a partir do primeiro personagem que efetuar seu segundo comando na batalha.
+	O gráfico dos valores do bônus de derrotar está ilustrado na Figura \ref{fig:defeatBonusGraph}.
+	O principal motivo da existência deste bônus é encorajar a estratégia de derrotar rapidamente os adversários,
+	um de cada vez,
+	dado que cada personagem a menos no time inimigo é um a menos para causar danos no time aliado.
+	
+	\begin{figure}[ht!]
+		\centering
+		\caption{Bônus de derrotar inimigo}
+		\includegraphics[scale=0.8]{DefeatBonusGraph.png}\\
+		\vspace{0.5mm}
+		\source{Elaborado pelo autor.}
+		\label{fig:defeatBonusGraph}
+	\end{figure}
+	
+	Todas estas notas que o personagem consegue e que são somadas são convertidas no fitness do time (e da RNA).
+	Uma batalha terá vários comandos executados pelo seu time,
+	e quando a batalha acaba,
+	todas as notas são somadas para obter-se o fitness final da equipe.
+	
 	% Repete-se o processo até a batalha acabar
+	Este processo de receber turno,
+	rodar a Rede Neural Artificial,
+	executar o comando e avaliá-la
+	se repete até que uma das duas possíveis condições de parada sejam satisfeitas.
 	% Condições de parada: time derrotado ou limite de turnos
+	A primeira condição é um time completo derrotado.
+	Neste caso, tem-se um vencedor, que é a equipe que ainda tem integrantes participando da batalha.
+	A segunda condição é um limite de turnos,
+	e o motivo dela é a existência de RNAs que enviam comandos de defender repetidamente aos personagens.
+	Este limite turnos é verificado no valor do bônus ao derrotar:
+	caso ele esteja com valor menor que 1.000 (mil),
+	a batalha é encerrada com empate.
 	
 	\subsubsection{Após a batalha}
 	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
