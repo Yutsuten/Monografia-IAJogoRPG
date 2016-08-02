@@ -1191,20 +1191,20 @@ public class nomeDaClasse : MonoBehaviour
 			%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
 			\thickhline 
 			\textbf{Parâmetro}			& \textbf{Pers. 1 (Tanker)}	& \textbf{Pers. 2 (Guerreiro)}	& \textbf{Pers. 3 (Mago)}	\\\thickhline
-			\textbf{HP Max}				& 650						& 450							& 300						\\\hline 
-			\textbf{MP Max}				& 250						& 400							& 700						\\\hline 
-			\textbf{ATK}				& 150						& 350							& 200						\\\hline 
-			\textbf{DEF}				& 300						& 250							& 100						\\\hline 
-			\textbf{MGK}				& 100						& 150							& 320						\\\hline 
-			\textbf{RES}				& 300						& 100							& 350						\\\hline
-			\textbf{SPD}				& 70						& 85							& 78						\\\thickhline
-			\textbf{Defesa Física}		& Alta						& Normal						& Baixa 					\\\hline
-			\textbf{Defesa de Água}		& Baixa						& Normal						& Normal 					\\\hline
-			\textbf{Defesa de Fogo}		& Normal					& Alta							& Alta	 					\\\hline
-			\textbf{Defesa de Terra}	& Alta						& Normal						& Normal 					\\\hline
-			\textbf{Defesa de Vento}	& Normal					& Baixa							& Normal 					\\\thickhline
-			\textbf{Hab. Fraca}			& Vento						& Fogo							& Terra 					\\\hline
-			\textbf{Hab. Forte}			& Terra						& Água							& Fogo	 					\\\thickhline
+			\textbf{HP Max}				& 750						& 500							& 400						\\\hline 
+			\textbf{MP Max}				& 350						& 550							& 800						\\\hline 
+			\textbf{ATK}				& 250						& 475							& 200						\\\hline 
+			\textbf{DEF}				& 500						& 425							& 215						\\\hline 
+			\textbf{MGK}				& 200						& 250							& 510						\\\hline 
+			\textbf{RES}				& 400						& 210							& 450						\\\hline
+			\textbf{SPD}				& 82						& 98							& 79						\\\thickhline
+			\textbf{Defesa Física}		& Alta						& Alta							& Normal 					\\\hline
+			\textbf{Defesa de Água}		& Normal					& Baixa							& Alta 						\\\hline
+			\textbf{Defesa de Fogo}		& Alta						& Normal						& Normal	 				\\\hline
+			\textbf{Defesa de Terra}	& Normal					& Normal						& Alta 						\\\hline
+			\textbf{Defesa de Vento}	& Alta						& Normal						& Alta 						\\\thickhline
+			\textbf{Hab. Fraca}			& Terra						& Física						& Água 						\\\hline
+			\textbf{Hab. Forte}			& Física					& Fogo							& Vento	 					\\\thickhline
 		\end{tabular}\\
 		\vspace{3mm}
 		\source{Elaborado pelo autor.}
@@ -1244,7 +1244,7 @@ public class nomeDaClasse : MonoBehaviour
 		\label{fig:gameNN}
 	\end{figure}
 	
-	A camada de entrada possui 33 neurônios,
+	A camada de entrada possui 27 neurônios,
 	que recebem valores entre -1000 e 1000.
 	Em sua função de ativação,
 	seus valores são multiplicados linearmente por uma constante de 0,002,
@@ -1370,12 +1370,12 @@ public class nomeDaClasse : MonoBehaviour
 		\begin{tabular}{c|c|c|c}
 			\hline 
 			\textbf{Atacante}			& \multicolumn{2}{c|}{\textbf{Possível alvo}}	& \textbf{Outros}		\\\hline
-			MP usado					& HP perdido		& Def. Física*		& Itens disponíveis* (6)		\\ 
-			ATK							& MP usado			& Def. Água*		& Alvo é inimigo?				\\ 
-			MAG							& ATK				& Def. Fogo*		& 								\\ 
-			SPD							& DEF				& Def. Terra*		& 								\\ 
-			Elem. Hab. Fraca* (5)		& MAG				& Def. Vento*		& 								\\ 
-			Elem. Hab. Forte* (5)		& RES									& 								\\
+			ATK							& HP perdido		& Def. Física*		& Alvo é inimigo?*				\\ 
+			MAG							& MP usado			& Def. Água*		& Alvo está defendendo?*		\\ 
+			SPD							& ATK				& Def. Fogo*		& 								\\ 
+			Elem. Hab. Fraca* (5)		& DEF				& Def. Terra*		& 								\\ 
+			Elem. Hab. Forte* (5)		& MAG				& Def. Vento*		& 								\\ 
+										& RES									& 								\\
 										& SPD									& 								\\\hline
 		\end{tabular}\\
 		\vspace{3mm}
@@ -1384,13 +1384,13 @@ public class nomeDaClasse : MonoBehaviour
 	\end{table}
 	
 	% Explicação em detalhes de cada entrada na RNA
-	No total são 33 entradas,
+	No total são 27 entradas,
 	em que os que foram marcados com um (X), sendo X um número,
 	significa que aquele atributo ainda foi quebrado em X neurônios diferentes.
-	No caso da habilidade,
+	Ou seja, no caso das habilidades,
 	é subdividido em 5 neurônios para que cada um simbolize um elemento.
-	Já nos itens disponíveis,
-	são usados 6 neurônios por causa da existência de 6 diferentes itens.
+	%Já nos itens disponíveis,
+	%são usados 6 neurônios por causa da existência de 6 diferentes itens.
 	
 	Valores na tabela que contém um * (asterisco) representa que eles tem valor binário.
 	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de -1000.
