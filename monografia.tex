@@ -976,7 +976,7 @@ public class nomeDaClasse : MonoBehaviour
 			\hline 
 			\textbf{DEF (Defense)} & Um valor alto de defesa reduz os danos físicos que serão infligidos no HP. \\ 
 			\hline 
-			\textbf{MGK (Magic)} & Equivalente ao ATK, mas infligindo danos mágicos. \\ 
+			\textbf{MAG (Magic)} & Equivalente ao ATK, mas infligindo danos mágicos. \\ 
 			\hline 
 			\textbf{RES (Resistance)} & Equivalente ao DEF, mas reduzindo danos mágicos que serão infligidos no HP. \\ 
 			\hline 
@@ -992,7 +992,7 @@ public class nomeDaClasse : MonoBehaviour
 	o físico e o mágico.
 	%Desta forma, no momento do ataque é verificado qual é o tipo de dano a ser causado.
 	Para ambos os casos
-	existem atributos ofensivos que tendem a aumentar o dano (ATK para dano físico e MGK para dano mágico),
+	existem atributos ofensivos que tendem a aumentar o dano (ATK para dano físico e MAG para dano mágico),
 	e atributos defensivos que tendem a reduzir o dano (DEF para dano físico e RES para dano mágico).
 	
 	Após um calculo de dano,
@@ -1160,14 +1160,14 @@ public class nomeDaClasse : MonoBehaviour
     	\item \textbf{Habilidade de Cura} é uma habilidade que permite recuperar o HP de algum personagem.
 		Por ser uma habilidade de suporte,
 		a RES do alvo é ignorada,
-		sendo aplicada uma cura equivalente a 50\% do MGK do personagem que está aplicando a cura.
+		sendo aplicada uma cura equivalente a 50\% do MAG do personagem que está aplicando a cura.
   	\end{itemize}
 	
 	\textbf{Item} é um comando que permite o uso de itens consumíveis durante a batalha.
 	Existem 6 itens diferentes,
 	um é Poção e os outros 5 são ofensivos, um para cada tipo de dano existente no jogo.
 	A poção tem valor constante de cura,
-	e os outros tem um valor de "ataque"{} semelhante a ATK ou MGK,
+	e os outros tem um valor de "ataque"{} semelhante a ATK ou MAG,
 	que é independente do personagem que irá usá-lo.
 	
 	% 5 Times: Valores atribuídos para cada personagem (stats, fraq. e ponto forte, elem. das skills)
@@ -1195,7 +1195,7 @@ public class nomeDaClasse : MonoBehaviour
 			\textbf{MP Max}				& 350						& 550							& 800						\\\hline 
 			\textbf{ATK}				& 250						& 475							& 200						\\\hline 
 			\textbf{DEF}				& 500						& 425							& 215						\\\hline 
-			\textbf{MGK}				& 200						& 250							& 510						\\\hline 
+			\textbf{MAG}				& 200						& 250							& 510						\\\hline 
 			\textbf{RES}				& 400						& 210							& 450						\\\hline
 			\textbf{SPD}				& 82						& 98							& 79						\\\thickhline
 			\textbf{Defesa Física}		& Alta						& Alta							& Normal 					\\\hline
