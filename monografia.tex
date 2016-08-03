@@ -1056,12 +1056,12 @@ public class nomeDaClasse : MonoBehaviour
 	O cálculo de danos no jogo é dada pelas seguintes fórmulas:
 	
 	\begin{equation}
-		Dano = 0,3 ATK \times \left(\frac{ATK}{0,3 ATK + 1,2 DEF}\right)
+		\textrm{Dano} = 0,3 \textrm{ ATK} \times \left(\frac{\textrm{ATK}}{0,3 \textrm{ ATK} + 1,2 \textrm{ DEF}}\right)
 		\label{eq:physicalDamageFormula}
 	\end{equation}
 	
 	\begin{equation}
-		Dano = 0,3 MAG \times \left(\frac{MAG}{0,3 MAG + 1,2 RES}\right)
+		\textrm{Dano} = 0,3 \textrm{ MAG} \times \left(\frac{\textrm{ MAG}}{0,3 \textrm{ MAG} + 1,2 \textrm{ RES}}\right)
 		\label{eq:magicalDamageFormula}
 	\end{equation}
 	
@@ -1085,7 +1085,7 @@ public class nomeDaClasse : MonoBehaviour
 	o dano ainda passa pela Fórmula \eqref{eq:damageBonus}.
 	
 	\begin{equation}
-		Dano final = 1,5 \times Dano
+		\textrm{Dano final} = 1,5 \times \textrm{dano}
 		\label{eq:damageBonus}
 	\end{equation}
 	
@@ -1095,7 +1095,7 @@ public class nomeDaClasse : MonoBehaviour
 	a fórmula a ser usada será a Fórmula \eqref{eq:damageReduction}
 	
 	\begin{equation}
-		Dano final = 0,6 \times Dano
+		\textrm{Dano final} = 0,6 \times \textrm{dano}
 		\label{eq:damageReduction}
 	\end{equation}
 	
@@ -1113,7 +1113,7 @@ public class nomeDaClasse : MonoBehaviour
 	e a quantidade que ganham é determinada pela Fórmula \eqref{eq:speedCalculation} a seguir:
 	
 	\begin{equation}
-		Preparado = Preparado + SPD
+		\textrm{Preparado} = \textrm{Preparado} + \textrm{SPD}
 		\label{eq:speedCalculation}
 	\end{equation}
 	
@@ -1440,7 +1440,7 @@ public class nomeDaClasse : MonoBehaviour
 	se segue a fórmula \eqref{eq:targetCommand} a seguir:
 	
 	\begin{equation}
-		Probabilidade = 1,5 \times Prob. de virar alvo + Prob. comando
+		\textrm{Probabilidade} = 1,5 \times \textrm{Prob. de virar alvo} + \textrm{Prob. comando}
 		\label{eq:targetCommand}
 	\end{equation}
 	
@@ -1477,7 +1477,7 @@ public class nomeDaClasse : MonoBehaviour
 	a nota é a que está representada na fórmula \eqref{eq:damageGrade} a seguir.
 	
 	\begin{equation}
-		Nota = dano^{1,5}
+		\textrm{Nota} = \textrm{dano}^{1,5}
 		\label{eq:damageGrade}
 	\end{equation}
 	
@@ -1493,7 +1493,7 @@ public class nomeDaClasse : MonoBehaviour
 	que usa a fórmula \eqref{eq:healGrade} a seguir.
 	
 	\begin{equation}
-		Nota = cura^{1,4}
+		\textrm{Nota} = \textrm{cura}^{1,4}
 		\label{eq:healGrade}
 	\end{equation}
 	
