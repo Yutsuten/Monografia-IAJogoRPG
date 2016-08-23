@@ -236,9 +236,9 @@
 	\singlespace
 	\noindent
 	Este projeto trata-se da criação de um protótipo de jogo no estilo RPG em turnos,
-	em conjunto com a criação de uma Inteligência Artificial capaz de controlar os personagens,
+	em conjunto com a criação de uma aplicação de Inteligência Artificial capaz de controlar os personagens,
 	assim como de aprender a controlá-los melhor com treinamento.
-	Para a criação da Inteligência Artificial,
+	Para a criação desta aplicação de Inteligência Artificial,
 	foram usados conceitos de Redes Neurais Artificiais e Algorítimo Genético,
 	e para a criação do jogo e seus scripts
 	foi usado o motor de jogo Unity.
@@ -257,9 +257,9 @@
 	\singlespace
 	\noindent
 	This project comes to creating a turn-based RPG game prototype,
-	in conjunction with an Artificial Intelligence that is able to control the characters
+	in conjunction with an Artificial Intelligence application that is able to control the characters
 	as well as to learn how to control them better with training.
-	For the creation of the Artificial Intelligence,
+	For the creation of the Artificial Intelligence application,
 	concepts of Artificial Neural Networks and Genetic Algorithm were used,
 	and for the creation of the game and its scripts,
 	the Unity game engine was used.
@@ -302,7 +302,7 @@
 	e está chegando ao da indústria do filmes (NYTIMES, 2014).
 	
 	Então é fato, a indústria de jogos está movendo bilhões de dólares pelo mundo,
-	já passou do de música e não para de crescer.
+	já passou da indústria de música e não para de crescer.
 	Como diz o gerente de produto da Eletronic Sports League, James Lampkin:
 	%no artigo da New York Times:
 	"Isto está se expandindo fora de controle"{}
@@ -316,7 +316,7 @@
 	que é a categoria de jogador profissional de jogo eletrônico.
 	A área de trabalho já existe e é chamada de Esporte Eletrônico (NYTIMES, 2014).
 	
-	E mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
+	Mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
 	No Campeonato Mundial de 2015 (o quinto da série) de \textit{League of Legends},
 	foi oferecido 1 milhão de dólares para a equipe vencedora mundial do jogo,
 	como pode ser visto nas regras do campeonato\footnote{Regras: \url{https://riot-web-static.s3.amazonaws.com/lolesports/Rule\%20Sets/2015\%20Revised\%20World\%20Championship\%20Rule\%20Set\%20Version\%201\_01.pdf}}.
@@ -326,39 +326,38 @@
 	sendo 5 milhões para os campeões,
 	se tornando assim o maior prêmio já oferecido em um torneio de jogo eletrônico (NYTIMES, 2014).
 	
-	E tem muita gente para assistir a estes campeonatos.
+	Não apenas pelos prêmios, mas também tem muita gente para assistir a estes campeonatos.
 	Nos dados mostrados pela Riot\footnote{Dados disponíveis em: \url{http://www.lolesports.com/en_US/articles/worlds-2015-viewership}}
 	sobre o Campeonato Mundial de 2015,
 	houveram 334 milhões de telespectadores "únicos"{} durante as 4 semanas do torneio,
 	somando 360 milhões de horas de visualizações das partidas ao vivo.
 	
-	Mas a área de jogos não está chamando apenas a atenção do mercado,
+	No entanto, a área de jogos não está chamando apenas a atenção do mercado,
 	mas também a de pesquisadores.
 	Um exemplo é o desenvolvimento e aplicação de técnicas de Inteligência Artificial (IA) em jogos,
 	que de acordo com especialistas,
 	existem áreas dentro de IA em jogos que ainda estão inexplorados (YANNAKAKIS; TOGELIUS, 2014).
 	
-	Em 2007, foi montada pela AiGameDev uma lista dos 10 jogos com Inteligência Artificial mais influentes.
+	Em 2007 foi montada, pela AiGameDev, uma lista dos 10 jogos com Inteligência Artificial mais influentes.
 	Um exemplo é um jogo chamado Creatures,
 	que implementou aprendizado de máquina em uma simulação interativa
 	ao usar Redes Neurais nas criaturas do jogo.
 	Outro exemplo é o Halo,
-	o jogo que implementou pela primeira vez a "árvore de condutas",
+	o jogo que implementou pela primeira vez a "árvore de condutas"{},
 	tecnologia que ficou muito popular na indústria de jogos (AIGAMEDEV, 2007).
 	
-	Um exemplo de IA em jogo que é descrito em detalhes é o F.E.A.R.,
-	um jogo FPS em primeira pessoa
-	que criou um sistema dinâmico, coordenado, interessante e desafiador.
-	Isto foi feito utilizando um sistema chamado \textit{Goal Oriented Action Planning} (Planejamento de Ações Orientado a Objetivo),
+	Além dos dois jogos citados acima, a IA de F.E.A.R. é descrita em detalhes no artigo da empresa Monolith Productions (ORKIN, 2006).
+	F.E.A.R. é um \textit{First-Person Shooter} (FPS) que criou um sistema dinâmico, coordenado, interessante e desafiador.
+	Isto foi feito utilizando o sistema \textit{Goal Oriented Action Planning} (Planejamento de Ações Orientado a Objetivo),
 	que foi construído junto de duas técnicas: Algoritmo A* e Máquina de Estados Finitos.
-	Os NPCs possuem uma lista de objetivos,
+	Os \textit{Non Player Characters} (NPCs) possuem uma lista de objetivos,
 	então durante o jogo eles buscam o plano que irá completar o objetivo com maior prioridade.
 	O planejamento feito é similar ao STRIPS,
 	tendo-se a situação atual e quais são as ações necessárias para cumprir o objetivo.
 	Além disto, foi implementado uma extensão da conduta individual dos NPCs
 	com uma conduta em equipe.
 	No entanto, como a conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
-	os extintos básicos do NPC podem sobrescrever a conduta de equipe
+	os instintos básicos do NPC podem sobrescrever a conduta de equipe
 	caso a segunda opção seja muito arriscada para si mesmo (ORKIN, 2006).
 	
 	Percebe-se, desta forma, que a área de jogos está muito ativa e em pleno crescimento,
@@ -374,16 +373,16 @@
 	
 		\FloatBarrier
 		\subsubsection{Objetivo Geral}
-			Produzir um jogo RPG em turnos que implementa conceitos avançados de Inteligência Artificial,
+			Produzir um \textit{Role Playing Game} (RPG) em turnos que implementa conceitos avançados de Inteligência Artificial,
 			sendo esta inteligência capaz de tomar decisões de forma autônoma sobre o que deve fazer,
 			assim como ser capaz de aprender a tomar melhores decisões por meio de treinamento.
 		
 		\FloatBarrier
 		\subsubsection{Objetivos Específicos}
 			\begin{enumerate}[noitemsep]
-				\item Criar um jogo RPG razoavelmente complexo.
-				\item Criar uma Inteligência Artificial capaz de jogar o jogo tão bem quanto um ser humano.
-				\item Criar uma Inteligência Artificial capaz de aprender conforme joga.
+				\item Criar um jogo RPG com muitas variáveis envolvendo os personagens.
+				\item Criar uma aplicação de Inteligência Artificial capaz de simular o desempenho de uma pessoa.
+				\item Criar uma aplicação de Inteligência Artificial capaz de aprender.
 			\end{enumerate}			
 	
 	\FloatBarrier
