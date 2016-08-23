@@ -537,7 +537,7 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\subsection{Redes Neurais Artificiais}
 	% 1 Definição
-	As Redes Neurais Artificiais são uma família de modelos inspirados no funcionamento do cérebro humano,
+	As RNAs são uma família de modelos inspirados no funcionamento do cérebro humano,
 	sendo que a "baixo nível"{} procuram imitar o que acontece nos neurônios.
 	São usadas para estimar ou aproximar funções que dependam de um grande número de entradas.
 	
@@ -578,7 +578,7 @@ public class NomeDaClasse : MonoBehaviour
 	que poderão conter de zero a muitas camadas.
 	Cada camada na RNA terá \textit{n} neurônios,
 	sendo \textit{n} qualquer valor maior ou igual a 1.
-	Um exemplo de Rede Neural Artificial com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
+	Um exemplo de RNA com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
 	
 	\begin{figure}[ht!]
 		\caption{RNA com uma camada oculta}
@@ -595,9 +595,9 @@ public class NomeDaClasse : MonoBehaviour
 	não sendo todas que seguem o padrão visto na Figura \ref{fig:basicnn},
 	porém esta é a arquitetura mais "tradicional"{}.
 	
-	Uma Rede Neural Artificial sempre terá uma camada de entrada e uma de saída.
+	Uma RNA sempre terá uma camada de entrada e uma de saída.
 	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro.
-	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
+	Estas camadas ocultas são explicadas como sendo extratoras de características
 	(STACKEXCHANGE, 2013).
 	
 	Então, se o número de camadas ocultas varia,
@@ -678,7 +678,7 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\subsection{Algoritmo Genético}
 	% 1 Definição
-	Algoritmo genético faz parte da computação evolutiva,
+	Algoritmo Genético (AG) faz parte da computação evolutiva,
 	e inspirou-se na teoria de Darwin sobre a evolução das espécies.
 	É uma busca heurística usada para encontrar soluções de otimização e resolver problemas de busca.
 	
@@ -819,7 +819,7 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\subsubsection{Processo}
 	% 3 Processo
-	O Algoritmo Genético mais simples de ser representado tem 5 etapas,
+	O AG mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
 	O processo ocorre como explica a Tabela \ref{tab:agCycle} e ilustra a Figura \ref{fig:gaflow} a seguir:
 	
@@ -848,7 +848,7 @@ public class NomeDaClasse : MonoBehaviour
 	
 	\begin{figure}[ht!]
 		\centering
-		\caption{Passo a passo do Algoritmo Genético}
+		\caption{Passo a passo do AG}
 		\includegraphics[scale=0.7]{GeneticAlgorithmFlow.png}\\
 		\vspace{0.5mm}
 		\source{Tech-Effigy.}
@@ -1213,7 +1213,7 @@ public class NomeDaClasse : MonoBehaviour
 	Percebe-se que foram criados 3 tipos diferentes de personagens,
 	cada um com suas características.
 	
-	O \textbf{Tanker} é um personagem resistente a danos,
+	O \textbf{\textit{Tanker}} é um personagem resistente a danos,
 	com bastante HP,
 	mas que não é capaz de causar grandes danos.
 	
@@ -1353,11 +1353,11 @@ public class NomeDaClasse : MonoBehaviour
 	Ao iniciar a batalha, cada time tem uma RNA que a representa e controla.
 	% O que recebeu turno roda a RNA respectiva a seu time
 	O personagem que receber o turno é o que poderá efetuar um comando,
-	e neste momento o \textit{script} de Rede Neural do seu time entra em ação 6 vezes,
+	e neste momento o \textit{script} de RNA do seu time entra em ação 6 vezes,
 	uma para cada diferente personagem ainda em batalha.
 	
 	% Explicar quais são os valores de entrada que estão sendo usadas na camada de entrada
-	Em cada execução da Rede Neural, são usadas como entrada alguns parâmetros do personagem que possuí o turno,
+	Em cada execução da RNA, são usadas como entrada alguns parâmetros do personagem que possuí o turno,
 	e parâmetros do possível alvo.
 	As informações usadas como entrada na RNA estão descritas na Tabela \ref{tab:nnInput}.
 	
@@ -1547,7 +1547,7 @@ public class NomeDaClasse : MonoBehaviour
 	que registra em sua estrutura o \textit{fitness} de cada um dos dois "indivíduos"{} e então salva no arquivo.
 	
 	% Carrega-se os 2 próximos e faz tudo novamente.
-	Para continuar o treinamento da Inteligencia Artificial,
+	Para continuar o treinamento da RNA,
 	o \textit{script} do AG procura os dois próximos cromossomos que ainda não foram avaliados e carrega-os na RNA,
 	repetindo todo o processo.
 	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
