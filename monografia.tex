@@ -141,6 +141,8 @@
   {€}{{\EUR}}1 {£}{{\pounds}}1
 }
 \lstset{style=mystyle}
+% Indentação de listas
+\setlist{leftmargin=15.5mm}
 
 
 % INICIO DO ARTIGO
@@ -236,9 +238,9 @@
 	\singlespace
 	\noindent
 	Este projeto trata-se da criação de um protótipo de jogo no estilo RPG em turnos,
-	em conjunto com a criação de uma Inteligência Artificial capaz de controlar os personagens,
+	em conjunto com a criação de uma aplicação de Inteligência Artificial capaz de controlar os personagens,
 	assim como de aprender a controlá-los melhor com treinamento.
-	Para a criação da Inteligência Artificial,
+	Para a criação desta aplicação de Inteligência Artificial,
 	foram usados conceitos de Redes Neurais Artificiais e Algorítimo Genético,
 	e para a criação do jogo e seus scripts
 	foi usado o motor de jogo Unity.
@@ -257,9 +259,9 @@
 	\singlespace
 	\noindent
 	This project comes to creating a turn-based RPG game prototype,
-	in conjunction with an Artificial Intelligence that is able to control the characters
+	in conjunction with an Artificial Intelligence application that is able to control the characters
 	as well as to learn how to control them better with training.
-	For the creation of the Artificial Intelligence,
+	For the creation of the Artificial Intelligence application,
 	concepts of Artificial Neural Networks and Genetic Algorithm were used,
 	and for the creation of the game and its scripts,
 	the Unity game engine was used.
@@ -302,7 +304,7 @@
 	e está chegando ao da indústria do filmes (NYTIMES, 2014).
 	
 	Então é fato, a indústria de jogos está movendo bilhões de dólares pelo mundo,
-	já passou do de música e não para de crescer.
+	já passou da indústria de música e não para de crescer.
 	Como diz o gerente de produto da Eletronic Sports League, James Lampkin:
 	%no artigo da New York Times:
 	"Isto está se expandindo fora de controle"{}
@@ -316,8 +318,8 @@
 	que é a categoria de jogador profissional de jogo eletrônico.
 	A área de trabalho já existe e é chamada de Esporte Eletrônico (NYTIMES, 2014).
 	
-	E mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
-	No Campeonato Mundial de 2015 (o quinto da série) de League of Legends,
+	Mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
+	No Campeonato Mundial de 2015 (o quinto da série) de \textit{League of Legends},
 	foi oferecido 1 milhão de dólares para a equipe vencedora mundial do jogo,
 	como pode ser visto nas regras do campeonato\footnote{Regras: \url{https://riot-web-static.s3.amazonaws.com/lolesports/Rule\%20Sets/2015\%20Revised\%20World\%20Championship\%20Rule\%20Set\%20Version\%201\_01.pdf}}.
 	
@@ -326,39 +328,38 @@
 	sendo 5 milhões para os campeões,
 	se tornando assim o maior prêmio já oferecido em um torneio de jogo eletrônico (NYTIMES, 2014).
 	
-	E tem muita gente para assistir a estes campeonatos.
+	Não apenas pelos prêmios, mas também tem muita gente para assistir a estes campeonatos.
 	Nos dados mostrados pela Riot\footnote{Dados disponíveis em: \url{http://www.lolesports.com/en_US/articles/worlds-2015-viewership}}
 	sobre o Campeonato Mundial de 2015,
 	houveram 334 milhões de telespectadores "únicos"{} durante as 4 semanas do torneio,
 	somando 360 milhões de horas de visualizações das partidas ao vivo.
 	
-	Mas a área de jogos não está chamando apenas a atenção do mercado,
+	No entanto, a área de jogos não está chamando apenas a atenção do mercado,
 	mas também a de pesquisadores.
 	Um exemplo é o desenvolvimento e aplicação de técnicas de Inteligência Artificial (IA) em jogos,
 	que de acordo com especialistas,
 	existem áreas dentro de IA em jogos que ainda estão inexplorados (YANNAKAKIS; TOGELIUS, 2014).
 	
-	Em 2007, foi montada pela AiGameDev uma lista dos 10 jogos com Inteligência Artificial mais influentes.
+	Em 2007 foi montada, pela AiGameDev, uma lista dos 10 jogos com Inteligência Artificial mais influentes.
 	Um exemplo é um jogo chamado Creatures,
 	que implementou aprendizado de máquina em uma simulação interativa
 	ao usar Redes Neurais nas criaturas do jogo.
 	Outro exemplo é o Halo,
-	o jogo que implementou pela primeira vez a "árvore de condutas",
+	o jogo que implementou pela primeira vez a "árvore de condutas"{},
 	tecnologia que ficou muito popular na indústria de jogos (AIGAMEDEV, 2007).
 	
-	Um exemplo de IA em jogo que é descrito em detalhes é o F.E.A.R.,
-	um jogo FPS em primeira pessoa
-	que criou um sistema dinâmico, coordenado, interessante e desafiador.
-	Isto foi feito utilizando um sistema chamado Goal Oriented Action Planning (Planejamento de Ações Orientado a Objetivo),
+	Além dos dois jogos citados acima, a IA de F.E.A.R. é descrita em detalhes no artigo da empresa Monolith Productions (ORKIN, 2006).
+	F.E.A.R. é um \textit{First-Person Shooter} (FPS) que criou um sistema dinâmico, coordenado, interessante e desafiador.
+	Isto foi feito utilizando o sistema \textit{Goal Oriented Action Planning} (Planejamento de Ações Orientado a Objetivo),
 	que foi construído junto de duas técnicas: Algoritmo A* e Máquina de Estados Finitos.
-	Os NPCs possuem uma lista de objetivos,
+	Os \textit{Non Player Characters} (NPCs) possuem uma lista de objetivos,
 	então durante o jogo eles buscam o plano que irá completar o objetivo com maior prioridade.
 	O planejamento feito é similar ao STRIPS,
 	tendo-se a situação atual e quais são as ações necessárias para cumprir o objetivo.
 	Além disto, foi implementado uma extensão da conduta individual dos NPCs
 	com uma conduta em equipe.
 	No entanto, como a conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
-	os extintos básicos do NPC podem sobrescrever a conduta de equipe
+	os instintos básicos do NPC podem sobrescrever a conduta de equipe
 	caso a segunda opção seja muito arriscada para si mesmo (ORKIN, 2006).
 	
 	Percebe-se, desta forma, que a área de jogos está muito ativa e em pleno crescimento,
@@ -374,16 +375,16 @@
 	
 		\FloatBarrier
 		\subsubsection{Objetivo Geral}
-			Produzir um jogo RPG em turnos que implementa conceitos avançados de Inteligência Artificial,
+			Produzir um \textit{Role Playing Game} (RPG) em turnos que implementa conceitos avançados de Inteligência Artificial,
 			sendo esta inteligência capaz de tomar decisões de forma autônoma sobre o que deve fazer,
 			assim como ser capaz de aprender a tomar melhores decisões por meio de treinamento.
 		
 		\FloatBarrier
 		\subsubsection{Objetivos Específicos}
 			\begin{enumerate}[noitemsep]
-				\item Criar um jogo RPG razoavelmente complexo.
-				\item Criar uma Inteligência Artificial capaz de jogar o jogo tão bem quanto um ser humano.
-				\item Criar uma Inteligência Artificial capaz de aprender conforme joga.
+				\item Criar um jogo RPG com muitas variáveis envolvendo os personagens.
+				\item Criar uma aplicação de Inteligência Artificial capaz de simular o desempenho de uma pessoa.
+				\item Criar uma aplicação de Inteligência Artificial capaz de aprender.
 			\end{enumerate}			
 	
 	\FloatBarrier
@@ -406,21 +407,21 @@
 	\subsection{Unity}
 		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
 		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
-		além de ter muitos serviços integrados que aceleram o processo de desenvolvimento.
+		e muitos serviços integrados que aceleram o processo de desenvolvimento.
 		As linguagens de programação que podem ser usadas são UnityScript e C\#
 		(UNITY, 2016a).
 		
 		Com mais de 200 jogos na lista de jogos em destaque que foram criados na Unity,
 		um dos exemplos que pode-se citar é o \textit{Sky Force},
-		um jogo no estilo de ação, missões e "shooter",
+		um jogo no estilo de ação, missões e \textit{shooter},
 		e que está disponível na App Store e Google Play.
 		Outro exemplo é o \textit{The Uncertain},
 		do qual o jogador é um robô e
 		deve resolver quebra-cabeças em uma aventura.
-		O jogo está disponível na \textit{Steam}
+		O jogo está disponível na Steam
 		(UNITY, 2016b).
 		
-		O editor da Unity também é extensível, sendo possível implementar funcionalidades ainda não existentes
+		O editor da Unity também é extensível, possibilitando implementar funcionalidades ainda não existentes
 		(UNITY, 2016a).
 		Um exemplo de extensão é o \textit{Rival Theory},
 		que implementa vários conceitos de Inteligência Artificial,
@@ -453,17 +454,17 @@
 				\centering
 				\small
 				\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
-				\begin{tabular}{m{3.1cm} m{11.9cm}}
+				\begin{tabular}{m{3.2cm} m{11.8cm}}
 					\hline 
-					Project Window & Exibe a biblioteca de Assets que estão disponíveis para uso no projeto. Ao importar os Assets no projeto, eles aparecerão aqui. \\ 
+					\textit{Project Window} & Exibe a biblioteca de \textit{Assets} que estão disponíveis para uso no projeto. Ao importar os \textit{Assets} no projeto, eles aparecerão aqui. \\ 
 					\hline 
-					Scene View & Permite navegar visualmente e editar a cena. A Scene View pode mostrar em perspectiva 3D ou 2D, dependendo do tipo de projeto que está sendo trabalhando. \\ 
+					\textit{Scene View} & Permite navegar visualmente e editar a cena. A \textit{Scene View} pode mostrar em perspectiva 3D ou 2D, dependendo do tipo de projeto que está sendo trabalhando. \\ 
 					\hline 
-					Hierarchy Window & É uma representação de texto hierárquica de cada objeto na cena. Cada item na cena tem uma entrada na hierarquia, de forma que as duas janelas estão inerentemente conectadas. A hierarquia revela a estrutura da forma como os objectos estão ligados um ao outro. \\ 
+					\textit{Hierarchy Window} & É uma representação de texto hierárquica de cada objeto na cena. Cada item na cena tem uma entrada na hierarquia, de forma que as duas janelas estão inerentemente conectadas. A hierarquia revela a estrutura da forma como os objetos estão ligados um ao outro. \\ 
 					\hline 
-					Inspector Window & Permite visualizar e editar todas as propriedades do objeto selecionado. Como diferentes tipos de objetos têm diferentes conjuntos de propriedades, o layout e conteúdo da janela do Inspector pode variar. \\ 
+					\textit{Inspector Window} & Permite visualizar e editar todas as propriedades do objeto selecionado. Como diferentes tipos de objetos têm diferentes conjuntos de propriedades, o layout e conteúdo da janela do \textit{Inspector} pode variar. \\ 
 					\hline 
-					Toolbar & Fornece acesso aos recursos de trabalho mais essenciais. À esquerda estão as ferramentas básicas para manipular a Scene View e os objetos dentro dela. No centro estão os controles de play, pause e step. Os botões à direita dará acesso aos Serviços da Unity Cloud e da Conta Unity, seguido pelo menu de visibilidade dos layers e, finalmente, o menu de layout do editor (que fornece alguns layouts alternativos para as janelas do editor, e permite salvar um layout customizado). \\ 
+					\textit{Toolbar} & Fornece acesso aos recursos de trabalho mais essenciais. À esquerda estão as ferramentas básicas para manipular a \textit{Scene View} e os objetos dentro dela. No centro estão os controles de \textit{play}, \textit{pause} e \textit{step}. Os botões à direita dará acesso aos Serviços da Unity Cloud e da Conta Unity, seguido pelo menu de visibilidade dos \textit{layers} e, finalmente, o menu de \textit{layout} do editor (que fornece alguns \textit{layouts} alternativos para as janelas do editor, e permite salvar um \textit{layout} customizado). \\ 
 					\hline 
 				\end{tabular}\\
 				\vspace{3mm}
@@ -472,12 +473,12 @@
 			\end{table}
 			
 			Os objetos contidos na cena do projeto são chamados de \textit{GameObject},
-			sendo que suas características podem ser alteradas por Componentes anexados a ele.
-			A Unity possui vários Componentes prontos,
+			sendo que suas características podem ser alteradas por \textit{Components} anexados a ele.
+			A Unity possui vários \textit{Components} prontos,
 			no entanto é possível criar novos usando as linguagens de programação do qual se dá suporte (C\# e UnityScript).
-			Tais Componentes são chamados de Scripts,
+			Tais \textit{Components} são chamados de \textit{Scripts},
 			e eles permitem disparar eventos,
-			modificar as propriedades de outros Componentes ou do próprio \textit{GameObject} durante o jogo,
+			modificar as propriedades de outros \textit{Components} ou do próprio \textit{GameObject} durante o jogo,
 			e a interação com o jogador.
 			(UNITY, 2016d).
 
@@ -486,26 +487,26 @@
 		O Visual Studio é um Ambiente de Desenvolvimento Integrado (IDE) usado para a criação de aplicativos para Windows, Android, iOS, aplicações Web e serviços de nuvem.
 		Com ele é possível programar em C\#, Visual Basic, F\#, C++, HTML, JavaScript e Python, dentre outras linguagens de programação. (MICROSOFT, 2016)
 		
-		A integração do Visual Studio com a Unity, usando C\#, ocorre com a adição do \textit{namespace} UnityEngine ao script,
+		A integração do Visual Studio com a Unity, usando C\#, ocorre com a adição do \textit{namespace} "\textit{UnityEngine}"{} ao \textit{script},
 		%(com o código "using UnityEngine"),
 		liberando a utilização da classe \textit{MonoBehaviour},
 		da qual possui implementado funcionalidades e funções internas da Unity.
-		Para utilizar a classe \textit{MonoBehaviour} nos scripts criados,
+		Para utilizar a classe \textit{MonoBehaviour} nos \textit{scripts} criados,
 		basta estender a classe criada com a \textit{MonoBehaviour} (UNITY, 2016d).
-		Desta forma, o cabeçalho do script fica como no código a seguir:
+		Desta forma, o cabeçalho do \textit{script} fica como no código a seguir:
 		
 		\begin{lstlisting}[language=C++]
 using UnityEngine;
 
-public class nomeDaClasse : MonoBehaviour
+public class NomeDaClasse : MonoBehaviour
 {
 	// Código da classe
 }\end{lstlisting}
 		
 		Com isto feito, é possível utilizar uma das principais vantagens do Visual Studio,
 		que é o \textit{AutoComplete}.
-		Ou seja, funções internas da Unity, como as do GameObject, aparecem em uma lista conforme se vai digitando,
-		facilitando muito a programação do script.
+		Ou seja, funções internas da Unity, como as do \textit{GameObject}, aparecem em uma lista conforme se vai digitando,
+		facilitando muito a programação do \textit{script}.
 		
 		Além da integração com a Unity,
 		ainda é possível utilizar as bibliotecas próprias do C\#,
@@ -522,9 +523,9 @@ public class nomeDaClasse : MonoBehaviour
 			\label{fig:exvs}
 		\end{figure}
 		
-		Nota-se que no script de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
+		Nota-se que no \textit{script} de Algoritmo Genético, além do \textit{UnityEngine} e outras duas bibliotecas básicas do C\#,
 		também foi utilizada o \textit{System.IO}, uma biblioteca para Leitura e Escrita de Arquivo.
-		Qualquer outro script criado para funcionar na Unity tem este padrão.
+		Qualquer outro \textit{script} criado para funcionar na Unity tem este padrão.
 
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página	
@@ -533,12 +534,12 @@ public class nomeDaClasse : MonoBehaviour
 	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
 	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
-	será explicado apenas a essência deles e o foi necessário para desenvolver este trabalho.
+	será explicado apenas a essência deles e o necessário para desenvolver este trabalho.
 
 	\FloatBarrier
 	\subsection{Redes Neurais Artificiais}
 	% 1 Definição
-	As Redes Neurais Artificiais são uma família de modelos inspirados no funcionamento do cérebro humano,
+	As RNAs são uma família de modelos inspirados no funcionamento do cérebro humano,
 	sendo que a "baixo nível"{} procuram imitar o que acontece nos neurônios.
 	São usadas para estimar ou aproximar funções que dependam de um grande número de entradas.
 	
@@ -560,9 +561,9 @@ public class nomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{Funções de Ativação comuns em uma RNA}
 		\centering
-		\includegraphics[scale=0.39]{ActivationFunctions.png}\\
+		\includegraphics[scale=0.55]{ActivationFunctions.png}\\
 		\vspace{0.5mm}
-		\source{Turing Finance.}
+		\source{Baseado em Turing Finance.}
 		\label{fig:activationFunctions}
 	\end{figure}
 	
@@ -573,13 +574,13 @@ public class nomeDaClasse : MonoBehaviour
 	e passado para o próximo neurônio como um estímulo.
 	
 	% 2.2 Particularidades (camadas existentes, papel de cada uma)
-	A arquitetura de uma RNA é formada por uma camada de entrada (input layer),
-	uma camada de saída (output layer),
-	e as camadas ocultas (hidden layers)
+	A arquitetura de uma RNA é formada por uma camada de entrada (\textit{input layer}),
+	uma camada de saída (\textit{output layer}),
+	e as camadas ocultas (\textit{hidden layers})
 	que poderão conter de zero a muitas camadas.
 	Cada camada na RNA terá \textit{n} neurônios,
 	sendo \textit{n} qualquer valor maior ou igual a 1.
-	Um exemplo de Rede Neural Artificial com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
+	Um exemplo de RNA com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
 	
 	\begin{figure}[ht!]
 		\caption{RNA com uma camada oculta}
@@ -596,21 +597,24 @@ public class nomeDaClasse : MonoBehaviour
 	não sendo todas que seguem o padrão visto na Figura \ref{fig:basicnn},
 	porém esta é a arquitetura mais "tradicional"{}.
 	
-	Uma Rede Neural Artificial sempre terá uma camada de entrada e uma de saída.
+	Uma RNA sempre terá uma camada de entrada e uma de saída.
 	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro.
-	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
+	Estas camadas ocultas são explicadas como sendo extratoras de características
 	(STACKEXCHANGE, 2013).
 	
 	Então, se o número de camadas ocultas varia,
 	de que maneira pode-se determinar o número de camadas ocultas a serem utilizadas em um determinado problema?
 	Caso os dados sejam linearmente separáveis,
 	não é necessário nenhuma camada oculta.
-	Caso contrário, se forem dados não lineares,
+	Por outro lado, se forem dados não lineares,
 	uma ou mais camadas ocultas serão necessárias
 	(STACKEXCHANGE, 2013).
+	
 	Quanto mais camadas ocultas forem utilizadas,
 	maior a granularidade dos resultados obtidos na RNA,
 	como pode ser visto na Figura \ref{fig:nnhiddenlayer}.
+	Para garantir esta não-linearidade dos resultados, %ao utilizar mais de uma camada oculta na RNA,
+	é necessário colocar funções de ativação não-lineares nos neurônios das camadas ocultas.
 	
 	\begin{figure}[ht!]
 		\caption{Importância da camada oculta}
@@ -624,15 +628,12 @@ public class nomeDaClasse : MonoBehaviour
 	Deve-se lembrar que, apesar de muitas camadas ocultas aumentar a granularidade dos resultados,
 	isto vem com um custo:
 	mais tempo de processamento e
-	influência no tempo de aprendizagem.
-	É por este motivo que deve-se buscar a arquitetura otimizada ao problema,
+	aprendizagem mais lenta.
+	É por este motivo que deve-se buscar a arquitetura (número de camadas ocultas e número de neurônios) otimizada ao problema,
 	com baixo tempo de processamento e alto desempenho.
-	Outro detalhe importante é a necessidade de colocar funções de ativação não-lineares nas camadas ocultas,
-	uma vez que são elas que garantem a não-linearidade dos resultados
-	(STACKEXCHANGE, 2013).
 	
-	Existem muitas discussões a respeito do número de camadas ocultas a serem usadas, caso ela seja necessária,
-	mas um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
+	Existem muitas discussões a respeito do número otimizado de camadas ocultas a serem usadas, caso ela seja necessária.
+	Um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
 	(STACKEXCHANGE, 2013).
 	
 	Considerando a necessidade de colocar uma camada oculta na RNA,
@@ -659,7 +660,7 @@ public class nomeDaClasse : MonoBehaviour
 	diferentes funções de ativação são recomendadas na camada de saída
 	(as funções de ativação podem ser vistas na Figura \ref{fig:activationFunctions}, página \pageref{fig:activationFunctions}).
 	Caso a tarefa da RNA seja de reconhecer padrões,
-	as funções recomendadas são a step (b), sigmoide (d) e tangente hiperbólica (e).
+	as funções recomendadas são a \textit{step} (b), sigmóide (d) e tangente hiperbólica (e).
 	Por outro lado, se a tarefa for de regressão de uma função,
 	a função linear (a) é a mais recomendada (RESEARCHGATE, 2013).
 	
@@ -679,7 +680,7 @@ public class nomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\subsection{Algoritmo Genético}
 	% 1 Definição
-	Algoritmo genético faz parte da computação evolutiva,
+	Algoritmo Genético (AG) faz parte da computação evolutiva,
 	e inspirou-se na teoria de Darwin sobre a evolução das espécies.
 	É uma busca heurística usada para encontrar soluções de otimização e resolver problemas de busca.
 	
@@ -690,7 +691,7 @@ public class nomeDaClasse : MonoBehaviour
 	A unidade que caracteriza um determinado indivíduo na população é o cromossomo.
 	% 2.1.1 Gene
 	O cromossomo é constituído de vários genes,
-	que carregam uma informação ou característica de um indivíduo.
+	que carregam informações ou características de um indivíduo. %que carregam informação ou característica de um indivíduo.
 	% 2.1.2 Representação do cromossomo
 	O gene pode ser representado de várias formas dentro do AG,
 	sendo a mais simples delas a representação binária,
@@ -747,22 +748,22 @@ public class nomeDaClasse : MonoBehaviour
 	
 	% 2.5 Avaliação
 	% 2.5.1 Fitness (aptidão)
-	Durante o algoritmo do AG, deve-se calcular o o fitness (nível de aptidão) de cada indivíduo da população.
-	A forma de se calcular o fitness do indivíduo depende do problema,
+	Durante o algoritmo do AG, deve-se calcular o o \textit{fitness} (nível de aptidão) de cada indivíduo da população.
+	A forma de se calcular o \textit{fitness} do indivíduo depende do problema,
 	e este cálculo faz parte do processo de Avaliação da população,
-	que pode ser visto em mais detalhes na Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow} à frente.
+	que pode ser visto em mais detalhes na Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow}.
 	
 	% 2.6 Seleção
 	No processo de Seleção,
 	indivíduos da população são selecionados para passarem para a próxima geração ou se reproduzirem.
-	A Seleção usa o valor de fitness para dar maiores chances de selecionar os indivíduos mais adaptados.
+	A Seleção usa o valor de \textit{fitness} para dar maiores chances de selecionar os indivíduos mais adaptados.
 	
 	% 2.6.1 Roleta
 	Um método comum para se selecionar indivíduos é o método da Roleta.
-	Neste método, um intervalo numérico relativo ao valor de fitness é atribuído a cada indivíduo.
+	Neste método, um intervalo numérico relativo ao valor de \textit{fitness} é atribuído a cada indivíduo.
 	Então é sorteado aleatoriamente um valor no intervalo de todos os indivíduos.
 	O indivíduo que conter o número sorteado dentro de seu intervalo é o escolhido para passar para a próxima geração ou se reproduzir.
-	Percebe-se assim que indivíduos com maior fitness terão um intervalo maior e, portanto, maiores chances de serem selecionados.
+	Percebe-se assim que indivíduos com maior \textit{fitness} terão um intervalo maior e, portanto, maiores chances de serem selecionados.
 	Uma ilustração do que foi descrito pode ser visto na Figura \ref{fig:roulette}.
 	
 	\begin{figure}[ht!]
@@ -775,36 +776,36 @@ public class nomeDaClasse : MonoBehaviour
 	\end{figure}
 	
 	% 2.6.2 Ranking
-	Outro exemplo de método de Seleção é o de Ranking.
-	De forma similar ao da Roleta, é usado o valor de fitness.
-	No entanto, o diferencial está no fato de ordenar os indivíduos em um ranking,
-	e atribuir um intervalo numérico dependendo do ranking do indivíduo
-	(quanto maior o ranking, maior o intervalo atribuído).
+	Outro exemplo de método de Seleção é o de \textit{Ranking}.
+	De forma similar ao da Roleta, é usado o valor de \textit{fitness}.
+	No entanto, o diferencial está no fato de ordenar os indivíduos em um \textit{ranking},
+	e atribuir um intervalo numérico dependendo do \textit{ranking} do indivíduo
+	(quanto maior o \textit{ranking}, maior o intervalo atribuído).
 	
 	% 2.7 Crossover
-	Após a seleção existe o Crossover (ou cruzamento).
+	Após a seleção existe o \textit{Crossover} (ou cruzamento).
 	%análogo à reprodução que se estuda em biologia.
-	Se for decidido que haverá um crossover,
-	informações do cromossomo de 2 indivíduos são misturados,
+	Se for decidido que haverá um \textit{crossover},
+	informações do cromossomo de 2 indivíduos serão misturados,
 	criando "cromossomos filhos"{}.
 	Neste processo, são selecionados pontos nos cromossomos pais,
 	e os cromossomos filhos copiam do primeiro cromossomo pai até aquele ponto,
 	passando então a copiar do segundo cromossomo pai.
-	O crossover pode ter um único ponto ou vários pontos de crossover.
-	Também existe o crossover uniforme,
+	O \textit{crossover} pode ter um único ponto ou vários pontos de \textit{crossover}.
+	Também existe o \textit{crossover} uniforme,
 	em que é copiado vários pequenos trechos de ambos os pais,
-	com taxa de 50\% de se copiar de cada um deles.
+	com taxa de 50\%.
 	
 	% 2.7.1 Taxa de Crossover
-	No entanto, o crossover não necessariamente ocorre sempre.
+	No entanto, o \textit{crossover} não necessariamente ocorre.
 	Existe uma probabilidade dele acontecer,
-	e essa probabilidade é a taxa de crossover.
-	Considerando-se, por exemplo, uma taxa de crossover de 90\%,
-	tem-se que 90\% dos indivíduos selecionados passarão pelo processo de crossover,
+	e essa probabilidade é a taxa de \textit{crossover}.
+	Considerando-se, por exemplo, uma taxa de \textit{crossover} de 90\%,
+	tem-se que 90\% dos indivíduos selecionados passarão pelo processo de \textit{crossover},
 	e que 10\% serão copiados para a nova população.
 	
 	% 2.8 Mutação
-	Após o crossover,
+	Após o \textit{crossover},
 	os cromossomos passam pelo processo de Mutação.
 	A mutação permite a mudança de alguns genes escolhidos aleatoriamente.
 	% 2.8.1 Taxa de Mutação
@@ -813,16 +814,16 @@ public class nomeDaClasse : MonoBehaviour
 	isto significa que 1\% dos genes terão seus valores alterados.
 	
 	% 2.9 Elitismo
-	A fim de não se perder boas soluções por causa do Crossover e Mutação,
+	A fim de não se perder boas soluções por causa do \textit{Crossover} e Mutação,
 	uma técnica muito aplicada e eficiente é a do Elitismo.
 	Nesta técnica, o melhor (ou melhores) indivíduos da população são copiados sem nenhuma alteração para a próxima geração.
 	
 	\FloatBarrier
 	\subsubsection{Processo}
 	% 3 Processo
-	O Algoritmo Genético mais simples de ser representado tem 5 etapas,
+	O AG mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
-	O processo ocorre como explica a Tabela \ref{tab:agCycle} e ilustra a Figura \ref{fig:gaflow} a seguir:
+	O processo ocorre como explicado na Tabela \ref{tab:agCycle} e ilustrado na Figura \ref{fig:gaflow} a seguir:
 	
 	\begin{table}[h]
 		\caption{Ciclo do Algoritmo Genético}
@@ -833,11 +834,11 @@ public class nomeDaClasse : MonoBehaviour
 			\hline 
 			\textbf{Inicia População} & Gera uma população aleatória de n indivíduos. \\ 
 			\hline 
-			\textbf{Avaliação} & Calcula o valor de fitness de cada cromossomo na população. Se a condição de parada for satisfeita, o algoritmo acaba. \\ 
+			\textbf{Avaliação} & Calcula o valor de \textit{fitness} de cada cromossomo na população. Se a condição de parada for satisfeita, o algoritmo acaba. \\ 
 			\hline 
-			\textbf{Seleção} & Seleciona 2 cromossomos de acordo com o fitness. Quanto maior o valor de fitness, maior a probabilidade de ser selecionado. \\ 
+			\textbf{Seleção} & Seleciona 2 cromossomos de acordo com o \textit{fitness}. Quanto maior o valor de \textit{fitness}, maior a probabilidade de ser selecionado. \\ 
 			\hline 
-			\textbf{Crossover} & Copia partes dos cromossomos dos pais em cromossomos filhos, inserindo-os na nova população. \\ 
+			\textbf{\textit{Crossover}} & Copia partes dos cromossomos dos pais em cromossomos filhos, inserindo-os na nova população. \\ 
 			\hline 
 			\textbf{Mutação} & Aplica a probabilidade de alterar aleatoriamente os genes dos indivíduos da nova população, e retorna ao passo de Avaliação. \\ 
 			\hline 
@@ -849,19 +850,19 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\begin{figure}[ht!]
 		\centering
-		\caption{Passo a passo do Algoritmo Genético}
+		\caption{Passo a passo do AG}
 		\includegraphics[scale=0.7]{GeneticAlgorithmFlow.png}\\
 		\vspace{0.5mm}
-		\source{Tech-Effigy.}
+		\source{Baseado em Tech-Effigy.}
 		\label{fig:gaflow}
 	\end{figure}
 	
 	A condição de parada pode ocorrer por mais de um motivo.
-	A melhor condição para se parar é uma boa "avaliação"{} (fitness) dos indivíduos,
+	A melhor condição para se parar é uma boa "avaliação"{} (\textit{fitness}) dos indivíduos,
 	mas também é possível parar por causa de um limite de gerações ou iterações.
 	
 	Como é possível notar,
-	a repetição das etapas de Avaliação, Seleção, Crossover e Mutação melhora gradativamente as soluções encontradas,
+	a repetição das etapas de Avaliação, Seleção, \textit{Crossover} e Mutação melhora gradativamente as soluções encontradas,
 	sendo esta a maior motivação de se utilizar um AG.	
 	
 	\FloatBarrier
@@ -875,23 +876,23 @@ public class nomeDaClasse : MonoBehaviour
 	AGs podem auxiliar na escolha de materiais e seus formatos para a produção de veículos mais rápidos, leves, econômicos e mais seguros.
 	A Figura \ref{fig:automotiveDesign} ilustra um exemplo de design de carro.
 	Por se tratar de um problema de otimização,
-	o AG pode encontrar várias soluções que irão ajudar o designer a projetar o veículo
+	o AG pode encontrar várias soluções que irão ajudar o \textit{designer} a projetar o veículo
 	(BRAINZ, 2010).
 	
 	\begin{figure}[ht!]
 		\centering
-		\caption{Exemplo de design de carro}
+		\caption{Exemplo de \textit{design} de carro}
 		\includegraphics[scale=0.7]{AutomotiveDesign.jpg}\\
 		\vspace{0.5mm}
 		\source{BRAINZ.}
 		\label{fig:automotiveDesign}
 	\end{figure}
 	
-	A aplicação de AG em Robótica procura os designs de robôs mais otimizados para as suas tarefas.
+	A aplicação de AG em Robótica procura os \textit{designs} de robôs mais otimizados para as suas tarefas.
 	Como existem muitas "tarefas"{} que podem ser dadas aos robôs,
-	diferentes designs são necessários.
-	Um AG pode agilizar o processo de desenvolvimento de design de um robô,
-	considerando as inúmeras variáveis e criando um design melhorado
+	diferentes \textit{designs} são necessários.
+	Um AG pode agilizar o processo de desenvolvimento de \textit{design} de um robô,
+	considerando as inúmeras variáveis e criando um \textit{design} melhorado
 	(BRAINZ, 2010).
 	
 	AGs também são capazes de encontrar boas soluções em problemas de otimização de rotas.
@@ -901,7 +902,7 @@ public class nomeDaClasse : MonoBehaviour
 	e dados trafegando por roteadores na internet
 	(BRAINZ, 2010).
 	
-	E como último exemplo,
+	Como último exemplo,
 	é possível utilizar AG em jogos eletrônicos.
 	O jogo The Sims permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
 	(BRAINZ, 2010).
@@ -932,7 +933,7 @@ public class nomeDaClasse : MonoBehaviour
 	Ao finalizar, o cromossomo retorna à RNA como pesos,
 	usa-se e repete o processo.
 	
-	Este foi o método escolhido para a criação da Inteligência Artificial neste trabalho:
+	Este foi o método escolhido para a criação da aplicação de Inteligência Artificial neste trabalho:
 	Algoritmo Genético otimizando os pesos de uma Rede Neural Artificial.
 
 \FloatBarrier
@@ -968,19 +969,19 @@ public class nomeDaClasse : MonoBehaviour
 		\renewcommand{\arraystretch}{1.2} % Aumenta espaçamento vertical
 		\begin{tabular}{>{\centering\arraybackslash}m{3.5cm} m{11.5cm}}
 			\hline 
-			\textbf{HP (Health Points)} & Pontos de vida, é o quanto de dano o personagem pode receber antes de ser incapacitado. \\ 
+			\textbf{HP (\textit{Health Points})} & Pontos de vida, é o quanto de dano o personagem pode receber antes de ser incapacitado. \\ 
 			\hline 
-			\textbf{MP (Magic Points)} & Pontos de magia, é consumido ao utilizar habilidades. \\ 
+			\textbf{MP (\textit{Magic Point}s)} & Pontos de magia, é consumido ao utilizar habilidades. \\ 
 			\hline 
-			\textbf{ATK (Attack)} & Um valor alto de ataque permite infligir maiores danos físicos. \\ 
+			\textbf{ATK (\textit{Attack})} & Um valor alto de ataque permite infligir maiores danos físicos. \\ 
 			\hline 
-			\textbf{DEF (Defense)} & Um valor alto de defesa reduz os danos físicos que serão infligidos no HP. \\ 
+			\textbf{DEF (\textit{Defense})} & Um valor alto de defesa reduz os danos físicos que serão infligidos no HP. \\ 
 			\hline 
-			\textbf{MAG (Magic)} & Equivalente ao ATK, mas infligindo danos mágicos. \\ 
+			\textbf{MAG (\textit{Magic})} & Equivalente ao ATK, mas infligindo danos mágicos. \\ 
 			\hline 
-			\textbf{RES (Resistance)} & Equivalente ao DEF, mas reduzindo danos mágicos que serão infligidos no HP. \\ 
+			\textbf{RES (\textit{Resistance})} & Equivalente ao DEF, mas reduzindo danos mágicos que serão infligidos no HP. \\ 
 			\hline 
-			\textbf{SPD (Speed)} & Velocidade do personagem, e valores altos o permite executar mais comandos em menos tempo. \\ 
+			\textbf{SPD (\textit{Speed})} & Velocidade do personagem, e valores altos o permite executar mais comandos em menos tempo. \\ 
 			\hline 
 		\end{tabular}\\
 		\vspace{3mm}
@@ -1000,7 +1001,7 @@ public class nomeDaClasse : MonoBehaviour
 	Caso o HP deste personagem chegue a 0,
 	ele é considerado como incapacitado e não participa mais da batalha.
 	
-	A única maneira de se causar danos mágicos é através de habilidades.
+	A única maneira de causar danos mágicos é através de habilidades.
 	Como visto na Tabela \ref{tab:characterStats},
 	utilizá-las consome MP.
 	Caso o MP seja insuficiente para utilizar a habilidade,
@@ -1036,9 +1037,9 @@ public class nomeDaClasse : MonoBehaviour
 		\label{tab:damageTypes}
 	\end{table}
 	
-	Então se, por exemplo, um personagem tem fraqueza em dano de água e levar este tipo de ataque,
+	Então se um determinado personagem tiver fraqueza em dano de água e levar este tipo de ataque,
 	o dano a ser causado em seu HP será aumentado em relação ao dano normal.
-	Por outro lado, se este mesmo personagem fosse resistente à água,
+	Por outro lado, se este mesmo personagem for resistente à água,
 	o mesmo ataque teria o dano no HP reduzido em relação ao dano normal.
 	
 	% 3.3 Cálculo do dano, skills existentes, suas taxas de dano, elemento e consumo de MP
@@ -1053,7 +1054,7 @@ public class nomeDaClasse : MonoBehaviour
 	%					\end{cases}
 	%	\label{eq:multiplier}
 	%\end{equation}
-	O cálculo de danos no jogo é dada pelas seguintes fórmulas:
+	O cálculo de danos no jogo é realizado pelas seguintes fórmulas:
 	
 	\begin{equation}
 		\textrm{Dano} = 0,3 \textrm{ ATK} \times \left(\frac{\textrm{ATK}}{0,3 \textrm{ ATK} + 1,2 \textrm{ DEF}}\right)
@@ -1078,7 +1079,7 @@ public class nomeDaClasse : MonoBehaviour
 	e como a primeira fórmula, o dano é subtraído do HP do defensor.
 	
 	Após o cálculo do dano,
-	é verificado qual é o tipo de dano a ser dado
+	é verificado qual é o tipo de dano a ser atribuído
 	(detalhes dos tipos de danos estão na Tabela \ref{tab:damageTypes}),
 	e qual a resistência àquele tipo de dano em específico que o defensor tem.
 	Caso o defensor tenha fraqueza neste tipo de ataque,
@@ -1107,8 +1108,8 @@ public class nomeDaClasse : MonoBehaviour
 	Por último, tem-se a influência do SPD na frequência de se efetuar comandos.
 	A partida é composta por vários turnos,
 	e é possível que ninguém ou apenas um personagem efetue alguma ação.
-	Os personagens tem uma variável de "preparado para efetuar comando"{} que inicia-se em 0 e completa-se ao chegar em 1000,
-	mas podendo ultrapassar.
+	Os personagens tem uma variável de "preparado para efetuar comando"{} que inicia-se em 0 e completa-se ao chegar em 1000
+	(mas não se limitando a este valor).
 	Em todos os turnos, todos os personagens ganham pontos nessa variável,
 	e a quantidade que ganham é determinada pela Fórmula \eqref{eq:speedCalculation} a seguir:
 	
@@ -1126,8 +1127,8 @@ public class nomeDaClasse : MonoBehaviour
 	voltando assim ao final da lista.
 	
 	As fórmulas aqui apresentadas foram usadas na implementação do jogo,
-	mas é importante deixar claro que também foi adicionado alguma aleatoriedade nas fórmulas,
-	a fim de aumentar mais um pouco a complexidade do jogo e deixá-lo um pouco menos determinístico.
+	mas é importante deixar claro que também foi adicionado aleatoriedade nas fórmulas,
+	a fim de aumentar a complexidade do jogo e deixá-lo menos determinístico.
 	Os danos finais podem variar 15\% para mais ou para menos do que foi calculado.
 	E a velocidade, no cálculo do "preparado"{}, SPD tem um acréscimo aleatório entre 0 e 9 unidades.
 	
@@ -1174,7 +1175,7 @@ public class nomeDaClasse : MonoBehaviour
 	\subsubsection{Atributos dos personagens}
 	A escolha dos valores de atributos,
 	elemento das habilidades,
-	pontos fracos e fortes foram escolhidos de forma a deixar a batalha estratégica e interessante.
+	pontos fracos e fortes foram definidos de forma a deixar a batalha estratégica e interessante.
 
 	Os personagens de ambos os times foram criados com parâmetros iguais,
 	de forma que se tenha uma batalha de "igual para igual"{}.
@@ -1190,7 +1191,7 @@ public class nomeDaClasse : MonoBehaviour
 			%\hline 
 			%\textbf{Tipo de dano} & \textbf{Sub-divisão} \\ 
 			\thickhline 
-			\textbf{Parâmetro}			& \textbf{Pers. 1 (Tanker)}	& \textbf{Pers. 2 (Guerreiro)}	& \textbf{Pers. 3 (Mago)}	\\\thickhline
+			\textbf{Parâmetro}			& \textbf{Pers. 1 (\textit{Tanker})}	& \textbf{Pers. 2 (Guerreiro)}	& \textbf{Pers. 3 (Mago)}	\\\thickhline
 			\textbf{HP Max}				& 750						& 500							& 400						\\\hline 
 			\textbf{MP Max}				& 350						& 550							& 800						\\\hline 
 			\textbf{ATK}				& 250						& 475							& 200						\\\hline 
@@ -1214,7 +1215,7 @@ public class nomeDaClasse : MonoBehaviour
 	Percebe-se que foram criados 3 tipos diferentes de personagens,
 	cada um com suas características.
 	
-	O \textbf{Tanker} é um personagem resistente a danos,
+	O \textbf{\textit{Tanker}} é um personagem resistente a danos,
 	com bastante HP,
 	mas que não é capaz de causar grandes danos.
 	
@@ -1286,34 +1287,34 @@ public class nomeDaClasse : MonoBehaviour
 	(que representam a matriz de pesos na RNA)
 	são carregados na Rede Neural Artificial.
 	Após a execução da RNA em cada comando do jogo,
-	é dada uma nota (fitness) sobre a influência que a RNA causou,
+	é dada uma nota (\textit{fitness}) sobre a influência que a RNA causou,
 	sendo que esta nota pode ser
 	positiva se o resultado foi bom,
 	ou negativa caso o resultado tenha sido indesejável.
-	Mais detalhes sobre os cálculos será mostrado na próxima seção:
+	Mais detalhes sobre os cálculos serão mostrados na próxima seção:
 	4.4 Funcionamento do jogo.
 	
 	% Seleção - roleta e montagem da nova população
 	% Elitismo
 	Após a avaliação de todos os indivíduos da população,
-	entra-se no processo de seleção.
+	inicia-se o processo de seleção.
 	Nesta parte, cria-se a nova população ainda vazia,
 	e o objetivo passa a ser preenchê-la até ficar com 40 indivíduos.
-	Os primeiros 2 indivíduos que entram nessa nova população são resultado do Elitismo,
-	que copia os 2 com melhor fitness da população antiga para lá sem nenhuma modificação.
+	Os primeiros 2 indivíduos que entram na nova população são resultado do Elitismo,
+	que copia os 2 com melhor \textit{fitness} da população antiga sem nenhuma modificação.
 	
 	Para as 38 vagas restantes,
 	repete-se o seguinte processo para preenchê-las:
 	Primeiro, seleciona-se 2 indivíduos usando o método da Roleta.
 	% Crossover (uniforme), taxa
-	Após isto, é calculado na taxa de crossover, de 90\%, se haverá crossover ou não.
-	Caso haja, é aplicado o crossover uniforme para a geração dos cromossomos filhos,
+	Após isto, é calculado na taxa de \textit{crossover}, de 90\%, se haverá \textit{crossover} ou não.
+	Caso haja, é aplicado o \textit{crossover} uniforme para a geração dos cromossomos filhos,
 	que são adicionados na nova população.
 	Caso não haja, os indivíduos selecionados são copiados para a nova população.
 	
 	% Mutação (taxa)
 	Na última etapa, a de mutação, a nova população já está preenchida com 40 indivíduos.
-	Para cada gene dos 38 cromossomos criados na seleção e crossover,
+	Para cada gene dos 38 cromossomos criados na seleção e \textit{crossover},
 	é calculada uma chance de 1,5\% de se ocorrer a mutação.
 	Se for determinado que haverá uma mutação em um gene,
 	haverá uma alteração de 0,3 unidades para mais ou para menos nele,
@@ -1340,7 +1341,7 @@ public class nomeDaClasse : MonoBehaviour
 	Desta forma, caso o jogo seja fechado e aberto novamente,
 	as informações da população são carregadas do arquivo.
 	Neste arquivo são salvos o número que representa a geração atual
-	e informações de cada indivíduo da população: os cromossomos, seu fitness e se o cromossomo já foi avaliado.
+	e informações de cada indivíduo da população: os cromossomos, seu \textit{fitness} e se o cromossomo já foi avaliado.
 	
 	% Primeiros 2 tem seus cromossomos carregados na RNA, uma para cada time
 	Após a população ter sido criada ou carregada,
@@ -1354,11 +1355,11 @@ public class nomeDaClasse : MonoBehaviour
 	Ao iniciar a batalha, cada time tem uma RNA que a representa e controla.
 	% O que recebeu turno roda a RNA respectiva a seu time
 	O personagem que receber o turno é o que poderá efetuar um comando,
-	e neste momento o script de Rede Neural do seu time entra em ação 6 vezes,
+	e neste momento o \textit{script} de RNA do seu time entra em ação 6 vezes,
 	uma para cada diferente personagem ainda em batalha.
 	
 	% Explicar quais são os valores de entrada que estão sendo usadas na camada de entrada
-	Em cada execução da Rede Neural, são usadas como entrada alguns parâmetros do personagem que possuí o turno,
+	Em cada execução da RNA, são usadas como entrada alguns parâmetros do personagem que possuí o turno,
 	e parâmetros do possível alvo.
 	As informações usadas como entrada na RNA estão descritas na Tabela \ref{tab:nnInput}.
 	
@@ -1392,9 +1393,9 @@ public class nomeDaClasse : MonoBehaviour
 	%Já nos itens disponíveis,
 	%são usados 6 neurônios por causa da existência de 6 diferentes itens.
 	
-	Valores na tabela que contém um * (asterisco) representa que eles tem valor binário.
-	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de -1000.
-	Por outro lado, se o valor for "verdadeiro"{}, "sim"{} ou "forte"{}. terá o valor de 1000.
+	Valores na Tabela \ref{tab:nnInput} que contém um * (asterisco) representa que eles tem valor binário.
+	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de entrada de -1000.
+	Por outro lado, se o valor for "verdadeiro"{}, "sim"{} ou "forte"{}. terá o valor de entrada de 1000.
 	
 	Os demais valores vem com intervalo de 0 a 1000,
 	mas que são convertidos para um intervalo de -1000 a 1000,
@@ -1404,7 +1405,7 @@ public class nomeDaClasse : MonoBehaviour
 	
 	% Explicar que cada valor de saída siginifica um comando e a chance de usar ele
 	Após inserir esses dados nos neurônios de entrada da RNA da equipe,
-	é possível fazer os cálculos para se obter seus dados de saída,
+	é possível fazer os cálculos para obter seus dados de saída,
 	composto por 12 neurônios.
 	
 	Como já explicado, as saídas tem valores entre 0 e 1.
@@ -1433,8 +1434,8 @@ public class nomeDaClasse : MonoBehaviour
 		\label{tab:nnOutput}
 	\end{table}
 	
-	Então, na verificação de um personagem,
-	tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
+	%Então, na verificação de um personagem,
+	%tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
 	Para utilizar esses dados,
 	foi criada uma estrutura que une "alvo"{} a "comando"{} em uma única probabilidade,
 	se segue a fórmula \eqref{eq:targetCommand} a seguir:
@@ -1450,18 +1451,18 @@ public class nomeDaClasse : MonoBehaviour
 	Repetindo este processo nos $N$ personagens ainda em batalha,
 	obtêm-se $11 \times N$ combinações de alvo e comando no final.
 	
-	Com todas estas possibilidades em mãos,
-	é feita uma ordenação delas de forma que a maior fique em primeiro.
+	Com todos estes resultados em mãos,
+	é feita uma ordenação decrescente.
 	% Verificação se é viável efetuar o comando (item ou disponível)
 	Neste momento,
 	o jogo tenta executar a melhor combinação de alvo e comando.
 	Caso falhe (por falta de item ou MP),
 	tenta-se executar o próximo comando da lista.
 	% Efetua-se o comando
-	Repete-se as tentativas até que consiga executar algum com sucesso.
+	Repete-se as tentativas até que consiga executar algum comando com sucesso.
 	
 	% Feedback do comando para avaliação (fitness)
-	Após o comando executado pelo personagem,
+	Após o comando ser executado pelo personagem,
 	existe a avaliação de sua escolha.
 	A nota inicial é 0 (zero),
 	e a primeira verificação que se faz é atacou aliado ou curou inimigo.
@@ -1503,7 +1504,7 @@ public class nomeDaClasse : MonoBehaviour
 	esta nota é acrescida se for feita em aliado e decrescida se for feita em inimigo.
 	
 	% Bônus no fitness por derrotar (mostrar fórmula)
-	E como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
+	Como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
 	se sim um bônus na nota será dada.
 	O bônus é inicialmente de 10.000 (dez mil) pontos,
 	e reduz-se em 1,5\% de seu valor atual em cada turno a partir do primeiro personagem que efetuar seu segundo comando na batalha.
@@ -1521,10 +1522,10 @@ public class nomeDaClasse : MonoBehaviour
 		\label{fig:defeatBonusGraph}
 	\end{figure}
 	
-	Todas estas notas que o personagem consegue e que são somadas são convertidas no fitness do time (e da RNA).
+	Todas estas notas que o personagem consegue e que são somadas são convertidas no \textit{fitness} do time (e da RNA).
 	Uma batalha terá vários comandos executados pelo seu time,
 	e quando a batalha acaba,
-	todas as notas são somadas para obter-se o fitness final da equipe.
+	todas as notas são somadas para obter o \textit{fitness} final da equipe.
 	
 	% Repete-se o processo até a batalha acabar
 	Este processo de receber turno,
@@ -1543,13 +1544,13 @@ public class nomeDaClasse : MonoBehaviour
 	\subsubsection{Após a batalha}
 	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
 	Declarada o final da batalha,
-	ter-se-á o valor de fitness de ambas as equipes.
-	Estes valores vão para o script do Algoritmo Genético,
-	que registra em sua estrutura o fitness de cada um dos dois "indivíduos"{} e então salva no arquivo.
+	ter-se-á o valor de \textit{fitness} de ambas as equipes.
+	Estes valores vão para o \textit{script} do Algoritmo Genético,
+	que registra em sua estrutura o \textit{fitness} de cada um dos dois "indivíduos"{} e então salva no arquivo.
 	
 	% Carrega-se os 2 próximos e faz tudo novamente.
-	Para continuar o treinamento da Inteligencia Artificial,
-	o script do AG procura os dois próximos cromossomos que ainda não foram avaliados e carrega-os na RNA,
+	Para continuar o treinamento da RNA,
+	o \textit{script} do AG procura os dois próximos cromossomos que ainda não foram avaliados e carrega-os na RNA,
 	repetindo todo o processo.
 	% Após avaliar a população inteira, continuar no processo do AG para gerar a próxima geração, e repete tudo novamente
 	Se todos os indivíduos da população já tiverem sido avaliados,
@@ -1568,7 +1569,7 @@ public class nomeDaClasse : MonoBehaviour
 
 	\begin{figure}[ht!]
 		\centering
-		\caption{Screenshot do jogo}
+		\caption{\textit{Screenshot} do jogo}
 		\includegraphics[scale=0.6]{GameScreenshot.jpg}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
@@ -1580,7 +1581,7 @@ public class nomeDaClasse : MonoBehaviour
 	
 	\begin{figure}[ht!]
 		\centering
-		\caption{Fitness durante 20 gerações}
+		\caption{\textit{Fitness} durante 20 gerações}
 		\includegraphics[scale=0.7]{AI-Result.png}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
@@ -1589,16 +1590,17 @@ public class nomeDaClasse : MonoBehaviour
 	
 	Percebeu-se que os personagens aprenderam a melhorar sua performance com sucesso,
 	e com melhoras significativas nas primeiras gerações.
-	Na primeira geração, a média de fitness foi muito próxima a zero,
+	Na primeira geração, a média de \textit{fitness} foi muito próxima a zero,
 	o que mostra que quase metade das equipes tinha desempenho negativo.
 	Este quadro muda completamente já na 10$^a$ geração,
 	do qual a equipe de pior desempenho foi melhor que a média da primeira.
 	
-	É possível notar também que, por sorte, logo na primeira geração,
-	já houve uma equipe com alto desempenho.
-	Esta equipe não só se manteve mas continuou melhorando lentamente.
+	É possível notar também que, coincidentemente,
+	logo na primeira geração já houve uma equipe com alto desempenho.
+	Esta equipe não só se manteve,
+	 mas continuou melhorando lentamente.
 	
-	Por fim, o indicador que melhor mostrou a constante evolução da inteligência no jogo é a média do fitness,
+	Por fim, o indicador que melhor mostrou a constante evolução da inteligência no jogo é a média do \textit{fitness},
 	do qual é possível perceber um constante aumento,
 	com apenas pequenas quedas pontuais.
 	
