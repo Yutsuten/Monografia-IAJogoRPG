@@ -405,7 +405,7 @@
 	\subsection{Unity}
 		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
 		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
-		além de ter muitos serviços integrados que aceleram o processo de desenvolvimento.
+		e muitos serviços integrados que aceleram o processo de desenvolvimento.
 		As linguagens de programação que podem ser usadas são UnityScript e C\#
 		(UNITY, 2016a).
 		
@@ -419,7 +419,7 @@
 		O jogo está disponível na Steam
 		(UNITY, 2016b).
 		
-		O editor da Unity também é extensível, sendo possível implementar funcionalidades ainda não existentes
+		O editor da Unity também é extensível, possibilitando implementar funcionalidades ainda não existentes
 		(UNITY, 2016a).
 		Um exemplo de extensão é o \textit{Rival Theory},
 		que implementa vários conceitos de Inteligência Artificial,
@@ -532,7 +532,7 @@ public class NomeDaClasse : MonoBehaviour
 	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
 	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
-	será explicado apenas a essência deles e o foi necessário para desenvolver este trabalho.
+	será explicado apenas a essência deles e o necessário para desenvolver este trabalho.
 
 	\FloatBarrier
 	\subsection{Redes Neurais Artificiais}
@@ -604,12 +604,15 @@ public class NomeDaClasse : MonoBehaviour
 	de que maneira pode-se determinar o número de camadas ocultas a serem utilizadas em um determinado problema?
 	Caso os dados sejam linearmente separáveis,
 	não é necessário nenhuma camada oculta.
-	Caso contrário, se forem dados não lineares,
+	Por outro lado, se forem dados não lineares,
 	uma ou mais camadas ocultas serão necessárias
 	(STACKEXCHANGE, 2013).
+	
 	Quanto mais camadas ocultas forem utilizadas,
 	maior a granularidade dos resultados obtidos na RNA,
 	como pode ser visto na Figura \ref{fig:nnhiddenlayer}.
+	Para garantir esta não-linearidade dos resultados, %ao utilizar mais de uma camada oculta na RNA,
+	é necessário colocar funções de ativação não-lineares nos neurônios das camadas ocultas.
 	
 	\begin{figure}[ht!]
 		\caption{Importância da camada oculta}
@@ -623,15 +626,12 @@ public class NomeDaClasse : MonoBehaviour
 	Deve-se lembrar que, apesar de muitas camadas ocultas aumentar a granularidade dos resultados,
 	isto vem com um custo:
 	mais tempo de processamento e
-	influência no tempo de aprendizagem.
-	É por este motivo que deve-se buscar a arquitetura otimizada ao problema,
+	aprendizagem mais lenta.
+	É por este motivo que deve-se buscar a arquitetura (número de camadas ocultas e número de neurônios) otimizada ao problema,
 	com baixo tempo de processamento e alto desempenho.
-	Outro detalhe importante é a necessidade de colocar funções de ativação não-lineares nas camadas ocultas,
-	uma vez que são elas que garantem a não-linearidade dos resultados
-	(STACKEXCHANGE, 2013).
 	
-	Existem muitas discussões a respeito do número de camadas ocultas a serem usadas, caso ela seja necessária,
-	mas um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
+	Existem muitas discussões a respeito do número otimizado de camadas ocultas a serem usadas, caso ela seja necessária.
+	Um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
 	(STACKEXCHANGE, 2013).
 	
 	Considerando a necessidade de colocar uma camada oculta na RNA,
@@ -689,7 +689,7 @@ public class NomeDaClasse : MonoBehaviour
 	A unidade que caracteriza um determinado indivíduo na população é o cromossomo.
 	% 2.1.1 Gene
 	O cromossomo é constituído de vários genes,
-	que carregam uma informação ou característica de um indivíduo.
+	que carregam informações ou características de um indivíduo. %que carregam informação ou característica de um indivíduo.
 	% 2.1.2 Representação do cromossomo
 	O gene pode ser representado de várias formas dentro do AG,
 	sendo a mais simples delas a representação binária,
@@ -749,7 +749,7 @@ public class NomeDaClasse : MonoBehaviour
 	Durante o algoritmo do AG, deve-se calcular o o \textit{fitness} (nível de aptidão) de cada indivíduo da população.
 	A forma de se calcular o \textit{fitness} do indivíduo depende do problema,
 	e este cálculo faz parte do processo de Avaliação da população,
-	que pode ser visto em mais detalhes na Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow} à frente.
+	que pode ser visto em mais detalhes na Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow}.
 	
 	% 2.6 Seleção
 	No processo de Seleção,
@@ -784,7 +784,7 @@ public class NomeDaClasse : MonoBehaviour
 	Após a seleção existe o \textit{Crossover} (ou cruzamento).
 	%análogo à reprodução que se estuda em biologia.
 	Se for decidido que haverá um \textit{crossover},
-	informações do cromossomo de 2 indivíduos são misturados,
+	informações do cromossomo de 2 indivíduos serão misturados,
 	criando "cromossomos filhos"{}.
 	Neste processo, são selecionados pontos nos cromossomos pais,
 	e os cromossomos filhos copiam do primeiro cromossomo pai até aquele ponto,
@@ -792,10 +792,10 @@ public class NomeDaClasse : MonoBehaviour
 	O \textit{crossover} pode ter um único ponto ou vários pontos de \textit{crossover}.
 	Também existe o \textit{crossover} uniforme,
 	em que é copiado vários pequenos trechos de ambos os pais,
-	com taxa de 50\% de se copiar de cada um deles.
+	com taxa de 50\%.
 	
 	% 2.7.1 Taxa de Crossover
-	No entanto, o \textit{crossover} não necessariamente ocorre sempre.
+	No entanto, o \textit{crossover} não necessariamente ocorre.
 	Existe uma probabilidade dele acontecer,
 	e essa probabilidade é a taxa de \textit{crossover}.
 	Considerando-se, por exemplo, uma taxa de \textit{crossover} de 90\%,
@@ -821,7 +821,7 @@ public class NomeDaClasse : MonoBehaviour
 	% 3 Processo
 	O AG mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
-	O processo ocorre como explica a Tabela \ref{tab:agCycle} e ilustra a Figura \ref{fig:gaflow} a seguir:
+	O processo ocorre como explicado na Tabela \ref{tab:agCycle} e ilustrado na Figura \ref{fig:gaflow} a seguir:
 	
 	\begin{table}[h]
 		\caption{Ciclo do Algoritmo Genético}
@@ -900,7 +900,7 @@ public class NomeDaClasse : MonoBehaviour
 	e dados trafegando por roteadores na internet
 	(BRAINZ, 2010).
 	
-	E como último exemplo,
+	Como último exemplo,
 	é possível utilizar AG em jogos eletrônicos.
 	O jogo The Sims permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
 	(BRAINZ, 2010).
@@ -931,7 +931,7 @@ public class NomeDaClasse : MonoBehaviour
 	Ao finalizar, o cromossomo retorna à RNA como pesos,
 	usa-se e repete o processo.
 	
-	Este foi o método escolhido para a criação da Inteligência Artificial neste trabalho:
+	Este foi o método escolhido para a criação da aplicação de Inteligência Artificial neste trabalho:
 	Algoritmo Genético otimizando os pesos de uma Rede Neural Artificial.
 
 \FloatBarrier
@@ -999,7 +999,7 @@ public class NomeDaClasse : MonoBehaviour
 	Caso o HP deste personagem chegue a 0,
 	ele é considerado como incapacitado e não participa mais da batalha.
 	
-	A única maneira de se causar danos mágicos é através de habilidades.
+	A única maneira de causar danos mágicos é através de habilidades.
 	Como visto na Tabela \ref{tab:characterStats},
 	utilizá-las consome MP.
 	Caso o MP seja insuficiente para utilizar a habilidade,
@@ -1035,9 +1035,9 @@ public class NomeDaClasse : MonoBehaviour
 		\label{tab:damageTypes}
 	\end{table}
 	
-	Então se, por exemplo, um personagem tem fraqueza em dano de água e levar este tipo de ataque,
+	Então se um determinado personagem tiver fraqueza em dano de água e levar este tipo de ataque,
 	o dano a ser causado em seu HP será aumentado em relação ao dano normal.
-	Por outro lado, se este mesmo personagem fosse resistente à água,
+	Por outro lado, se este mesmo personagem for resistente à água,
 	o mesmo ataque teria o dano no HP reduzido em relação ao dano normal.
 	
 	% 3.3 Cálculo do dano, skills existentes, suas taxas de dano, elemento e consumo de MP
@@ -1052,7 +1052,7 @@ public class NomeDaClasse : MonoBehaviour
 	%					\end{cases}
 	%	\label{eq:multiplier}
 	%\end{equation}
-	O cálculo de danos no jogo é dada pelas seguintes fórmulas:
+	O cálculo de danos no jogo é realizado pelas seguintes fórmulas:
 	
 	\begin{equation}
 		\textrm{Dano} = 0,3 \textrm{ ATK} \times \left(\frac{\textrm{ATK}}{0,3 \textrm{ ATK} + 1,2 \textrm{ DEF}}\right)
@@ -1077,7 +1077,7 @@ public class NomeDaClasse : MonoBehaviour
 	e como a primeira fórmula, o dano é subtraído do HP do defensor.
 	
 	Após o cálculo do dano,
-	é verificado qual é o tipo de dano a ser dado
+	é verificado qual é o tipo de dano a ser atribuído
 	(detalhes dos tipos de danos estão na Tabela \ref{tab:damageTypes}),
 	e qual a resistência àquele tipo de dano em específico que o defensor tem.
 	Caso o defensor tenha fraqueza neste tipo de ataque,
@@ -1106,8 +1106,8 @@ public class NomeDaClasse : MonoBehaviour
 	Por último, tem-se a influência do SPD na frequência de se efetuar comandos.
 	A partida é composta por vários turnos,
 	e é possível que ninguém ou apenas um personagem efetue alguma ação.
-	Os personagens tem uma variável de "preparado para efetuar comando"{} que inicia-se em 0 e completa-se ao chegar em 1000,
-	mas podendo ultrapassar.
+	Os personagens tem uma variável de "preparado para efetuar comando"{} que inicia-se em 0 e completa-se ao chegar em 1000
+	(mas não se limitando a este valor).
 	Em todos os turnos, todos os personagens ganham pontos nessa variável,
 	e a quantidade que ganham é determinada pela Fórmula \eqref{eq:speedCalculation} a seguir:
 	
@@ -1125,8 +1125,8 @@ public class NomeDaClasse : MonoBehaviour
 	voltando assim ao final da lista.
 	
 	As fórmulas aqui apresentadas foram usadas na implementação do jogo,
-	mas é importante deixar claro que também foi adicionado alguma aleatoriedade nas fórmulas,
-	a fim de aumentar mais um pouco a complexidade do jogo e deixá-lo um pouco menos determinístico.
+	mas é importante deixar claro que também foi adicionado aleatoriedade nas fórmulas,
+	a fim de aumentar a complexidade do jogo e deixá-lo menos determinístico.
 	Os danos finais podem variar 15\% para mais ou para menos do que foi calculado.
 	E a velocidade, no cálculo do "preparado"{}, SPD tem um acréscimo aleatório entre 0 e 9 unidades.
 	
@@ -1173,7 +1173,7 @@ public class NomeDaClasse : MonoBehaviour
 	\subsubsection{Atributos dos personagens}
 	A escolha dos valores de atributos,
 	elemento das habilidades,
-	pontos fracos e fortes foram escolhidos de forma a deixar a batalha estratégica e interessante.
+	pontos fracos e fortes foram definidos de forma a deixar a batalha estratégica e interessante.
 
 	Os personagens de ambos os times foram criados com parâmetros iguais,
 	de forma que se tenha uma batalha de "igual para igual"{}.
@@ -1289,17 +1289,17 @@ public class NomeDaClasse : MonoBehaviour
 	sendo que esta nota pode ser
 	positiva se o resultado foi bom,
 	ou negativa caso o resultado tenha sido indesejável.
-	Mais detalhes sobre os cálculos será mostrado na próxima seção:
+	Mais detalhes sobre os cálculos serão mostrados na próxima seção:
 	4.4 Funcionamento do jogo.
 	
 	% Seleção - roleta e montagem da nova população
 	% Elitismo
 	Após a avaliação de todos os indivíduos da população,
-	entra-se no processo de seleção.
+	inicia-se o processo de seleção.
 	Nesta parte, cria-se a nova população ainda vazia,
 	e o objetivo passa a ser preenchê-la até ficar com 40 indivíduos.
-	Os primeiros 2 indivíduos que entram nessa nova população são resultado do Elitismo,
-	que copia os 2 com melhor \textit{fitness} da população antiga para lá sem nenhuma modificação.
+	Os primeiros 2 indivíduos que entram na nova população são resultado do Elitismo,
+	que copia os 2 com melhor \textit{fitness} da população antiga sem nenhuma modificação.
 	
 	Para as 38 vagas restantes,
 	repete-se o seguinte processo para preenchê-las:
@@ -1391,9 +1391,9 @@ public class NomeDaClasse : MonoBehaviour
 	%Já nos itens disponíveis,
 	%são usados 6 neurônios por causa da existência de 6 diferentes itens.
 	
-	Valores na tabela que contém um * (asterisco) representa que eles tem valor binário.
-	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de -1000.
-	Por outro lado, se o valor for "verdadeiro"{}, "sim"{} ou "forte"{}. terá o valor de 1000.
+	Valores na Tabela \ref{tab:nnInput} que contém um * (asterisco) representa que eles tem valor binário.
+	Foi implementado que caso o valor seja "falso"{}, "não"{} ou "fraco"{}, terá o valor de entrada de -1000.
+	Por outro lado, se o valor for "verdadeiro"{}, "sim"{} ou "forte"{}. terá o valor de entrada de 1000.
 	
 	Os demais valores vem com intervalo de 0 a 1000,
 	mas que são convertidos para um intervalo de -1000 a 1000,
@@ -1403,7 +1403,7 @@ public class NomeDaClasse : MonoBehaviour
 	
 	% Explicar que cada valor de saída siginifica um comando e a chance de usar ele
 	Após inserir esses dados nos neurônios de entrada da RNA da equipe,
-	é possível fazer os cálculos para se obter seus dados de saída,
+	é possível fazer os cálculos para obter seus dados de saída,
 	composto por 12 neurônios.
 	
 	Como já explicado, as saídas tem valores entre 0 e 1.
@@ -1432,8 +1432,8 @@ public class NomeDaClasse : MonoBehaviour
 		\label{tab:nnOutput}
 	\end{table}
 	
-	Então, na verificação de um personagem,
-	tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
+	%Então, na verificação de um personagem,
+	%tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
 	Para utilizar esses dados,
 	foi criada uma estrutura que une "alvo"{} a "comando"{} em uma única probabilidade,
 	se segue a fórmula \eqref{eq:targetCommand} a seguir:
@@ -1449,18 +1449,18 @@ public class NomeDaClasse : MonoBehaviour
 	Repetindo este processo nos $N$ personagens ainda em batalha,
 	obtêm-se $11 \times N$ combinações de alvo e comando no final.
 	
-	Com todas estas possibilidades em mãos,
-	é feita uma ordenação delas de forma que a maior fique em primeiro.
+	Com todos estes resultados em mãos,
+	é feita uma ordenação decrescente.
 	% Verificação se é viável efetuar o comando (item ou disponível)
 	Neste momento,
 	o jogo tenta executar a melhor combinação de alvo e comando.
 	Caso falhe (por falta de item ou MP),
 	tenta-se executar o próximo comando da lista.
 	% Efetua-se o comando
-	Repete-se as tentativas até que consiga executar algum com sucesso.
+	Repete-se as tentativas até que consiga executar algum comando com sucesso.
 	
 	% Feedback do comando para avaliação (fitness)
-	Após o comando executado pelo personagem,
+	Após o comando ser executado pelo personagem,
 	existe a avaliação de sua escolha.
 	A nota inicial é 0 (zero),
 	e a primeira verificação que se faz é atacou aliado ou curou inimigo.
@@ -1502,7 +1502,7 @@ public class NomeDaClasse : MonoBehaviour
 	esta nota é acrescida se for feita em aliado e decrescida se for feita em inimigo.
 	
 	% Bônus no fitness por derrotar (mostrar fórmula)
-	E como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
+	Como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
 	se sim um bônus na nota será dada.
 	O bônus é inicialmente de 10.000 (dez mil) pontos,
 	e reduz-se em 1,5\% de seu valor atual em cada turno a partir do primeiro personagem que efetuar seu segundo comando na batalha.
@@ -1523,7 +1523,7 @@ public class NomeDaClasse : MonoBehaviour
 	Todas estas notas que o personagem consegue e que são somadas são convertidas no \textit{fitness} do time (e da RNA).
 	Uma batalha terá vários comandos executados pelo seu time,
 	e quando a batalha acaba,
-	todas as notas são somadas para obter-se o \textit{fitness} final da equipe.
+	todas as notas são somadas para obter o \textit{fitness} final da equipe.
 	
 	% Repete-se o processo até a batalha acabar
 	Este processo de receber turno,
@@ -1593,9 +1593,10 @@ public class NomeDaClasse : MonoBehaviour
 	Este quadro muda completamente já na 10$^a$ geração,
 	do qual a equipe de pior desempenho foi melhor que a média da primeira.
 	
-	É possível notar também que, por sorte, logo na primeira geração,
-	já houve uma equipe com alto desempenho.
-	Esta equipe não só se manteve mas continuou melhorando lentamente.
+	É possível notar também que, coincidentemente,
+	logo na primeira geração já houve uma equipe com alto desempenho.
+	Esta equipe não só se manteve,
+	 mas continuou melhorando lentamente.
 	
 	Por fim, o indicador que melhor mostrou a constante evolução da inteligência no jogo é a média do \textit{fitness},
 	do qual é possível perceber um constante aumento,
