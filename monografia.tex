@@ -1,5 +1,5 @@
 % Tamanho do texto, tipo de papel e documento
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper, english, brazil]{article}
 
 % PACOTES
 % Padrão
@@ -46,6 +46,8 @@
 \usepackage{multirow}
 % Fórmulas
 \usepackage{mathtools}
+% Bibliografia ABNT
+\usepackage{natbib}
 
 
 % CONFIGURAÇÃO DE VARIÁVEIS
@@ -81,8 +83,12 @@
 \renewcommand{\familydefault}{\sfdefault}
 % Estilo de listas
 \renewcommand{\theenumi}{\alph{enumi}}
-% Cor da URL
-\hypersetup{urlcolor=black}
+% Cores de links
+\hypersetup{
+	urlcolor=black,
+	linkcolor=black,
+	citecolor=black
+}
 % Fonte da URL
 \urlstyle{sf}
 
@@ -143,9 +149,6 @@
 \lstset{style=mystyle}
 % Indentação de listas
 \setlist{leftmargin=15.5mm}
-
-% Estilo da bibliografia
-\bibliographystyle{apalike}
 
 
 % INICIO DO ARTIGO
@@ -602,7 +605,7 @@ public class NomeDaClasse : MonoBehaviour
 	
 	Uma RNA sempre terá uma camada de entrada e uma de saída.
 	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro.
-	Estas camadas ocultas são explicadas como sendo extratoras de características
+	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
 	(STACKEXCHANGE, 2013).
 	
 	Então, se o número de camadas ocultas varia,
@@ -1638,37 +1641,13 @@ public class NomeDaClasse : MonoBehaviour
 	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
 	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 20 Julho 2016.\par
 	
-	Texto escrito baseado no que foi escrito por outra pessoa \cite{latexcompanion}.
+	De acordo com \citep{Tanenbaum}, blah blah	
 	
-	% Bibliografia
-\begin{thebibliography}{9}
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
-Addison-Wesley, Reading, Massachusetts, 1993.
- 
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
- 
-\bibitem{knuthwebsite} 
-Knuth: Computers and Typesetting,
-\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
-
-\bibitem{notes} John W. Dower {\em Readings compiled for History
-  21.479.}  1991.
-
-  \bibitem{impj}  The Japan Reader {\em Imperial Japan 1800-1945} 1973:
-  Random House, N.Y.
-
-  \bibitem{norman} E. H. Norman {\em Japan's emergence as a modern
-  state} 1940: International Secretariat, Institute of Pacific
-  Relations.
-
-  \bibitem{fo} Bob Tadashi Wakabayashi {\em Anti-Foreignism and Western
-  Learning in Early-Modern Japan} 1986: Harvard University Press.
-\end{thebibliography}
+	De acordo com \citep{fundamentosSO}, blah blah
+	
+	Figura 3: \cite{Tanenbaum}
+	
+	\bibliographystyle{apa}
+	\bibliography{referencias}
 
 \end{document}
