@@ -5,9 +5,10 @@
 	oneside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%sumario=tradicional, % o padrão é sumario=abnt-6027-2012
+    chapter=TITLE,      % títulos de capítulos convertidos em letras maiúsculas
+    %section=title,      % títulos de seções convertidos em letras maiúsculas
+    %subsection=title,   % títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
@@ -70,7 +71,8 @@
 	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\ }
 	% Deixa os itens do sumário com pontos
 	%\renewcommand*\l@chapter{\@dottedtocline{0}{0em}{5.0em}}
-	\renewcommand*\l@section{\@dottedtocline{1}{0em}{5.0em}}
+	%\renewcommand*\l@section{\@dottedtocline{1}{0em}{5.0em}}
+	%\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{5.0em}}
 	% Criando linhas mais grossas nas tabelas
 	\newcommand{\thickhline}{%
     	\noalign {\ifnum 0=`}\fi \hrule height 1pt
@@ -295,6 +297,7 @@
 % SUMÁRIO - FIM
 
 % INTRODUÇÃO - INÍCIO
+\textual
 \newpage % Coloca o conteúdo numa nova página
 \chapter{INTRODUÇÃO}
 	Há ainda muitas pessoas que acreditam que jogos eletrônicos são para crianças ou pessoas desocupadas.
@@ -1611,7 +1614,7 @@ public class NomeDaClasse : MonoBehaviour
 
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
-\chapter*{\hfil REFERÊNCIAS}
+\chapter*{REFERÊNCIAS}
 \addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
 %	\singlespace
 	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \textless \url{https://unity3d.com/pt/unity}\textgreater. Acesso em 01 Julho 2016.\par
@@ -1638,12 +1641,13 @@ public class NomeDaClasse : MonoBehaviour
 	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
 	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 20 Julho 2016.\par
 	
-%	De acordo com \citep{unitySite}, blah blah	
+	De acordo com \cite{unitySite}, blah blah	
 	
-%	De acordo com \citep{unityGames}, blah blah
+	De acordo com \cite{unityGames}, blah blah
 	
-%	Figura 3: \cite{unityInterface}
+	Figura 3: \citeonline{wikipedia}
 	
+	\postextual
 	\bibliography{referencias}
 
 \end{document}
