@@ -65,7 +65,7 @@
 
 % CONFIGURAÇÃO DE VARIÁVEIS
 % Mostra numero da pagina no canto superior direito
-\pagestyle{myheadings}
+%\pagestyle{myheadings}
 % Acessando comandos internos
 \makeatletter
 	% Colocando espaço de "um espaço" entre o número e o título da seção (default é espaço de 1 quad (1em))
@@ -87,6 +87,10 @@
 \urlstyle{sf}
 % Estilo de listas
 \renewcommand{\theenumi}{\alph{enumi}}
+% Tamanho da fonte nos títulos
+\renewcommand{\ABNTEXchapterfontsize}{\LARGE\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\Large\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\large\bfseries}
 % Cores de links
 \hypersetup{
 	colorlinks=true,
