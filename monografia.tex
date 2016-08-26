@@ -1,43 +1,52 @@
-% Tamanho do texto, tipo de papel e documento
-\documentclass[12pt,a4paper]{article}
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%sumario=tradicional, % o padrão é sumario=abnt-6027-2012
+    chapter=TITLE,      % títulos de capítulos convertidos em letras maiúsculas
+    %section=title,      % títulos de seções convertidos em letras maiúsculas
+    %subsection=title,   % títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	%alf,bibjustif		% justifica quando usa abntex2cite (padrão: abntex2)
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
 
 % PACOTES
 % Padrão
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage{uarial}				% Usa a fonte Arial
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+%\usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}	% Margens nas páginas
 
-% Pacotes para alterar fonte
-\usepackage[T1]{fontenc}
-\usepackage{uarial}
+% Citações
+\usepackage[brazilian,hyperpageref]{}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage{float}
+
+
 % Personaliza lista de itens
 \usepackage{enumitem}
-% Muda fonte dos "captions"
-\usepackage[font=small]{caption}
-% Permite adicionar imagens
-\usepackage{graphicx}
 % Pacote para referências
 %\usepackage{csquotes}
 % Coloca alguns termos do artigo em português (figura, tabela)
-\usepackage[brazilian]{babel}
+%\usepackage[brazilian]{babel}
 % Permite alterar distância entre linhas
 \usepackage{setspace}
-% Colocando indentação em todos os parágrafos (por default o primeiro parágrafo da seção não tem)
-\usepackage{indentfirst}
-% Margens nas páginas
-\usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
-% Links do sumário para as respectivas páginas
-\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+
+
 % Visualização de códigos no meio do texto
 \usepackage{listings}
-% Cores no código
-\usepackage{color}
 % Para inserir URLs
-\usepackage{hyperref}
-\makeatletter
-\g@addto@macro{\UrlBreaks}{\UrlOrds}
-\makeatother
+\usepackage{url}
 % Para impedir as imagens de irem para lugares que não devem
 \usepackage{placeins}
 % Usado para centralizar verticalmente em tabelas
@@ -48,22 +57,23 @@
 \usepackage{mathtools}
 
 
+% INFORMAÇÕES DO TRABALHO
+\author{MATEUS GONÇALEZ ETTO}
+\title{UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL EM JOGO RPG}
+\date{\today}
+
+
 % CONFIGURAÇÃO DE VARIÁVEIS
 % Mostra numero da pagina no canto superior direito
-\pagestyle{myheadings}
-% Indentação dos parágrafos
-\parindent 30pt
-% Distância entre linhas
-\onehalfspacing
+%\pagestyle{myheadings}
 % Acessando comandos internos
 \makeatletter
 	% Colocando espaço de "um espaço" entre o número e o título da seção (default é espaço de 1 quad (1em))
 	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\ }
 	% Deixa os itens do sumário com pontos
-	\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
-	% Remove indentação no sumário
-	\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{3.0em}}
-	\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{3.0em}}
+	%\renewcommand*\l@chapter{\@dottedtocline{0}{0em}{5.0em}}
+	%\renewcommand*\l@section{\@dottedtocline{1}{0em}{5.0em}}
+	%\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{5.0em}}
 	% Criando linhas mais grossas nas tabelas
 	\newcommand{\thickhline}{%
     	\noalign {\ifnum 0=`}\fi \hrule height 1pt
@@ -71,36 +81,30 @@
 	}
 	\newcolumntype{?}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 \makeatother
-% Editando títulos dos índices
-\addto\captionsbrazilian{
-	\renewcommand{\listfigurename}{\centering LISTA DE FIGURAS}
-	\renewcommand{\listtablename}{\centering LISTA DE TABELAS}
-	\renewcommand{\contentsname}{\centering SUMÁRIO}
-}
 % Escolhendo a fonte 
 \renewcommand{\familydefault}{\sfdefault}
-% Estilo de listas
-\renewcommand{\theenumi}{\alph{enumi}}
-% Cor da URL
-\hypersetup{urlcolor=black}
 % Fonte da URL
 \urlstyle{sf}
-
-
-% INFORMAÇÕES DO TRABALHO
-\author{MATEUS GONÇALEZ ETTO}
-\title{UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL EM JOGO RPG}
-\date{\today}
+% Estilo de listas
+\renewcommand{\theenumi}{\alph{enumi}}
+% Tamanho da fonte nos títulos
+\renewcommand{\ABNTEXchapterfontsize}{\LARGE\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\Large\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\large\bfseries}
+% Cores de links
+\hypersetup{
+	colorlinks=true,
+	urlcolor=black,
+	linkcolor=black,
+	citecolor=black
+}
 
 
 % COMANDOS PERSONALIZADOS
 % Fonte da imagem
 \newcommand{\source}[1]{\small Fonte: {#1}}
-% Citações longas
-\def\longcitation{\list{}{\vspace{-6mm} \leftmargin4.0cm \singlespace \small}\item[]}
-\let\endlongcitation=\endlist
 % Capa: objetivo do trabalho
-\def\articleobjective{\list{}{\vspace{1.5cm} \leftmargin7.0cm \singlespace \small}\item[]}
+\def\articleobjective{\list{}{\vspace{1.5cm} \leftmargin7.0cm \small}\item[]}
 \let\endarticleobjective=\endlist
 % Código C#
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -143,10 +147,13 @@
 \lstset{style=mystyle}
 % Indentação de listas
 \setlist{leftmargin=15.5mm}
+% Espaçamento entre parágrafos
+\setlength{\parskip}{0.1cm}
 
 
 % INICIO DO ARTIGO
 \begin{document}
+\selectlanguage{brazil}
 
 % CAPA - INÍCIO
 \thispagestyle{empty} % Oculta o número da página
@@ -182,12 +189,14 @@
 \makeatother
 \end{center}
 
-\begin{articleobjective}
+\begin{adjustwidth}{7cm}{0cm}
+	\vspace{1.5cm}
 	Trabalho de Conclusão de Curso de graduação apresentado à disciplina Projeto e Implementação de Sistemas do curso de Bacharelado em Ciência da Computação da Faculdade de Ciências da Universidade Estadual Paulista "Júlio de Mesquita Filho"{} como requisito para obtenção do título de Bacharel em Ciência da Computação.
 	
 	\vspace{1.0cm} % Adicionando espaço extra
+	\noindent
 	Orientadora: Profa. Dra. Simone das Graças Domingues Prado
-\end{articleobjective}
+\end{adjustwidth}
 
 \begin{center}
 	\vspace*{\fill} % Adicionando espaço para escrever em baixo
@@ -208,9 +217,10 @@
 \makeatother
 \end{center}
 
-\begin{articleobjective}
+\begin{adjustwidth}{7cm}{0cm}
+	\vspace{1.5cm}
 	Trabalho de Conclusão de Curso de graduação apresentado à disciplina Projeto e Implementação de Sistemas do curso de Bacharelado em Ciência da Computação da Faculdade de Ciências da Universidade Estadual Paulista "Júlio de Mesquita Filho"{} como requisito para obtenção do título de Bacharel em Ciência da Computação.
-\end{articleobjective}
+\end{adjustwidth}
 
 \begin{center}
 	\vspace{1.0cm}
@@ -234,9 +244,8 @@
 % RESUMO - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
-\section*{\hfil RESUMO} % \hfil centraliza o título
-	\singlespace
-	\noindent
+\begin{resumo}
+	\SingleSpacing
 	Este projeto trata-se da criação de um protótipo de jogo no estilo RPG em turnos,
 	em conjunto com a criação de uma aplicação de Inteligência Artificial capaz de controlar os personagens,
 	assim como de aprender a controlá-los melhor com treinamento.
@@ -244,71 +253,76 @@
 	foram usados conceitos de Redes Neurais Artificiais e Algorítimo Genético,
 	e para a criação do jogo e seus scripts
 	foi usado o motor de jogo Unity.
-	
-	\vspace{0.8cm}
-	\noindent
-	\textbf{PALAVRAS-CHAVE:} Inteligência Artificial, Unity, jogo RPG
-% RESUMO - FIM
+ 	
+ 	\vspace{\onelineskip}
+	\textbf{PALAVRAS-CHAVE}: Inteligência Artificial, Unity, jogo RPG
+\end{resumo}
 
-\onehalfspacing
+%\onehalfspacing
 
 % ABSTRACT - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
-\section*{\hfil ABSTRACT} % \hfil centraliza o título
-	\singlespace
-	\noindent
-	This project comes to creating a turn-based RPG game prototype,
-	in conjunction with an Artificial Intelligence application that is able to control the characters
-	as well as to learn how to control them better with training.
-	For the creation of the Artificial Intelligence application,
-	concepts of Artificial Neural Networks and Genetic Algorithm were used,
-	and for the creation of the game and its scripts,
-	the Unity game engine was used.
-	
-	\vspace{0.8cm}
-	\noindent
-	\textbf{KEY-WORDS:} Artificial Intelligence, Unity, RPG game
-% ABSTRACT - FIM
+\begin{resumo}[Abstract]
+	\begin{otherlanguage*}{english}
+		\SingleSpacing
+		This project comes to creating a turn-based RPG game prototype,
+		in conjunction with an Artificial Intelligence application that is able to control the characters
+		as well as to learn how to control them better with training.
+		For the creation of the Artificial Intelligence application,
+		concepts of Artificial Neural Networks and Genetic Algorithm were used,
+		and for the creation of the game and its scripts,
+		the Unity game engine was used.
+		
+		\vspace{\onelineskip}
+		\textbf{KEY-WORDS:} Artificial Intelligence, Unity, RPG game
+	\end{otherlanguage*}
+\end{resumo}
 
-\onehalfspacing
+%\onehalfspacing
 
 % LISTA DE FIGURAS - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
-\thispagestyle{empty} % Oculta o número da página
-\listoffigures % Cria a lista de figuras
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 % LISTA DE FIGURAS - FIM
 
 % LISTA DE TABELAS - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
-\listoftables % Cria a lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 % LISTA DE TABELAS - FIM
 
 % SUMÁRIO - INÍCIO
 \newpage % Coloca o conteúdo numa nova página
 \thispagestyle{empty} % Oculta o número da página
-\tableofcontents % Cria o Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
 % SUMÁRIO - FIM
 
 % INTRODUÇÃO - INÍCIO
+\textual
 \newpage % Coloca o conteúdo numa nova página
-\section{INTRODUÇÃO}
+\chapter{INTRODUÇÃO}
 	Há ainda muitas pessoas que acreditam que jogos eletrônicos são para crianças ou pessoas desocupadas.
 	Talvez isso fosse verdade no milênio passado, mas a realidade vem se mostrando ser bem diferente.
 	
 	De acordo com uma pesquisa da SuperData,
 	o mercado de jogos cresceu 8\% de 2014 a 2015,
-	com 61 bilhões de dólares circulando nesta indústria (CNBC, 2016).
+	com 61 bilhões de dólares circulando nesta indústria \cite{cnbc}.
 	Em 2014, o valor da indústria de jogos já havia ultrapassado o da indústria de música em 20 bilhões,
-	e está chegando ao da indústria do filmes (NYTIMES, 2014).
+	e está chegando ao da indústria do filmes \cite{nytimes}.
 	
 	Então é fato, a indústria de jogos está movendo bilhões de dólares pelo mundo,
 	já passou da indústria de música e não para de crescer.
-	Como diz o gerente de produto da Eletronic Sports League, James Lampkin:
-	%no artigo da New York Times:
+	Como diz o gerente de produto da Eletronic Sports League, James Lampkin,
+	no artigo da New York Times:
 	"Isto está se expandindo fora de controle"{}
-	(NYTIMES, 2014, tradução nossa).
+	\cite[tradução nossa]{nytimes}.
 	Tais palavras explicam muito bem o estado atual do mercado de jogos.
 	
 	E não é só nas vendas de jogos e consoles,
@@ -316,7 +330,7 @@
 	surgindo uma nova categoria de profissionais que,
 	em poucos anos atrás era inimaginável, senão motivo de piada,
 	que é a categoria de jogador profissional de jogo eletrônico.
-	A área de trabalho já existe e é chamada de Esporte Eletrônico (NYTIMES, 2014).
+	A área de trabalho já existe e é chamada de Esporte Eletrônico \cite{nytimes}.
 	
 	Mesmo nestes torneios, não é por pouco dinheiro que os jogadores se enfrentam.
 	No Campeonato Mundial de 2015 (o quinto da série) de \textit{League of Legends},
@@ -326,7 +340,7 @@
 	Os prêmios não param por aí.
 	O jogo Dota 2 distribuiu 11 milhões de dólares para os 10 melhores do mundo,
 	sendo 5 milhões para os campeões,
-	se tornando assim o maior prêmio já oferecido em um torneio de jogo eletrônico (NYTIMES, 2014).
+	se tornando assim o maior prêmio já oferecido em um torneio de jogo eletrônico \cite{nytimes}.
 	
 	Não apenas pelos prêmios, mas também tem muita gente para assistir a estes campeonatos.
 	Nos dados mostrados pela Riot\footnote{Dados disponíveis em: \url{http://www.lolesports.com/en_US/articles/worlds-2015-viewership}}
@@ -338,7 +352,7 @@
 	mas também a de pesquisadores.
 	Um exemplo é o desenvolvimento e aplicação de técnicas de Inteligência Artificial (IA) em jogos,
 	que de acordo com especialistas,
-	existem áreas dentro de IA em jogos que ainda estão inexplorados (YANNAKAKIS; TOGELIUS, 2014).
+	existem áreas dentro de IA em jogos que ainda estão inexplorados \cite{panoramaAI}.
 	
 	Em 2007 foi montada, pela AiGameDev, uma lista dos 10 jogos com Inteligência Artificial mais influentes.
 	Um exemplo é um jogo chamado Creatures,
@@ -346,9 +360,9 @@
 	ao usar Redes Neurais nas criaturas do jogo.
 	Outro exemplo é o Halo,
 	o jogo que implementou pela primeira vez a "árvore de condutas"{},
-	tecnologia que ficou muito popular na indústria de jogos (AIGAMEDEV, 2007).
+	tecnologia que ficou muito popular na indústria de jogos \cite{aigamedev}.
 	
-	Além dos dois jogos citados acima, a IA de F.E.A.R. é descrita em detalhes no artigo da empresa Monolith Productions (ORKIN, 2006).
+	Além dos dois jogos citados acima, a IA de F.E.A.R. é descrita em detalhes no artigo da empresa Monolith Productions \cite{fear}.
 	F.E.A.R. é um \textit{First-Person Shooter} (FPS) que criou um sistema dinâmico, coordenado, interessante e desafiador.
 	Isto foi feito utilizando o sistema \textit{Goal Oriented Action Planning} (Planejamento de Ações Orientado a Objetivo),
 	que foi construído junto de duas técnicas: Algoritmo A* e Máquina de Estados Finitos.
@@ -360,7 +374,7 @@
 	com uma conduta em equipe.
 	No entanto, como a conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
 	os instintos básicos do NPC podem sobrescrever a conduta de equipe
-	caso a segunda opção seja muito arriscada para si mesmo (ORKIN, 2006).
+	caso a segunda opção seja muito arriscada para si mesmo \cite{fear}.
 	
 	Percebe-se, desta forma, que a área de jogos está muito ativa e em pleno crescimento,
 	tanto no mercado quando em pesquisas.
@@ -371,16 +385,16 @@
 	e espera-se contribuir com a comunidade acadêmica e/ou mercado de alguma forma.
 
 	\FloatBarrier
-	\subsection{Objetivos do Trabalho}
+	\section{Objetivos do Trabalho}
 	
 		\FloatBarrier
-		\subsubsection{Objetivo Geral}
+		\subsection{Objetivo Geral}
 			Produzir um \textit{Role Playing Game} (RPG) em turnos que implementa conceitos avançados de Inteligência Artificial,
 			sendo esta inteligência capaz de tomar decisões de forma autônoma sobre o que deve fazer,
 			assim como ser capaz de aprender a tomar melhores decisões por meio de treinamento.
 		
 		\FloatBarrier
-		\subsubsection{Objetivos Específicos}
+		\subsection{Objetivos Específicos}
 			\begin{enumerate}[noitemsep]
 				\item Criar um jogo RPG com muitas variáveis envolvendo os personagens.
 				\item Criar uma aplicação de Inteligência Artificial capaz de simular o desempenho de uma pessoa.
@@ -388,7 +402,7 @@
 			\end{enumerate}			
 	
 	\FloatBarrier
-	\subsection{Organização da Monografia}
+	\section{Organização da Monografia}
 		Este trabalho está dividido em 5 seções, sendo esta seção (Introdução) a primeira. As outras seções são:
 		\begin{itemize}[noitemsep]
      		\item Seção 2, \textbf{Ferramentas Utilizadas:} apresentação das ferramentas utilizadas para o desenvolvimento do projeto proposto no trabalho.
@@ -401,15 +415,15 @@
 % DESENVOLVIMENTO - INÍCIO
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
-\section{FERRAMENTAS UTILIZADAS}
+\chapter{FERRAMENTAS UTILIZADAS}
 
 	\FloatBarrier
-	\subsection{Unity}
+	\section{Unity}
 		A Unity é um motor de jogo multiplataforma que permite a criação de jogos 2D ou 3D.
 		Possui uma interface gráfica que permite desenvolver jogos com facilidade,
 		e muitos serviços integrados que aceleram o processo de desenvolvimento.
 		As linguagens de programação que podem ser usadas são UnityScript e C\#
-		(UNITY, 2016a).
+		\cite{unitySite}.
 		
 		Com mais de 200 jogos na lista de jogos em destaque que foram criados na Unity,
 		um dos exemplos que pode-se citar é o \textit{Sky Force},
@@ -419,31 +433,31 @@
 		do qual o jogador é um robô e
 		deve resolver quebra-cabeças em uma aventura.
 		O jogo está disponível na Steam
-		(UNITY, 2016b).
+		\cite{unityGames}.
 		
 		O editor da Unity também é extensível, possibilitando implementar funcionalidades ainda não existentes
-		(UNITY, 2016a).
+		\cite{unitySite}.
 		Um exemplo de extensão é o \textit{Rival Theory},
 		que implementa vários conceitos de Inteligência Artificial,
 		desde funcionalidades básicas como \textit{pathfinding},
 		condutas de patrulha, esconder, atacar, seguir, vaguear,
 		até conceitos mais complicados como percepção e árvore de condutas
-		(RIVAL THEORY, 2015).
+		\cite{rivalTheory}.
 		
 		\FloatBarrier
-		\subsubsection{Interface}
+		\subsection{Interface}
 			A interface da Unity é composta por vários painéis chamados \textit{views},
 			que podem ser rearranjados, agrupados, separados e fixados
-			(UNITY, 2016c).
+			\cite{unityInterface}.
 			O arranjamento padrão das janelas permite o acesso às janelas mais comuns,
 			e pode ser visto na Figura \ref{fig:interfaceUnity} a seguir:
 			
 			\begin{figure}[ht!]
 				\caption{A interface padrão da Unity}
 				\centering
-				\includegraphics[scale=0.5]{InterfaceUnity.jpg}\\
+				\includegraphics[scale=0.5]{img/InterfaceUnity.jpg}\\
 				\vspace{0.5mm}
-				\source{Unity.}
+				\source{\citeonline{unityInterface}}
 				\label{fig:interfaceUnity}
 			\end{figure}	
 			
@@ -468,7 +482,7 @@
 					\hline 
 				\end{tabular}\\
 				\vspace{3mm}
-				\source{Unity.}
+				\source{\citeonline{unityInterface}}
 				\label{tab:unity}
 			\end{table}
 			
@@ -480,19 +494,19 @@
 			e eles permitem disparar eventos,
 			modificar as propriedades de outros \textit{Components} ou do próprio \textit{GameObject} durante o jogo,
 			e a interação com o jogador.
-			(UNITY, 2016d).
+			\cite{unityScripts}.
 
 	\FloatBarrier
-	\subsection{Visual Studio}
+	\section{Visual Studio}
 		O Visual Studio é um Ambiente de Desenvolvimento Integrado (IDE) usado para a criação de aplicativos para Windows, Android, iOS, aplicações Web e serviços de nuvem.
-		Com ele é possível programar em C\#, Visual Basic, F\#, C++, HTML, JavaScript e Python, dentre outras linguagens de programação. (MICROSOFT, 2016)
+		Com ele é possível programar em C\#, Visual Basic, F\#, C++, HTML, JavaScript e Python, dentre outras linguagens de programação. \cite{microsoft}
 		
 		A integração do Visual Studio com a Unity, usando C\#, ocorre com a adição do \textit{namespace} "\textit{UnityEngine}"{} ao \textit{script},
 		%(com o código "using UnityEngine"),
 		liberando a utilização da classe \textit{MonoBehaviour},
 		da qual possui implementado funcionalidades e funções internas da Unity.
 		Para utilizar a classe \textit{MonoBehaviour} nos \textit{scripts} criados,
-		basta estender a classe criada com a \textit{MonoBehaviour} (UNITY, 2016d).
+		basta estender a classe criada com a \textit{MonoBehaviour} \cite{unityScripts}.
 		Desta forma, o cabeçalho do \textit{script} fica como no código a seguir:
 		
 		\begin{lstlisting}[language=C++]
@@ -517,7 +531,7 @@ public class NomeDaClasse : MonoBehaviour
 		\begin{figure}[ht!]
 			\caption{Exemplo de classe no Visual Studio}
 			\centering
-			\includegraphics[scale=0.4]{InterfaceVisualStudio.png}\\
+			\includegraphics[scale=0.4]{img/InterfaceVisualStudio.png}\\
 			\vspace{0.5mm}
 			\source{Elaborado pelo autor.}
 			\label{fig:exvs}
@@ -529,7 +543,7 @@ public class NomeDaClasse : MonoBehaviour
 
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página	
-\section{CONCEITOS}
+\chapter{CONCEITOS}
 
 	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
@@ -537,13 +551,13 @@ public class NomeDaClasse : MonoBehaviour
 	será explicado apenas a essência deles e o necessário para desenvolver este trabalho.
 
 	\FloatBarrier
-	\subsection{Redes Neurais Artificiais}
+	\section{Redes Neurais Artificiais}
 	% 1 Definição
 	As RNAs são uma família de modelos inspirados no funcionamento do cérebro humano,
 	sendo que a "baixo nível"{} procuram imitar o que acontece nos neurônios.
 	São usadas para estimar ou aproximar funções que dependam de um grande número de entradas.
 	
-	\subsubsection{Funcionamento}
+	\subsection{Funcionamento}
 	% 2 Arquitetura
 	% 2.1 Funções de entrada e ativação
 	A unidade em uma RNA é o neurônio.
@@ -561,9 +575,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{Funções de Ativação comuns em uma RNA}
 		\centering
-		\includegraphics[scale=0.55]{ActivationFunctions.png}\\
+		\includegraphics[scale=0.45]{img/ActivationFunctions.png}\\
 		\vspace{0.5mm}
-		\source{Baseado em Turing Finance.}
+		\source{Baseado em \citeonline{turingFinance}}
 		\label{fig:activationFunctions}
 	\end{figure}
 	
@@ -585,9 +599,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{RNA com uma camada oculta}
 		\centering
-		\includegraphics[scale=0.45]{BasicNN.jpg}\\
+		\includegraphics[scale=0.45]{img/BasicNN.jpg}\\
 		\vspace{0.5mm}
-		\source{Wikimedia.}
+		\source{\citeonline{wikimedia}}
 		\label{fig:basicnn}
 	\end{figure}
 	
@@ -599,8 +613,8 @@ public class NomeDaClasse : MonoBehaviour
 	
 	Uma RNA sempre terá uma camada de entrada e uma de saída.
 	No entanto, o número de camadas ocultas pode variar bastante entre um problema e outro.
-	Estas camadas ocultas são explicadas como sendo extratoras de características
-	(STACKEXCHANGE, 2013).
+	Estas camadas ocultas são explicadas como sendo "extratoras de características"{}
+	\cite{stackExchange2}.
 	
 	Então, se o número de camadas ocultas varia,
 	de que maneira pode-se determinar o número de camadas ocultas a serem utilizadas em um determinado problema?
@@ -608,7 +622,7 @@ public class NomeDaClasse : MonoBehaviour
 	não é necessário nenhuma camada oculta.
 	Por outro lado, se forem dados não lineares,
 	uma ou mais camadas ocultas serão necessárias
-	(STACKEXCHANGE, 2013).
+	\cite{stackExchange1}.
 	
 	Quanto mais camadas ocultas forem utilizadas,
 	maior a granularidade dos resultados obtidos na RNA,
@@ -619,9 +633,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{Importância da camada oculta}
 		\centering
-		\includegraphics[scale=1.5]{HiddenLayers.png}\\
+		\includegraphics[scale=1.5]{img/HiddenLayers.png}\\
 		\vspace{0.5mm}
-		\source{Stackoverflow.}
+		\source{\citeonline{stackOverflow1}}
 		\label{fig:nnhiddenlayer}
 	\end{figure}
 	
@@ -634,16 +648,16 @@ public class NomeDaClasse : MonoBehaviour
 	
 	Existem muitas discussões a respeito do número otimizado de camadas ocultas a serem usadas, caso ela seja necessária.
 	Um consenso que existe é que uma única camada é o suficiente para a maioria dos problemas
-	(STACKEXCHANGE, 2013).
+	\cite{stackExchange1}.
 	
 	Considerando a necessidade de colocar uma camada oculta na RNA,
 	existem regras empíricas que ajudam a escolher um número de neurônios a serem colocados na camada oculta.
 	Uma delas é encontrar a média do número de neurônios de entrada e de saída,
 	e usar este valor como ponto de partida,
 	ajustando-o então com testes
-	(STACKEXCHANGE, 2013).
+	\cite{stackExchange1}.
 	
-	\subsubsection{Tipos de aprendizado}
+	\subsection{Tipos de aprendizado}
 	% 3 Tipos de aprendizado (com exemplos de utilização)
 	Um dos maiores atrativos de uma RNA é sua capacidade de aprender,
 	e atualmente existem três paradigmas de aprendizagem:
@@ -660,9 +674,9 @@ public class NomeDaClasse : MonoBehaviour
 	diferentes funções de ativação são recomendadas na camada de saída
 	(as funções de ativação podem ser vistas na Figura \ref{fig:activationFunctions}, página \pageref{fig:activationFunctions}).
 	Caso a tarefa da RNA seja de reconhecer padrões,
-	as funções recomendadas são a \textit{step} (b), sigmóide (d) e tangente hiperbólica (e).
+	as funções recomendadas são a \textit{step} (b), sigmoide (d) e tangente hiperbólica (e).
 	Por outro lado, se a tarefa for de regressão de uma função,
-	a função linear (a) é a mais recomendada (RESEARCHGATE, 2013).
+	a função linear (a) é a mais recomendada \cite{researchGate}.
 	
 	No Aprendizado Não-supervisionado,
 	tem-se os dados de entrada e uma função de custo a ser minimizada.
@@ -678,14 +692,14 @@ public class NomeDaClasse : MonoBehaviour
 	programação dinâmica e problemas de controle.
 
 	\FloatBarrier
-	\subsection{Algoritmo Genético}
+	\section{Algoritmo Genético}
 	% 1 Definição
 	Algoritmo Genético (AG) faz parte da computação evolutiva,
 	e inspirou-se na teoria de Darwin sobre a evolução das espécies.
 	É uma busca heurística usada para encontrar soluções de otimização e resolver problemas de busca.
 	
 	\FloatBarrier
-	\subsubsection{Conceitos de AG}
+	\subsection{Conceitos de AG}
 	% 2 Conceitos
 	% 2.1 Cromossomos
 	A unidade que caracteriza um determinado indivíduo na população é o cromossomo.
@@ -739,7 +753,7 @@ public class NomeDaClasse : MonoBehaviour
 	De acordo com algumas pesquisas,
 	população em torno de 30 indivíduos se mostram ser eficientes,
 	apesar de que outros valores possam ser melhores dependendo do problema
-	(OBITKO, 1998).
+	\cite{obitko}.
 	
 	% 2.4 Geração
 	Uma geração diz respeito à iteração do qual a população se encontra.
@@ -769,9 +783,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{Método da roleta para Seleção}
-		\includegraphics[scale=0.7]{Roulette.jpg}\\
+		\includegraphics[scale=0.8]{img/Roulette.jpg}\\
 		\vspace{0.5mm}
-		\source{Stack overflow.}
+		\source{\citeonline{stackOverflow2}}
 		\label{fig:roulette}
 	\end{figure}
 	
@@ -819,7 +833,7 @@ public class NomeDaClasse : MonoBehaviour
 	Nesta técnica, o melhor (ou melhores) indivíduos da população são copiados sem nenhuma alteração para a próxima geração.
 	
 	\FloatBarrier
-	\subsubsection{Processo}
+	\subsection{Processo}
 	% 3 Processo
 	O AG mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
@@ -851,9 +865,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{Passo a passo do AG}
-		\includegraphics[scale=0.7]{GeneticAlgorithmFlow.png}\\
+		\includegraphics[scale=0.7]{img/GeneticAlgorithmFlow.png}\\
 		\vspace{0.5mm}
-		\source{Baseado em Tech-Effigy.}
+		\source{Baseado em \citeonline{techEffigy}}
 		\label{fig:gaflow}
 	\end{figure}
 	
@@ -866,7 +880,7 @@ public class NomeDaClasse : MonoBehaviour
 	sendo esta a maior motivação de se utilizar um AG.	
 	
 	\FloatBarrier
-	\subsubsection{Exemplos de aplicação}
+	\subsection{Exemplos de aplicação}
 	% 4 Exemplos de aplicação
 	Como exemplos de aplicação de AG,
 	será citado
@@ -877,14 +891,14 @@ public class NomeDaClasse : MonoBehaviour
 	A Figura \ref{fig:automotiveDesign} ilustra um exemplo de design de carro.
 	Por se tratar de um problema de otimização,
 	o AG pode encontrar várias soluções que irão ajudar o \textit{designer} a projetar o veículo
-	(BRAINZ, 2010).
+	\cite{brainz}.
 	
 	\begin{figure}[ht!]
 		\centering
 		\caption{Exemplo de \textit{design} de carro}
-		\includegraphics[scale=0.7]{AutomotiveDesign.jpg}\\
+		\includegraphics[scale=0.7]{img/AutomotiveDesign.jpg}\\
 		\vspace{0.5mm}
-		\source{BRAINZ.}
+		\source{\citeonline{brainz}}
 		\label{fig:automotiveDesign}
 	\end{figure}
 	
@@ -893,26 +907,26 @@ public class NomeDaClasse : MonoBehaviour
 	diferentes \textit{designs} são necessários.
 	Um AG pode agilizar o processo de desenvolvimento de \textit{design} de um robô,
 	considerando as inúmeras variáveis e criando um \textit{design} melhorado
-	(BRAINZ, 2010).
+	\cite{brainz}.
 	
 	AGs também são capazes de encontrar boas soluções em problemas de otimização de rotas.
 	As rotas podem ser de, por exemplo:
 	um navio no oceano,
 	um carro na estrada ou cidade,
 	e dados trafegando por roteadores na internet
-	(BRAINZ, 2010).
+	\cite{brainz}.
 	
 	Como último exemplo,
 	é possível utilizar AG em jogos eletrônicos.
 	O jogo The Sims permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
-	(BRAINZ, 2010).
+	\cite{brainz}.
 	O jogo Creatures simula a vida pequenas criaturas,
 	e procura ser fiel ao simular a vida deles como se fossem pequenos animais,
 	criando seu "DNA"{} e características passadas geneticamente
-	(AIGAMEDEV, 2007).
+	\cite{aigamedev}.
 	
 	\FloatBarrier
-	\subsubsection{Variação com RNA}
+	\subsection{Variação com RNA}
 	Uma diferente forma de se trabalhar com AG é juntá-la com RNA.
 	Desta maneira, a RNA terá como papel o processamento de dados complexos,
 	e o AG fará a busca dos pesos otimizados na RNA.
@@ -922,9 +936,9 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{RNA e AG juntos}
-		\includegraphics[scale=0.7]{NeuralNetworkIntoChromosome.png}\\
+		\includegraphics[scale=0.7]{img/NeuralNetworkIntoChromosome.png}\\
 		\vspace{0.5mm}
-		\source{Evo-neural-network-agents.}
+		\source{\citeonline{evoNNAgents}}
 		\label{fig:nn-ag}
 	\end{figure}
 	
@@ -938,10 +952,10 @@ public class NomeDaClasse : MonoBehaviour
 
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
-\section{O JOGO}
+\chapter{O JOGO}
 	
 	\FloatBarrier
-	\subsection{Descrição do jogo}
+	\section{Descrição do jogo}
 	% 1 Visão geral do jogo
 	O jogo desenvolvido neste projeto é um jogo RPG em turnos,
 	do qual 2 times de 3 personagens cada se enfrentam numa batalha cujo objetivo é derrotar o time inimigo.
@@ -956,7 +970,7 @@ public class NomeDaClasse : MonoBehaviour
 	
 	% 3 Explicar detalhadamente cada atributo de personagem
 	% 3.1 Atributos (em que favorecem, desfavorecem ou melhoram durante a batalha)
-	\subsubsection{Descrição dos atributos}
+	\subsection{Descrição dos atributos}
 	%Primeiramente será explicado a respeito dos atributos de cada personagem,
 	%e está descrito na Tabela \ref{tab:characterStats}.
 	A Tabela \ref{tab:characterStats} a seguir define quais são os atributos dos personagens,
@@ -1043,7 +1057,7 @@ public class NomeDaClasse : MonoBehaviour
 	o mesmo ataque teria o dano no HP reduzido em relação ao dano normal.
 	
 	% 3.3 Cálculo do dano, skills existentes, suas taxas de dano, elemento e consumo de MP
-	\subsubsection{Cálculos de dano e velocidade}
+	\subsection{Cálculos de dano e velocidade}
 	%O primeiro passo para o cálculo de um dano neste jogo é o cálculo de um multiplicador,
 	%que é calculado da seguinte forma:
 	
@@ -1133,7 +1147,7 @@ public class NomeDaClasse : MonoBehaviour
 	E a velocidade, no cálculo do "preparado"{}, SPD tem um acréscimo aleatório entre 0 e 9 unidades.
 	
 	% 4 Comandos: Ataque, Defesa, Skill (3.3) e Item - Explicar cálculos executados
-	\subsubsection{Comandos}
+	\subsection{Comandos}
 	Quando um personagem recebe um turno,
 	ele pode escolher um entre 4 comandos básicos:
 	Atacar, Defender, Usar Habilidade e Usar Item.
@@ -1172,7 +1186,7 @@ public class NomeDaClasse : MonoBehaviour
 	que é independente do personagem que irá usá-lo.
 	
 	% 5 Times: Valores atribuídos para cada personagem (stats, fraq. e ponto forte, elem. das skills)
-	\subsubsection{Atributos dos personagens}
+	\subsection{Atributos dos personagens}
 	A escolha dos valores de atributos,
 	elemento das habilidades,
 	pontos fracos e fortes foram definidos de forma a deixar a batalha estratégica e interessante.
@@ -1228,7 +1242,7 @@ public class NomeDaClasse : MonoBehaviour
 	mas é fraco em ataques físicos e tem baixo HP.
 	
 	\FloatBarrier
-	\subsection{Rede Neural Artificial Implementada}
+	\section{Rede Neural Artificial Implementada}
 	A RNA implementada possui 2 camadas,
 	uma de entrada e outra de saída,
 	e está ilustrada na Figura \ref{fig:gameNN}.
@@ -1239,7 +1253,7 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{Rede Neural Artificial implementada}
-		\includegraphics[scale=0.9]{GameNN.png}\\
+		\includegraphics[scale=0.9]{img/GameNN.png}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
 		\label{fig:gameNN}
@@ -1274,7 +1288,7 @@ public class NomeDaClasse : MonoBehaviour
 	que é o resultado.
 	
 	\FloatBarrier
-	\subsection{Algoritmo Genético Implementado}
+	\section{Algoritmo Genético Implementado}
 	% Tamanho da população
 	A população do AG implementado é composta por 40 indivíduos,
 	sendo o cromossomo do indivíduo uma matriz de valores reais.
@@ -1325,14 +1339,14 @@ public class NomeDaClasse : MonoBehaviour
 	repetindo o processo.
 	
 	\FloatBarrier
-	\subsection{Funcionamento do jogo}
+	\section{Funcionamento do jogo}
 	Visto a descrição das variáveis do jogo na seção 4.1
 	e a explicação da implementação da Rede Neural Artificial e Algoritmo Genético nas seções 4.2 e 4.3,
 	será explicado aqui como cada uma destas partes foram juntadas umas nas outras para formarem o todo,
 	%que é um jogo jogado por uma Inteligência Artificial capaz de aprender e mostrar bons resultados.
 	que é o trabalho desenvolvido.
 	
-	\subsubsection{Preparação da batalha}
+	\subsection{Preparação da batalha}
 	% Abertura do jogo pela primeira vez
 	Ao abrir o jogo pela primeira vez,
 	% criação da população e salvando os dados num arquivo (é salvo junto com a informação de quem já foi avaliado ou não)
@@ -1350,7 +1364,7 @@ public class NomeDaClasse : MonoBehaviour
 	Nesta parte, cada RNA representará a inteligência de um time,
 	que por sua vez "emula"{} um jogador real.
 	
-	\subsubsection{Durante a batalha}
+	\subsection{Durante a batalha}
 	% Inicia-se a batalha, procura-se o primeiro a receber turno
 	Ao iniciar a batalha, cada time tem uma RNA que a representa e controla.
 	% O que recebeu turno roda a RNA respectiva a seu time
@@ -1516,7 +1530,7 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{Bônus de derrotar inimigo}
-		\includegraphics[scale=0.8]{DefeatBonusGraph.png}\\
+		\includegraphics[scale=0.8]{img/DefeatBonusGraph.png}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
 		\label{fig:defeatBonusGraph}
@@ -1541,7 +1555,7 @@ public class NomeDaClasse : MonoBehaviour
 	caso ele esteja com valor menor que 1.000 (mil),
 	a batalha é encerrada com empate.
 	
-	\subsubsection{Após a batalha}
+	\subsection{Após a batalha}
 	% Finalizada a batalha, fitness das 2 populações são enviadas para o AG e salvas em arquivo
 	Declarada o final da batalha,
 	ter-se-á o valor de \textit{fitness} de ambas as equipes.
@@ -1561,7 +1575,7 @@ public class NomeDaClasse : MonoBehaviour
 % CONCLUSÃO - INÍCIO
 \FloatBarrier
 \newpage % Coloca o conteúdo numa nova página
-\section{RESULTADOS}
+\chapter{RESULTADOS}
 
 	Para o visual do jogo procurou-se deixá-lo o mais agradável possível,
 	então foram usadas imagens disponibilizadas por usuários do site OpenGameArt\footnote{Link do site: \url{http://opengameart.org/}},
@@ -1570,7 +1584,7 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{\textit{Screenshot} do jogo}
-		\includegraphics[scale=0.6]{GameScreenshot.jpg}\\
+		\includegraphics[scale=0.6]{img/GameScreenshot.jpg}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
 		\label{fig:gameScreenshot}
@@ -1582,7 +1596,7 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\centering
 		\caption{\textit{Fitness} durante 20 gerações}
-		\includegraphics[scale=0.7]{AI-Result.png}\\
+		\includegraphics[scale=0.7]{img/AI-Result.png}\\
 		\vspace{0.5mm}
 		\source{Elaborado pelo autor.}
 		\label{fig:fitnessResults}
@@ -1605,34 +1619,7 @@ public class NomeDaClasse : MonoBehaviour
 	com apenas pequenas quedas pontuais.
 	
 % CONCLUSÃO - FIM
-
-\FloatBarrier
-\newpage % Coloca o conteúdo numa nova página
-\section*{\hfil REFERÊNCIAS}
-\addcontentsline{toc}{section}{REFERÊNCIAS} % Adiciona as referências no Sumário
-	\singlespace
-	UNITY. Game engine, tools and multiplatform. 2016a. Disponível em: \textless \url{https://unity3d.com/pt/unity}\textgreater. Acesso em 01 Julho 2016.\par
-	UNITY. Made with Unity - Games. 2016b. Disponível em: \textless \url{https://madewith.unity.com/games}\textgreater. Acesso em 01 Julho 2016.\par
-	UNITY. Made with Unity - Manual: Learning the Interface. 2016c. Disponível em: \textless \url{https://docs.unity3d.com/Manual/LearningtheInterface.html}\textgreater. Acesso em 05 Julho 2016.\par
-	UNITY. Made with Unity - Manual: Creating and Using Scripts. 2016d. Disponível em: \textless \url{https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html}\textgreater. Acesso em 05 Julho 2016.\par
-	RIVAL THEORY. Features. 2015. Disponível em: \textless \url{http://rivaltheory.com/rain/features/}\textgreater. Acesso em 01 Julho 2016.\par
-	MICROSOFT. Free Dev Tools - Visual Studio Community 2015. 2016. Disponível em: \textless \url{https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx}\textgreater. Acesso em 07 Julho 2016.\par
-	CNBC. Digital gaming sales hit record \$61 billion in 2015: Report. Disponível em: \textless\hspace{1pt}\url{http://www.cnbc.com/2016/01/26/digital-gaming-sales-hit-record-61-billion-in-2015-report.html}\textgreater. Acesso em 11 Julho 2016.\par
-	YANNAKAKIS, Georgios N; TOGELIUS, Julian. A Panorama of Artificial and Computational\hspace{8pt}Intelligence\hspace{8pt}in\hspace{8pt}Games.\hspace{8pt}Disponível\hspace{8pt}em:\hspace{8pt}\textless\hspace{3,35pt}\url{http://julian.togelius.com/Yannakakis2014Panorama.pdf}\textgreater. Acesso em 11 Julho 2016.\par
-	AIGAMEDEV.\hspace{8pt}Top\hspace{8pt}10\hspace{8pt}Most\hspace{8pt}Influential\hspace{8pt}AI\hspace{8pt}Games.\hspace{8pt}Disponível\hspace{8pt}em:\hspace{8pt}\textless\hspace{3,3pt}\url{http://aigamedev.com/open/highlights/top-ai-games/}\textgreater. Acesso em 12 Julho 2016.\par
-	ORKIN, Jeff. Three States and a Plan: The A.I. of F.E.A.R. Disponível em: \textless \url{http://alumni.media.mit.edu/~jorkin/gdc2006_orkin_jeff_fear.pdf}\textgreater. Acesso em 12 Julho 2016.\par
-	\sloppy STACKEXCHANGE. How to choose the number of hidden layers and nodes in a feedforward neural network?. Disponível em: \textless \url{https://stats.stackexchange.com/questions/181/how-to-choose-the-number-of-hidden-layers-and-nodes-in-a-feedforward-neural-netw}\textgreater. Acesso em 13 Julho 2016.\par
-	STACKEXCHANGE. What does the hidden layer in a neural network compute?. Disponível em: \textless \url{https://stats.stackexchange.com/questions/63152/what-does-the-hidden-layer-in-a-neural-network-compute}\textgreater. Acesso em 13 Julho 2016.\par
-	STACKOVERFLOW. Role of Bias in Neural Networks. Disponível em: \textless \url{https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks}\textgreater. Acesso em 13 Julho 2016.\par
-	OBITKO, Marek. Introduction to Genetic Algorithms. Disponível em: \textless \url{http://www.obitko.com/tutorials/genetic-algorithms/index.php}\textgreater. Acesso em 13 Julho 2016.\par
-	RESEARCHGATE. How to select the best transfer function for a neural network model?. Disponível em: \textless \url{https://www.researchgate.net/post/How_to_select_the_best_transfer_function_for_a_neural_network_model}\textgreater. Acesso em 13 Julho 2016.\par
-	Wikimedia. File:Colored neural network.svg. Disponível em: \textless \url{https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg}\textgreater. Acesso em 13 Julho 2016.\par
-	STACKOVERFLOW. How do you decide the parameters of a Convolutional Neural Network for image classification?. Disponível em: \textless \url{https://stackoverflow.com/questions/24509921/how-do-you-decide-the-parameters-of-a-convolutional-neural-network-for-image-cla}\textgreater. Acesso em 13 Julho 2016.\par
-	Tech-Effigy. The Genetic Algorithm - Explained. Disponível em: \textless \url{https://techeffigytutorials.blogspot.com.br/2015/02/the-genetic-algorithm-explained.html}\textgreater. Acesso em 14 Julho 2016.\par
-	Evo-neural-network-agents. Simulation of evolution of neural network driven agents in the small world with the pieces of food. Disponível em: \textless \url{https://github.com/lagodiuk/evo-neural-network-agents}\textgreater. Acesso em 14 Julho 2016.\par
-	Turing Finance. 10 misconceptions about Neural Networks. Disponível em: \textless \url{http://www.turingfinance.com/misconceptions-about-neural-networks/}\textgreater. Acesso em 14 Julho 2016.\par
-	BRAINZ. 15 Real-World Uses of Genetic Algorithms. Disponível em: \textless \url{http://brainz.org/15-real-world-applications-genetic-algorithms/}\textgreater. Acesso em 20 Julho 2016.\par
-	STACKOVERFLOW. Genetic Programming : Difference between Roulette Rank and Tournament Selection. Disponível em: \textless \url{https://stackoverflow.com/questions/23183862/genetic-programming-difference-between-roulette-rank-and-tournament-selection}\textgreater. Acesso em 20 Julho 2016.\par
-	Wikipedia. File:Logistic-curve.svg. Disponível em: \textless \url{https://en.wikipedia.org/wiki/File:Logistic-curve.svg}\textgreater. Acesso em 20 Julho 2016.\par
+	\postextual
+	\bibliography{referencias}
 
 \end{document}
