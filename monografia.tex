@@ -575,7 +575,7 @@ public class NomeDaClasse : MonoBehaviour
 	\begin{figure}[ht!]
 		\caption{Funções de Ativação comuns em uma RNA}
 		\centering
-		\includegraphics[scale=0.45]{img/ActivationFunctions.png}\\
+		\includegraphics[scale=0.48]{img/ActivationFunctions.png}\\
 		\vspace{0.5mm}
 		\source{Baseado em \citeonline{turingFinance}}
 		\label{fig:activationFunctions}
@@ -833,7 +833,7 @@ public class NomeDaClasse : MonoBehaviour
 	Nesta técnica, o melhor (ou melhores) indivíduos da população são copiados sem nenhuma alteração para a próxima geração.
 	
 	\FloatBarrier
-	\subsection{Processo}
+	\subsection{Processo} \label{ssec:processo}
 	% 3 Processo
 	O AG mais simples de ser representado tem 5 etapas,
 	em um processo que se repete até que uma determinada condição de parada seja satisfeita.
@@ -1289,6 +1289,13 @@ public class NomeDaClasse : MonoBehaviour
 	
 	\FloatBarrier
 	\section{Algoritmo Genético Implementado}
+	% Ligação com a seção anterior
+	Os passos do AG aqui descrito irá detalhar o que foi introduzido na seção \ref{ssec:processo} Processo (do AG).
+	A Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow},
+	das páginas \pageref{tab:agCycle} e \pageref{fig:gaflow},
+	resumem a seção.
+	Desta forma, o foco aqui será em descrever os detalhes de implementação.
+	
 	% Tamanho da população
 	A população do AG implementado é composta por 40 indivíduos,
 	sendo o cromossomo do indivíduo uma matriz de valores reais.
@@ -1306,7 +1313,7 @@ public class NomeDaClasse : MonoBehaviour
 	positiva se o resultado foi bom,
 	ou negativa caso o resultado tenha sido indesejável.
 	Mais detalhes sobre os cálculos serão mostrados na próxima seção:
-	4.4 Funcionamento do jogo.
+	\ref{sec:funcionamentoDoJogo} Funcionamento do jogo.
 	
 	% Seleção - roleta e montagem da nova população
 	% Elitismo
@@ -1339,7 +1346,7 @@ public class NomeDaClasse : MonoBehaviour
 	repetindo o processo.
 	
 	\FloatBarrier
-	\section{Funcionamento do jogo}
+	\section{Funcionamento do jogo} \label{sec:funcionamentoDoJogo}
 	Visto a descrição das variáveis do jogo na seção 4.1
 	e a explicação da implementação da Rede Neural Artificial e Algoritmo Genético nas seções 4.2 e 4.3,
 	será explicado aqui como cada uma destas partes foram juntadas umas nas outras para formarem o todo,
