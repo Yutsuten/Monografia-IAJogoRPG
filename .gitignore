@@ -11,6 +11,10 @@
 *.cb
 *.cb2
 
+## "Binaries"
+# PDF
+*.pdf
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
