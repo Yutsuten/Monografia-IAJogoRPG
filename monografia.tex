@@ -91,6 +91,7 @@
 \renewcommand{\ABNTEXchapterfontsize}{\LARGE\bfseries}
 \renewcommand{\ABNTEXsectionfontsize}{\Large\bfseries}
 \renewcommand{\ABNTEXsubsectionfontsize}{\large\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\bfseries}
 % Cores de links
 \hypersetup{
 	colorlinks=true,
@@ -545,10 +546,255 @@ public class NomeDaClasse : MonoBehaviour
 \newpage % Coloca o conteúdo numa nova página	
 \chapter{CONCEITOS}
 
-	Nesta seção será descrito dois conceitos que foram amplamente utilizados neste trabalho,
+	Nesta seção será dada uma introdução sobre o conceito de jogos,
+	categorias de jogos que existem,
+	e explicado em detalhes sobre o estilo de jogo desenvolvido neste projeto,
+	o RPG em turnos.
+	Além disto, será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
 	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
-	será explicado apenas a essência deles e o necessário para desenvolver este trabalho.
+	será explicado apenas a essência deles e o que foi necessário para desenvolver este trabalho.
+	
+	\FloatBarrier
+	\section{Jogos}
+	% Definição de jogos
+	Jogo pode ser definido como uma atividade que provê entretenimento ou diversão{}.
+	Nesta seção, jogos será separado em 2 grandes categorias,
+	"jogos não-eletrônicos"{} e "jogos eletrônicos"{}.
+	Uma breve descrição e alguns exemplos serão feitos sobre cada um deles.
+	
+		\FloatBarrier
+		\subsection{Jogos não-eletrônicos} \label{ssec:notElectronicGame}
+		% Definição de jogos não-eletrônicos
+		Jogos não-eletrônicos são os jogos que não requerem um dispositivo eletrônico para ser aproveitado.
+		% Breve explicação sobre jogos 'normais' (jogos de criança, como esconde esconde, amarelinha; futebol; jogos de tabuleiro; cartas)
+		Brincadeiras como "esconde-esconde"{}, "pega-pega"{} e "amarelinha"{}, por exemplo,
+		são jogos comuns entre crianças.
+		Futebol e outros esportes também se encaixam nesta categoria.
+		% Jogo de mesa
+		%No entanto, esta seção irá se focar nos jogos "de mesa"{}.
+		
+		% Exemplo de jogos de tabuleiro
+		Indo para os jogos estratégicos,
+		os jogos de tabuleiro são muito comuns.
+		Pode-se citar o "xadrez"{} como o mais conhecido de todos,
+		com alta complexidade quanto à quantidade de movimentos possíveis e suas consequências.
+		Uma variação mais simples é o jogo de "damas"{},
+		com menor complexidade e, portanto, mais fácil de aprender.
+		Estes jogos são puramente estratégicos,
+		sem nenhuma influência da sorte.
+		
+		% Exemplo de jogos de cartas
+		Outros jogos envolvem estratégia e sorte ao mesmo tempo,
+		sendo que jogos de cartas podem ser encaixados em tal categoria.
+		Jogos muito conhecidos aqui são "\textit{poker}" e "truco",
+		do qual os jogadores recebem cartas e fazem estratégias,
+		mas dependem da sorte para receber cartas boas.
+		
+		% Exemplo de jogo RPG (de mesa)
+		Por fim, citar-se-á também o jogo RPG de mesa
+		(ilustrado na Figura \ref{fig:tableRpg}),
+		devido à sua influência nos jogos RPG eletrônicos,
+		do qual este trabalho foi inspirado.
+		De maneira geral, o RPG de mesa é um jogo do qual cada jogador terá o papel de um personagem em uma história
+		(cujo tema é decidido entre os jogadores),
+		e um jogador é escolhido como o \textit{Game Master} (GM),
+		que irá ditar as consequências da decisão dos jogadores.
+		Existem regras a serem seguidas dependendo do jogo que está sendo jogado,
+		e dentro destas regras os jogadores são livres para fazerem suas ações.
+		É muito comum o áudio dessas partidas serem publicadas na internet,
+		por conter histórias interessantes e muitas vezes engraçadas\footnote{Exemplo de áudio de um jogo RPG de mesa: \url{https://jovemnerd.com.br/nerdcast/nerdcast-251-especial-rpg-o-bruxo-a-princesa-e-o-dragao/}}.
+		
+		% Imagem de pessoas jogando
+		\begin{figure}[ht!]
+			\caption{Uma partida de RPG de mesa}
+			\centering
+			\includegraphics[scale=1.0]{img/RPG_de_mesa.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{tableRpg}}
+			\label{fig:tableRpg}
+		\end{figure}
+		
+		% Introdução ao exemplo prático de Dungeons & Dragons (motivo: relacionado com o trabalho)
+		Um exemplo clássico de RPG de mesa é um jogo chamado \textit{Dungeons \& Dragons}.
+		% Mecânica do jogo (criação de personagem, atributos, níveis, eventos)
+		No início do jogo,
+		cada jogador escolhe uma "classe"{} e "valores de habilidade",
+		anotando-os no "cartão do personagem"{}.
+		Após o início da história,
+		o \textit{Dungeon Master} (DM), que é equivalente ao GM, conta a história
+		e os jogadores escolhem o que querem fazer.
+		Ações simples, como abrir uma porta, normalmente resultam em sucesso.
+		Mas as consequências de ações mais arriscadas,
+		como escapar do ataque de um inimigo,
+		são determinadas rolando um dado.
+		As probabilidades de sucesso podem mudar dependendo da situação e atributos do personagem.
+		Conforme o jogo passa,
+		os jogadores ganham pontos de habilidades, experiência e dinheiro.
+		%Batalhas contra criaturas místicas acontecem
+		%e os jogadores lutam contra elas,
+		%determinando o sucesso ou falha dos ataques rolando os dados.
+		O jogo continua até o DM encaminhar a história a um final \cite{dungeonsDragons}.
+			
+	
+		\FloatBarrier
+		\subsection{Jogos eletrônicos}
+		% Definição de jogos eletrônicos
+		Jogos eletrônicos são os jogos que usam dispositivos eletrônicos como principal meio para a atividade de entretenimento.
+		% Deixar claro que a lista de estilos é maior do que a que está sendo citada aqui
+		Existe uma vasta quantidade de estilos de jogos eletrônicos,
+		e o objetivo desta seção não é mostrar todos,
+		mas apenas os principais e mais conhecidos como:
+		% Exemplos de estilos de jogos eletrônicos (ação, aventura, role-playing, simulação, esportes, etc)
+		ação, aventura, simulação, esportes e RPG.
+		
+		% Subdivisões de jogos de ação (plataforma, shooter, FPS, luta)
+		Mesmo entre jogos de ação,
+		existem muitas subdivisões que podem ser feitas,
+		e elas inclui-se: plataforma, \textit{shooter} e luta.
+		Um exemplo muito conhecido de jogo de plataforma é o \textit{Super Mario World},
+		ilustrado na Figura \ref{fig:marioWorld}.
+		Jogo \textit{shooter} envolve todos os jogos que há a necessidade de "atirar"{} em inimigos,
+		sendo \textit{Space Invaders} um dos primeiros desta categoria a serem criados.
+		E jogos de luta, normalmente entre 2 jogadores,
+		também fazem parte dos jogos de ação.
+		Jogos como \textit{Tekken} e \textit{Mortal Kombat} fazem parte desta categoria \cite{gameGenres}.
+		
+		\begin{figure}[ht!]
+			\caption{Jogo \textit{Super Mario World}}
+			\centering
+			\includegraphics[scale=0.35]{img/marioworld.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{marioWorld}}
+			\label{fig:marioWorld}
+		\end{figure}
+		
+		% Descrição e exemplo de jogos de aventura
+		Os jogos de aventura são marcados pela ausência de violência,
+		normalmente tendo o seu foco na história.
+		Estes jogos se contrastam com os jogos de ação por não precisarem de reflexo por parte do jogador.
+		Jogos \textit{point-and-click} se encaixam nesta categoria,
+		como o \textit{King's Quest},
+		e muitas vezes tem pequenos quebra-cabeças a serem resolvidos \cite{gameGenres}.
+		Também existem os \textit{Visual Novels},
+		que normalmente possuem gráficos estáticos,
+		e o jogador tem escolhas durante a história do jogo,
+		alterando o rumo dos acontecimentos.
+		Um exemplo pode ser visto na Figura \ref{fig:visualNovel}.
+		
+		% Imagem de jogo de simulação (F1)
+		\begin{figure}[ht!]
+			\caption{Exemplo de \textit{Visual Novel}}
+			\centering
+			\includegraphics[scale=0.6]{img/visual_novel.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{visualNovel}}
+			\label{fig:visualNovel}
+		\end{figure}
+		
+		% Descrição e exemplo de jogos de simulação
+		Os jogos de simulação procuram "imitar"{} a realidade eletronicamente.
+		Nestes jogos, um foco muito grande é dado na "cópia"{} das leis da física dentro do jogo,
+		permitindo ao jogador um experiência o mais próximo possível da real \cite{gameGenres}.
+		Jogos da série Fórmula 1 são um excelente exemplo,
+		e pode ser visualizado na figura \ref{fig:formula1}.
+		
+		\begin{figure}[ht!]
+			\caption{Jogo F1 2012}
+			\centering
+			\includegraphics[scale=0.75]{img/formula1.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{formula1}}
+			\label{fig:formula1}
+		\end{figure}
+		
+		% Descrição e exemplo de jogos de esporte
+		Jogos de esporte também são populares,
+		sendo que as regras são trazidas dos esportes reais \cite{gameGenres}.
+		FIFA e \textit{Pro Evolution Soccer} (PES) são exemplos de jogos de futebol muito conhecidos.
+		\textit{Mario Tennis} é um exemplo de jogo de tênis usando personagens de \textit{Mario}.
+		
+		% Descrição e exemplo de jogos RPG
+		Por fim, descrever-se-á sobre os jogos RPG,
+		que foi o estilo de jogo do qual o projeto deste trabalho se inspirou.
+		% Origem dos jogos RPGs eletrônicos
+		A origem dos RPGs eletrônicos se dá nos RPGs de mesa,
+		%explicado na seção \textit{\ref{ssec:notElectronicGame} Jogos não-eletrônicos},
+		com personagens que evoluem com o passar do tempo
+		e uma história do qual eles vivem.
+		Tais elementos são comuns nas subcategorias de jogos RPG.
+		% Explicar a existência de 3 grandes separações possíveis neste estilo de jogo (Ação, Tático e Baseado em Turnos)
+		Existem principalmente 3 subcategorias,
+		que são: RPG de ação, tático e baseado em turnos.
+		A principal diferença entre essas subcategorias está no sistema de batalhas.
+		
+		% Descrever sobre jogo RPG de Ação
+		O RPG de ação utiliza conceitos dos jogos de ação para suas batalhas.
+		Ou seja, as batalhas acontecem em tempo real,
+		de forma que o pressionar de um botão ativa um golpe ou habilidade.
+		Um exemplo é o jogo \textit{Kingdom Hearts},
+		ilustrado na Figura \ref{fig:kingdomHearts}.
+		A velocidade de reação do jogador é crítica para o resultado da batalha,
+		então uma ação efetuada tarde demais pode causar a derrota dele.
+		
+		% Imagem de RPG de Ação (Kingdom Hearts)
+		\begin{figure}[ht!]
+			\caption{RPG de ação: \textit{Kingdom Hearts}}
+			\centering
+			\includegraphics[scale=0.7]{img/kingdom_hearts.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{wiki_kingdomHearts}}
+			\label{fig:kingdomHearts}
+		\end{figure}
+		
+		% Descrever sobre jogo RPG Tático
+		Já o RPG tático se assimila mais aos jogos estratégicos, como o xadrez.
+		Não existe a liberdade de se mover livremente ou agir rapidamente,
+		como no RPG de ação,
+		mas de maneira calculada em um mapa que lembra um tabuleiro de xadrez/damas.
+		Os personagens tem um padrão ou distância do qual podem se mover,
+		assim como distâncias do qual é capaz de realizar ataques.
+		\textit{Disgaea} é um exemplo de RPG tático,
+		e está ilustrado na Figura \ref{fig:disgaea}.
+		
+		% Imagem de RPG Tático (Disgaea)
+		\begin{figure}[ht!]
+			\caption{RPG tático: \textit{Disgaea}}
+			\centering
+			\includegraphics[scale=0.60]{img/disgaea.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{disgaea}}
+			\label{fig:disgaea}
+		\end{figure}
+		
+		% Descrever sobre jogo RPG em Turnos
+		O RPG em turnos difere dos demais pela não necessidade de posicionar os personagens para efetuar os comandos.
+		Um exemplo é \textit{Mana Khemia}, ilustrado na Figura \ref{fig:manaKhemia}.
+		Os personagens recebem turnos de forma sistemática
+		(um de cada vez)
+		ou dependente de um atributo,
+		 como a "velocidade".
+		Ao receber o turno, o jogador decide qual será o melhor comando a ser atribuído ao personagem,
+		com o objetivo de vencer a batalha.
+		
+		% Imagem de RPG em Turnos (Mana Khemia)
+		\begin{figure}[ht!]
+			\caption{RPG em turnos: \textit{Mana Khemia}}
+			\centering
+			\includegraphics[scale=0.55]{img/mana-khemia.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{manaKhemia}}
+			\label{fig:manaKhemia}
+		\end{figure}
+		
+		% Relembrar que podem existir variações dentro destas definições
+		Por fim, vale lembrar que apesar de existir essas separações por categorias dos jogos,
+		muitas vezes os jogos são híbridos,
+		então eles podem conter características de várias categorias ao mesmo tempo.
+		% O escolhido neste trabalho foi o jogo RPG em Turnos
+		A categoria que foi escolhida para desenvolver o projeto deste trabalho foi o RPG em turnos,
+		então muitas de suas características estão presentes no jogo desenvolvido neste projeto.
+		
 
 	\FloatBarrier
 	\section{Redes Neurais Artificiais}
@@ -1290,7 +1536,7 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\section{Algoritmo Genético Implementado}
 	% Ligação com a seção anterior
-	Os passos do AG aqui descrito irá detalhar o que foi introduzido na seção \ref{ssec:processo} Processo (do AG).
+	Os passos do AG aqui descrito irá detalhar o que foi introduzido na seção \textit{\ref{ssec:processo}} Processo (do AG).
 	A Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow},
 	das páginas \pageref{tab:agCycle} e \pageref{fig:gaflow},
 	resumem a seção.
