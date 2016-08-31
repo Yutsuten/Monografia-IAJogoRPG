@@ -547,13 +547,13 @@ public class NomeDaClasse : MonoBehaviour
 \chapter{CONCEITOS}
 
 	Nesta seção será dada uma introdução sobre o conceito de jogos,
-	tipos de jogos que existem,
+	categorias de jogos que existem,
 	e explicado em detalhes sobre o estilo de jogo desenvolvido neste projeto,
 	o RPG em turnos.
 	Além disto, será descrito dois conceitos que foram amplamente utilizados neste trabalho,
 	que são Redes Neurais Artificiais (RNA) e Algoritmo Genético (AG).
 	Apesar de ser possível descrever várias variações de aplicação desses conceitos,
-	será explicado apenas a essência deles e o necessário para desenvolver este trabalho.
+	será explicado apenas a essência deles e o que foi necessário para desenvolver este trabalho.
 	
 	\FloatBarrier
 	\section{Jogos}
@@ -672,13 +672,13 @@ public class NomeDaClasse : MonoBehaviour
 		% Descrição e exemplo de jogos de aventura
 		Os jogos de aventura são marcados pela ausência de violência,
 		normalmente tendo o seu foco na história.
-		Estes jogos se contrastam com os jogos de ação por não precisarem de "reflexo"{} ou "ação"{} por parte do jogador.
+		Estes jogos se contrastam com os jogos de ação por não precisarem de reflexo por parte do jogador.
 		Jogos \textit{point-and-click} se encaixam nesta categoria,
-		que muitas vezes tem pequenos quebra-cabeças a serem resolvidos.
-		Um exemplo \textit{King's Quest} \cite{gameGenres}.
+		como o \textit{King's Quest},
+		e muitas vezes tem pequenos quebra-cabeças a serem resolvidos \cite{gameGenres}.
 		Também existem os \textit{Visual Novels},
 		que normalmente possuem gráficos estáticos,
-		e o jogador tem escolhas durante a história,
+		e o jogador tem escolhas durante a história do jogo,
 		alterando o rumo dos acontecimentos.
 		Um exemplo pode ser visto na Figura \ref{fig:visualNovel}.
 		
@@ -728,6 +728,15 @@ public class NomeDaClasse : MonoBehaviour
 		que são: RPG de ação, tático e baseado em turnos.
 		A principal diferença entre essas subcategorias está no sistema de batalhas.
 		
+		% Descrever sobre jogo RPG de Ação
+		O RPG de ação utiliza conceitos dos jogos de ação para suas batalhas.
+		Ou seja, as batalhas acontecem em tempo real,
+		de forma que o pressionar de um botão ativa um golpe ou habilidade.
+		Um exemplo é o jogo \textit{Kingdom Hearts},
+		ilustrado na Figura \ref{fig:kingdomHearts}.
+		A velocidade de reação do jogador é crítica para o resultado da batalha,
+		então uma ação efetuada tarde demais pode causar a derrota dele.
+		
 		% Imagem de RPG de Ação (Kingdom Hearts)
 		\begin{figure}[ht!]
 			\caption{RPG de ação: \textit{Kingdom Hearts}}
@@ -737,15 +746,6 @@ public class NomeDaClasse : MonoBehaviour
 			\source{\citeonline{wiki_kingdomHearts}}
 			\label{fig:kingdomHearts}
 		\end{figure}
-		
-		% Descrever sobre jogo RPG de Ação
-		O RPG de ação utiliza conceitos dos jogos de ação para suas batalhas.
-		Ou seja, as batalhas acontecem em tempo real,
-		de forma que o pressionar de um botão ativa um golpe ou habilidade.
-		Um exemplo é o jogo \textit{Kingdom Hearts},
-		ilustrado na Figura \ref{fig:kingdomHearts}.
-		A velocidade de reação do jogador é crítica para o resultado da batalha,
-		então uma ação efetuada tarde demais pode causar a derrota dele.
 		
 		% Descrever sobre jogo RPG Tático
 		Já o RPG tático se assimila mais aos jogos estratégicos, como o xadrez.
@@ -793,7 +793,7 @@ public class NomeDaClasse : MonoBehaviour
 		então eles podem conter características de várias categorias ao mesmo tempo.
 		% O escolhido neste trabalho foi o jogo RPG em Turnos
 		A categoria que foi escolhida para desenvolver o projeto deste trabalho foi o RPG em turnos,
-		então muitas de suas características estão presentes no jogo desenvolvido.
+		então muitas de suas características estão presentes no jogo desenvolvido neste projeto.
 		
 
 	\FloatBarrier
