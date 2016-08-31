@@ -564,7 +564,7 @@ public class NomeDaClasse : MonoBehaviour
 	Uma breve descrição e alguns exemplos serão feitos sobre cada um deles.
 	
 		\FloatBarrier
-		\subsection{Jogos não-eletrônicos}
+		\subsection{Jogos não-eletrônicos} \label{ssec:notElectronicGame}
 		% Definição de jogos não-eletrônicos
 		Jogos não-eletrônicos são os jogos que não requerem um dispositivo eletrônico para ser aproveitado.
 		% Breve explicação sobre jogos 'normais' (jogos de criança, como esconde esconde, amarelinha; futebol; jogos de tabuleiro; cartas)
@@ -715,22 +715,63 @@ public class NomeDaClasse : MonoBehaviour
 		\textit{Mario Tennis} é um exemplo de jogo de tênis usando personagens de \textit{Mario}.
 		
 		% Descrição e exemplo de jogos RPG
-		% Dizer que normalmente os jogos normalmente não possuem apenas um estilo, mas sim híbridos
-		% Informar que o estilo escolhido para este trabalho foi o RPG
-			
-			\FloatBarrier
-			\subsubsection{Jogo RPG eletrônico}
-			<Texto sobre jogos RPG eletrônico.>
-			% Origem dos jogos RPGs eletrônicos
-			% Explicar a existência de 3 grandes separações possíveis neste estilo de jogo (Ação, Tático e Baseado em Turnos)
-			% Descrever sobre jogo RPG de Ação
-			% Imagem de RPG de Ação (Final Fantasy)
-			% Descrever sobre jogo RPG Tático
-			% Imagem de RPG Tático (Disgaea)
-			% Descrever sobre jogo RPG em Turnos
-			% Imagem de RPG em Turnos (Mana Khemia)
-			% Relembrar que podem existir variações dentro destas definições
-			% O escolhido neste trabalho foi o jogo RPG em Turnos
+		Por fim, descrever-se-á sobre os jogos RPG,
+		que foi o estilo de jogo do qual o projeto deste trabalho se inspirou.
+		% Origem dos jogos RPGs eletrônicos
+		A origem dos RPGs eletrônicos se dá nos RPGs de mesa,
+		%explicado na seção \textit{\ref{ssec:notElectronicGame} Jogos não-eletrônicos},
+		com personagens que evoluem com o passar do tempo
+		e uma história do qual eles vivem.
+		Tais elementos são comuns nas subcategorias de jogos RPG.
+		% Explicar a existência de 3 grandes separações possíveis neste estilo de jogo (Ação, Tático e Baseado em Turnos)
+		Existem principalmente 3 subcategorias,
+		que são: RPG de ação, tático e baseado em turnos.
+		A principal diferença entre essas subcategorias está no sistema de batalhas.
+		
+		% Imagem de RPG de Ação (Kingdom Hearts)
+		\begin{figure}[ht!]
+			\caption{RPG de ação: \textit{Kingdom Hearts}}
+			\centering
+			\includegraphics[scale=0.7]{img/kingdom_hearts.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{wiki_kingdomHearts}}
+			\label{fig:kingdomHearts}
+		\end{figure}
+		
+		% Descrever sobre jogo RPG de Ação
+		O RPG de ação utiliza conceitos dos jogos de ação para suas batalhas.
+		Ou seja, as batalhas acontecem em tempo real,
+		de forma que o pressionar de um botão ativa um golpe ou habilidade.
+		Um exemplo é o jogo \textit{Kingdom Hearts},
+		ilustrado na Figura \ref{fig:kingdomHearts}.
+		A velocidade de reação do jogador é crítica para o resultado da batalha,
+		então uma ação efetuada tarde demais pode causar a derrota dele.
+		
+		% Descrever sobre jogo RPG Tático
+		Já o RPG tático se assimila mais aos jogos estratégicos, como o xadrez.
+		Não existe a liberdade de se mover livremente ou agir rapidamente,
+		como no RPG de ação,
+		mas de maneira calculada em um mapa que lembra um tabuleiro de xadrez/damas.
+		Os personagens tem um padrão ou distância do qual podem se mover,
+		assim como distâncias do qual é capaz de realizar ataques.
+		\textit{Disgaea} é um exemplo de RPG tático,
+		e está ilustrado na Figura \ref{fig:disgaea}.
+		
+		% Imagem de RPG Tático (Disgaea)
+		\begin{figure}[ht!]
+			\caption{RPG tático: \textit{Disgaea}}
+			\centering
+			\includegraphics[scale=0.7]{img/disgaea.jpg}\\
+			\vspace{0.5mm}
+			\source{\citeonline{disgaea}}
+			\label{fig:disgaea}
+		\end{figure}
+		
+		% Descrever sobre jogo RPG em Turnos
+		% Imagem de RPG em Turnos (Mana Khemia)
+		% Relembrar que podem existir variações dentro destas definições
+		% O escolhido neste trabalho foi o jogo RPG em Turnos
+		
 
 	\FloatBarrier
 	\section{Redes Neurais Artificiais}
@@ -1472,7 +1513,7 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\section{Algoritmo Genético Implementado}
 	% Ligação com a seção anterior
-	Os passos do AG aqui descrito irá detalhar o que foi introduzido na seção \ref{ssec:processo} Processo (do AG).
+	Os passos do AG aqui descrito irá detalhar o que foi introduzido na seção \textit{\ref{ssec:processo}} Processo (do AG).
 	A Tabela \ref{tab:agCycle} e Figura \ref{fig:gaflow},
 	das páginas \pageref{tab:agCycle} e \pageref{fig:gaflow},
 	resumem a seção.
