@@ -1328,6 +1328,9 @@ public class NomeDaClasse : MonoBehaviour
 	%					\end{cases}
 	%	\label{eq:multiplier}
 	%\end{equation}
+	As fórmulas que aparecem nesta seção foram criadas de forma empírica,
+	e foram frequentemente testadas no jogo a fim de deixá-lo equilibrado.
+	
 	O cálculo de danos no jogo é realizado pelas seguintes fórmulas:
 	
 	\begin{equation}
@@ -1504,7 +1507,8 @@ public class NomeDaClasse : MonoBehaviour
 	\FloatBarrier
 	\section{Rede Neural Artificial Implementada}
 	A RNA implementada possui 2 camadas,
-	uma de entrada e outra de saída,
+	uma de entrada, com função de ativação linear,
+	e outra de saída, com função de ativação sigmoide,
 	e está ilustrada na Figura \ref{fig:gameNN}.
 	Não foi colocada nenhuma camada oculta por dois motivos:
 	melhor performance e
@@ -1540,6 +1544,9 @@ public class NomeDaClasse : MonoBehaviour
 	
 	\vspace{3mm}
 	
+	A explicação sobre o uso de 27 neurônios na entrada e 12 na saída
+	pode ser encontrada nas Tabelas \ref{tab:nnInput} e \ref{tab:nnOutput}, na Seção \ref{ssec:duranteABatalha}.
+	
 	A implementação foi feita com o uso de dois vetores e uma matriz,
 	sendo que os vetores representam os neurônios da camada de entrada e saída,
 	e a matriz é a matriz de pesos da RNA.
@@ -1555,6 +1562,7 @@ public class NomeDaClasse : MonoBehaviour
 	das páginas \pageref{tab:agCycle} e \pageref{fig:gaflow},
 	resumem a seção.
 	Desta forma, o foco aqui será em descrever os detalhes de implementação.
+	Valores aqui apresentados foram escolhidos com base em pesquisas sobre Algoritmo Genético.
 	
 	% Tamanho da população
 	A população do AG implementado é composta por 40 indivíduos,
@@ -1631,7 +1639,7 @@ public class NomeDaClasse : MonoBehaviour
 	Nesta parte, cada RNA representará a inteligência de um time,
 	que por sua vez "emula"{} um jogador real.
 	
-	\subsection{Durante a batalha}
+	\subsection{Durante a batalha} \label{ssec:duranteABatalha}
 	% Inicia-se a batalha, procura-se o primeiro a receber turno
 	Ao iniciar a batalha, cada time tem uma RNA que a representa e controla.
 	% O que recebeu turno roda a RNA respectiva a seu time
@@ -1783,6 +1791,11 @@ public class NomeDaClasse : MonoBehaviour
 	
 	Inversamente ao dano,
 	esta nota é acrescida se for feita em aliado e decrescida se for feita em inimigo.
+	
+	As fórmulas de dano e cura foram escolhidas de forma empírica,
+	sendo escolhida a potência para encorajar danos/curas mais altas.
+	Foi dado um pouco mais de vantagem para danos,
+	uma vez que o objetivo do jogo é derrotar o time inimigo.
 	
 	% Bônus no fitness por derrotar (mostrar fórmula)
 	Como última etapa na escolha da nota do comando verifica-se se o alvo foi derrotado,
