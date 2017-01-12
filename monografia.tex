@@ -174,7 +174,7 @@
 	
 	\vspace*{\fill} % Adicionando espaço para escrever em baixo
 	BAURU – SP\\
-	\the\year
+	2016
 \makeatother
 \end{center}
 % CAPA - FIM
@@ -203,7 +203,7 @@
 \begin{center}
 	\vspace*{\fill} % Adicionando espaço para escrever em baixo
 	BAURU – SP\\
-	\the\year
+	2016
 \end{center}
 % FOLHA DE ROSTO - FIM
 
@@ -266,7 +266,7 @@
 	O Algoritmo Genético cria uma "população"{} de matriz de pesos da Rede Neural Artificial,
 	e otimiza seus valores a cada geração.
 	Desta forma, o treinamento da Inteligência Artificial pode ser feito sem a intervenção humana desde seu início.
-	A implementação do jogo foi feita no motor de jogo Unity,
+	A implementação do jogo foi feita no motor de jogo Unity
 	e seus scripts com a ferramenta Visual Studio.
  	
  	\vspace{\onelineskip}
@@ -333,7 +333,7 @@
 \newpage % Coloca o conteúdo numa nova página
 \chapter{INTRODUÇÃO}
 	Há ainda muitas pessoas que acreditam que jogos eletrônicos são para crianças ou pessoas desocupadas.
-	Talvez isso fosse verdade no milênio passado, mas a realidade vem se mostrando ser bem diferente.
+	Talvez isso fosse verdade no passado, mas a realidade vem se mostrando ser bem diferente.
 	
 	De acordo com uma pesquisa da SuperData,
 	o mercado de jogos cresceu 8\% de 2014 a 2015,
@@ -369,7 +369,7 @@
 	Não apenas pelos prêmios, mas também tem muita gente para assistir a estes campeonatos.
 	Nos dados mostrados pela Riot\footnote{Dados disponíveis em: \url{http://www.lolesports.com/en_US/articles/worlds-2015-viewership}}
 	sobre o Campeonato Mundial de 2015,
-	houveram 334 milhões de telespectadores "únicos"{} durante as 4 semanas do torneio,
+	houve 334 milhões de telespectadores "únicos"{} durante as 4 semanas do torneio,
 	somando 360 milhões de horas de visualizações das partidas ao vivo.
 	
 	No entanto, a área de jogos não está chamando apenas a atenção do mercado,
@@ -379,29 +379,29 @@
 	existem áreas dentro de IA em jogos que ainda estão inexplorados \cite{panoramaAI}.
 	
 	Em 2007 foi montada, pela AiGameDev, uma lista dos 10 jogos com Inteligência Artificial mais influentes.
-	Um exemplo é um jogo chamado Creatures,
-	que implementou aprendizado de máquina em uma simulação interativa
+	Dentre estes jogos, será citado \textit{Creatures}, \textit{Halo} e \textit{F.E.A.R}.
+	O jogo \textit{Creatures} implementou aprendizado de máquina em uma simulação interativa
 	ao usar Redes Neurais nas criaturas do jogo.
-	Outro exemplo é o Halo,
-	o jogo que implementou pela primeira vez a "árvore de condutas"{},
+	Já \textit{Halo} implementou pela primeira vez a "árvore de condutas"{},
 	tecnologia que ficou muito popular na indústria de jogos \cite{aigamedev}.
 	
-	Além dos dois jogos citados acima, a IA de F.E.A.R. é descrita em detalhes no artigo da empresa Monolith Productions \cite{fear}.
-	F.E.A.R. é um \textit{First-Person Shooter} (FPS) que criou um sistema dinâmico, coordenado, interessante e desafiador.
+	O jogo \textit{F.E.A.R.} possui uma IA que é descrita em detalhes no artigo da empresa Monolith Productions \cite{fear}.
+	\textit{F.E.A.R.} é um \textit{First-Person Shooter} (FPS) que criou um sistema "dinâmico, coordenado, interessante e desafiador"{} \cite{fear}.
 	Isto foi feito utilizando o sistema \textit{Goal Oriented Action Planning} (Planejamento de Ações Orientado a Objetivo),
-	que foi construído junto de duas técnicas: Algoritmo A* e Máquina de Estados Finitos.
+	que foi construído usando duas técnicas: Algoritmo A* e Máquina de Estados Finitos.
 	Os \textit{Non Player Characters} (NPCs) possuem uma lista de objetivos,
-	então durante o jogo eles buscam o plano que irá completar o objetivo com maior prioridade.
-	O planejamento feito é similar ao STRIPS,
-	tendo-se a situação atual e quais são as ações necessárias para cumprir o objetivo.
-	Além disto, foi implementado uma extensão da conduta individual dos NPCs
-	com uma conduta em equipe.
-	No entanto, como a conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
-	os instintos básicos do NPC podem sobrescrever a conduta de equipe
+	e durante o jogo eles buscam o plano que irá completar o objetivo com maior prioridade.
+	O planejamento para satisfazer o objetivo é similar ao STRIPS,
+	do qual a situação atual do NPC é processada e resulta em quais serão as ações necessárias para completar o objetivo \cite{fear}.
+	Além disto, \textit{F.E.A.R.} também implementou uma extensão da conduta individual dos NPCs
+	com uma conduta em equipe,
+	permitindo-os agir em grupo.
+	A conduta dos NPCs foi criada para minimizar a ameaça a si mesmo,
+	logo os instintos básicos do NPC podem sobrescrever a conduta de equipe
 	caso a segunda opção seja muito arriscada para si mesmo \cite{fear}.
 	
 	Percebe-se, desta forma, que a área de jogos está muito ativa e em pleno crescimento,
-	tanto no mercado quando em pesquisas.
+	tanto no mercado quanto em pesquisas.
 	Existem áreas inexploradas de IA em jogos,
 	com novas fronteiras a serem exploradas.
 	Com isto em mente este trabalho foi desenvolvido,
@@ -427,12 +427,13 @@
 	
 	\FloatBarrier
 	\section{Organização da Monografia}
-		Este trabalho está dividido em 5 seções, sendo esta seção (Introdução) a primeira. As outras seções são:
+		Este trabalho está dividido em 6 seções, sendo esta seção (Introdução) a primeira. As outras seções são:
 		\begin{itemize}[noitemsep]
      		\item Seção 2, \textbf{Ferramentas Utilizadas:} apresentação das ferramentas utilizadas para o desenvolvimento do projeto.
      		\item Seção 3, \textbf{Conceitos:} explicação das teorias de Inteligência Artificial e Algoritmo Genético usadas para desenvolver o trabalho.
-     		\item Seção 4, \textbf{O Jogo:} descrição em detalhes do jogo, suas variáveis, e de sua implementação.
+     		\item Seção 4, \textbf{O Jogo:} descrição em detalhes do jogo, suas variáveis, e sua implementação.
      		\item Seção 5, \textbf{Resultados:} apresentação dos resultados obtidos no trabalho.
+     		\item Seção 6, \textbf{Conclusão:} palavras finais sobre o trabalho e possíveis trabalhos futuros.
   	 	\end{itemize}
 % INTRODUÇÃO - FIM
 
@@ -441,7 +442,7 @@
 \newpage % Coloca o conteúdo numa nova página
 \chapter{FERRAMENTAS UTILIZADAS}
 
-	Este capítulo descreverá as duas principais ferramentas utilizadas para desenvolver o projeto deste trabalho,
+	Este capítulo descreverá as duas principais ferramentas utilizadas para desenvolver este projeto,
 	que são a Unity e Visual Studio.
 
 	\FloatBarrier
@@ -498,13 +499,13 @@
 					\hline 
 					\textit{Project Window} & Exibe a biblioteca de \textit{Assets} que estão disponíveis para uso no projeto. Ao importar os \textit{Assets} no projeto, eles aparecerão aqui. \\ 
 					\hline 
-					\textit{Scene View} & Permite navegar visualmente e editar a cena. A \textit{Scene View} pode mostrar em perspectiva 3D ou 2D, dependendo do tipo de projeto que está sendo trabalhando. \\ 
+					\textit{Scene View} & Permite navegar visualmente e editar a cena. A \textit{Scene View} pode mostrar em perspectiva 3D ou 2D, dependendo do tipo de projeto que está sendo trabalhado. \\ 
 					\hline 
 					\textit{Hierarchy Window} & É uma representação de texto hierárquica de cada objeto na cena. Cada item na cena tem uma entrada na hierarquia, de forma que as duas janelas estão inerentemente conectadas. A hierarquia revela a estrutura da forma como os objetos estão ligados um ao outro. \\ 
 					\hline 
 					\textit{Inspector Window} & Permite visualizar e editar todas as propriedades do objeto selecionado. Como diferentes tipos de objetos têm diferentes conjuntos de propriedades, o layout e conteúdo da janela do \textit{Inspector} pode variar. \\ 
 					\hline 
-					\textit{Toolbar} & Fornece acesso aos recursos de trabalho mais essenciais. À esquerda estão as ferramentas básicas para manipular a \textit{Scene View} e os objetos dentro dela. No centro estão os controles de \textit{play}, \textit{pause} e \textit{step}. Os botões à direita dará acesso aos Serviços da Unity Cloud e da Conta Unity, seguido pelo menu de visibilidade dos \textit{layers} e, finalmente, o menu de \textit{layout} do editor (que fornece alguns \textit{layouts} alternativos para as janelas do editor, e permite salvar um \textit{layout} customizado). \\ 
+					\textit{Toolbar} & Fornece acesso aos recursos de trabalho mais essenciais. À esquerda estão as ferramentas básicas para manipular a \textit{Scene View} e os objetos dentro dela. No centro estão os controles de \textit{play}, \textit{pause} e \textit{step}. Os botões à direita dá acesso aos Serviços da Unity Cloud e da Conta Unity, seguido pelo menu de visibilidade dos \textit{layers} e, finalmente, o menu de \textit{layout} do editor (que fornece alguns \textit{layouts} alternativos para as janelas do editor, e permite salvar um \textit{layout} customizado). \\ 
 					\hline 
 				\end{tabular}\\
 				\vspace{3mm}
@@ -516,10 +517,10 @@
 			sendo que suas características podem ser alteradas por \textit{Components} anexados a ele.
 			A Unity possui vários \textit{Components} prontos,
 			no entanto é possível criar novos usando as linguagens de programação do qual se dá suporte (C\# e UnityScript).
-			Tais \textit{Components} são chamados de \textit{Scripts},
-			e eles permitem disparar eventos,
+			Tais \textit{Components} são chamados de \textit{Scripts}.
+			Eles permitem disparar eventos,
 			modificar as propriedades de outros \textit{Components} ou do próprio \textit{GameObject} durante o jogo,
-			e a interação com o jogador.
+			além da interação com o jogador.
 			\cite{unityScripts}.
 
 	\FloatBarrier
@@ -676,7 +677,7 @@ public class NomeDaClasse : MonoBehaviour
 		% Subdivisões de jogos de ação (plataforma, shooter, FPS, luta)
 		Mesmo entre jogos de ação,
 		existem muitas subdivisões que podem ser feitas,
-		e elas inclui-se: plataforma, \textit{shooter} e luta.
+		e elas incluem: plataforma, \textit{shooter} e luta.
 		Um exemplo muito conhecido de jogo de plataforma é o \textit{Super Mario World},
 		ilustrado na Figura \ref{fig:marioWorld}.
 		Jogo \textit{shooter} envolve todos os jogos que há a necessidade de "atirar"{} em inimigos,
@@ -722,7 +723,7 @@ public class NomeDaClasse : MonoBehaviour
 		Nestes jogos, um foco muito grande é dado na "cópia"{} das leis da física dentro do jogo,
 		permitindo ao jogador um experiência o mais próximo possível da real \cite{gameGenres}.
 		Jogos da série Fórmula 1 são um excelente exemplo,
-		e pode ser visualizado na figura \ref{fig:formula1}.
+		e pode ser visualizado na Figura \ref{fig:formula1}.
 		
 		\begin{figure}[ht!]
 			\caption{Jogo F1 2012}
@@ -860,9 +861,8 @@ public class NomeDaClasse : MonoBehaviour
 	
 	% 2.2 Particularidades (camadas existentes, papel de cada uma)
 	A arquitetura de uma RNA é formada por uma camada de entrada (\textit{input layer}),
-	uma camada de saída (\textit{output layer}),
-	e as camadas ocultas (\textit{hidden layers})
-	que poderão conter de zero a muitas camadas.
+	uma camada de saída (\textit{output layer})
+	e, opcionalmente, uma ou mais camadas ocultas (\textit{hidden layers}).
 	Cada camada na RNA terá \textit{n} neurônios,
 	sendo \textit{n} qualquer valor maior ou igual a 1.
 	Um exemplo de RNA com uma camada oculta pode ser visto na Figura \ref{fig:basicnn}.
@@ -1006,15 +1006,12 @@ public class NomeDaClasse : MonoBehaviour
 	Outro exemplo é codificação por valor.
 	Este valor poderá ser qualquer coisa relacionada ao problema,
 	como números reais ou sequência de caracteres.
-	E como último exemplo existe a codificação em árvore,
+	Como último exemplo existe a codificação em árvore,
 	em que cada cromossomo é uma árvore de objetos,
 	como funções ou comandos em uma linguagem de programação.
 	
 	% 2.2 Indivíduo
-	Um indivíduo no AG sempre possuirá um cromossomo.
-	Este indivíduo carrega uma das possíveis soluções do problema.
-	%e pode ser uma solução boa ou não.
-	
+	Cada indivíduo no AG carrega uma das possíveis soluções do problema em seu cromossomo.
 	% 2.3 População
 	O indivíduo faz parte de uma população.
 	%Logo, pode-se dizer que uma população é um conjunto de soluções.
@@ -1022,7 +1019,7 @@ public class NomeDaClasse : MonoBehaviour
 	Para se resolver um problema usando AG,
 	nem sempre uma população enorme irá se traduzir em uma convergência mais rápida.
 	De acordo com algumas pesquisas,
-	população em torno de 30 indivíduos se mostram ser eficientes,
+	população em torno de 30 indivíduos se mostra eficiente,
 	apesar de que outros valores possam ser melhores dependendo do problema
 	\cite{obitko}.
 	
@@ -1190,9 +1187,9 @@ public class NomeDaClasse : MonoBehaviour
 	
 	Como último exemplo,
 	é possível utilizar AG em jogos eletrônicos.
-	O jogo The Sims permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
+	O jogo \textit{The Sims} permite que o jogador crie uma família e treine-a para se relacionar uns com os outros
 	\cite{brainz}.
-	O jogo Creatures simula a vida pequenas criaturas,
+	O jogo \textit{Creatures} simula a vida de pequenas criaturas,
 	e procura ser fiel ao simular a vida deles como se fossem pequenos animais,
 	criando seu "DNA"{} e características passadas geneticamente
 	\cite{aigamedev}.
@@ -1916,20 +1913,26 @@ public class NomeDaClasse : MonoBehaviour
 % CONCLUSÃO - FIM
 \chapter{CONCLUSÃO}
 	
-	A aplicação de Redes Neurais Artificiais com Algoritmo Genético dentro de um jogo RPG em turnos se mostrou ser bastante viável,
+	A aplicação de Redes Neurais Artificiais com Algoritmo Genético dentro de um jogo RPG em turnos se mostrou bastante viável,
 	não possuindo atrasos de processamento nos momentos de decisão dos personagens.
+	A capacidade de aprender também se mostrou excelente,
+	permitindo que os personagens aprendessem a corrigir os próprios erros sem a intervenção humana.
+	
+	Muito dos jogos RPG em turnos ainda utilizam alguma forma de inteligência "burra"{},
+	que não muda a estratégia com o tempo ou que tome decisões aleatórias.
+	Com a evolução dos jogos e da Inteligência Artificial,
+	a tendência é que tais algoritmos fiquem obsoletos e
+	algoritmos mais sofisticados, como o que foi criado neste trabalho, seja o futuro dos jogos.
+	Desta forma, conclui-se que este trabalho conseguiu, com sucesso, criar o que lhe foi proposto.
 
 	Após a implementação inicial da estrutura do jogo com a IA,
-	alterações pequenas como na estrutura da RNA ou do algoritmo do AG são fáceis de serem efetuadas,
+	alterações na estrutura da RNA ou do algoritmo do AG são fáceis de serem efetuadas,
 	uma vez que basta editar o script correspondente.
-
-	É possível adicionar novas funcionalidades no jogo,
-	como está escrito em mais detalhes na seção \ref{ssec:trabFuturos}.
-	Por fim, conclui-se que este trabalho conseguiu, com sucesso, criar o que lhe foi proposto.	
+	Possíveis melhorias estão descritas na Seção \ref{sec:trabFuturos}.
 	
-	\subsection{Trabalhos futuros} \label{ssec:trabFuturos}
+	\section{Trabalhos futuros} \label{sec:trabFuturos}
 	Este jogo pode ser melhorado de forma a ficar mais próximo de um jogo comercial
-	ou de conceitos acadêmicos mais complexos.
+	ou de conceitos acadêmicos ainda mais complexos.
 	Uma possível extensão é incluir um jogador (humano) na batalha,
 	que enfrente a IA treinada pelo método deste trabalho.
 	Neste caso, seria trabalhada a questão de interface gráfica com o jogador,
