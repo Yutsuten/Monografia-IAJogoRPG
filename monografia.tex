@@ -799,7 +799,7 @@ public class NomeDaClasse : MonoBehaviour
 		Os personagens recebem turnos de forma sistemática
 		(um de cada vez)
 		ou dependente de um atributo,
-		 como a "velocidade".
+		como a "velocidade".
 		Ao receber o turno, o jogador decide qual será o melhor comando a ser atribuído ao personagem,
 		com o objetivo de vencer a batalha.
 		
@@ -812,6 +812,26 @@ public class NomeDaClasse : MonoBehaviour
 			\source{\citeonline{manaKhemia}}
 			\label{fig:manaKhemia}
 		\end{figure}
+		
+		Comandos muito comuns em um jogo RPG em turnos são: atacar, defender, item e habilidade.
+		Existem várias variáveis que influenciam no resultado da batalha.
+		Uma delas é a diferença de força entre a equipe aliada e a equipe inimiga, muitas vezes medida pelo nível dos personagens.
+		Um nível alto significa que o personagem é forte (possui atributos altos).
+		Uma diferença muito alta dos níveis pode fazer com que seja praticamente impossível uma das equipes perder ou ganhar a batalha.
+		
+		No entanto, se o nível é parecido, a estratégia se torna muito importante.
+		Manter a combinação certa entre comando e alvo se torna essencial para a vitória da batalha.
+		
+		Como um jogo RPG em turnos se trata de uma batalha entre equipes, e o jogador irá controlar uma,
+		é inevitável perceber que é necessário uma Inteligência Artificial para controlar a outra.
+		Para fins de exemplo, será citado 3 jogos no mercado: \textit{Mana Khemia}, \textit{Atelier Iris} e \textit{Summoners War}.
+		
+		\textit{Mana Khemia}, já citado anteriormente e ilustrado na Figura \ref{fig:manaKhemia},
+		implementa a Inteligência Artificial dos inimigos com decisões aleatórias.
+		\textit{Atelier Iris} também segue este estilo de IA.
+		Por outro lado \textit{Summoners War} possui uma IA melhor, porém previsível.
+		Percebe-se que exite uma estratégia de foco, por exemplo,
+		mas que depois de ser entendida pelo jogador, pode ser usada a seu favor.
 		
 		% Relembrar que podem existir variações dentro destas definições
 		Por fim, vale lembrar que apesar de existirem essas separações por categorias dos jogos,
