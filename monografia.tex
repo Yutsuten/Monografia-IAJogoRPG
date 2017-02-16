@@ -1731,10 +1731,10 @@ public class NomeDaClasse : MonoBehaviour
 	composto por 12 neurônios.
 	
 	Como já explicado, as saídas tem valores entre 0 e 1.
-	A saída do primeiro neurônio é a que calcula a probabilidade daquele personagem se tornar alvo.
-	Quanto mais próximo de 1, maior a probabilidade,
+	A saída do primeiro neurônio é a que calcula a chance daquele personagem se tornar alvo.
+	Quanto mais próximo de 1, maior a prioridade,
 	e quanto mais próximo de 0, menor.
-	Os outros 11 neurônios representam, cada um, a probabilidade de utilizar um determinado comando naquele personagem, caso ele vire alvo.
+	Os outros 11 neurônios representam, cada um, a prioridade de utilizar um determinado comando naquele personagem, caso ele vire alvo.
 	O papel de cada neurônio de saída está ilustrada na Tabela \ref{tab:nnOutput}.
 	
 	\begin{table}[h]
@@ -1759,11 +1759,11 @@ public class NomeDaClasse : MonoBehaviour
 	%Então, na verificação de um personagem,
 	%tem-se a probabilidade dele se tornar alvo e as 11 probabilidades de comandos para utilizar nele.
 	Para utilizar esses dados,
-	foi criada uma estrutura que une "alvo"{} a "comando"{} em uma única probabilidade,
+	foi criada uma estrutura que une "alvo"{} a "comando"{} em uma única variável de prioridade,
 	se segue a fórmula \eqref{eq:targetCommand} a seguir:
 	
 	\begin{equation}
-		\textrm{Probabilidade} = 1,5 \times \textrm{Prob. de virar alvo} + \textrm{Prob. comando}
+		\textrm{Prioridade} = 1,5 \times \textrm{Chance de virar alvo} + \textrm{Prioridade comando}
 		\label{eq:targetCommand}
 	\end{equation}
 	
@@ -1963,9 +1963,13 @@ public class NomeDaClasse : MonoBehaviour
 	Desta maneira, tem-se uma IA que interage com o jogador e melhora seu desempenho em relação a ele,
 	e assim "contra-atacando"{} as estratégias criadas pelo jogador.
 	O jogador se verá obrigado e alterar sua estratégia sempre que a IA descobrir como se defender da estratégia atual.
+	
+	E também é possível criar uma variação deste trabalho que use duas instâncias do AG,
+	um para cada equipe.
+	Desta forma, as duas equipes estariam competindo para melhorar seu desempenho.
 
 	Como já falado no início deste trabalho, jogos é uma área que está em constante crescimento no mercado.
-	O desenvolvimento dela com áreas como IA se motra ter um grande potencial, e com um horizonte que, mesmo hoje, ainda não se sabe aonde termina.
+	O desenvolvimento dela com áreas como IA se motra ter um grande potencial, e com um horizonte que, mesmo hoje, ainda não se sabe onde termina.
 
 	\postextual
 	\renewcommand{\bibname}{REFERÊNCIAS BIBLIOGRÁFICAS}
